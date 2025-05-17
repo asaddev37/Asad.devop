@@ -86,16 +86,16 @@
 - DeepSeek
 - Grok
 
-## Screenshots
-## Screenshots
+# News App  
+### 📰 App Screenshots
 
-| Loading Screen | Home Screen | Categories/Search Screen |
-|:---:|:---:|:---:|
-| ![Loading](https://github.com/user-attachments/assets/8aa7b927-8708-42d2-9375-b267815549bd) | ![Home](https://github.com/user-attachments/assets/9c71be2c-560c-43ab-b6bf-49ec98b1a0aa) | ![Categories/Search](https://github.com/user-attachments/assets/78628f80-bf5f-4fe2-a498-a30e3b7286e1) |
+| Loading Screen | Home Screen | Categories / Search |
+|----------------|-------------|----------------------|
+| <img src="https://github.com/user-attachments/assets/8aa7b927-8708-42d2-9375-b267815549bd" width="200"/> | <img src="https://github.com/user-attachments/assets/9c71be2c-560c-43ab-b6bf-49ec98b1a0aa" width="200"/> | <img src="https://github.com/user-attachments/assets/78628f80-bf5f-4fe2-a498-a30e3b7286e1" width="200"/> |
 
 | Favorite Screen | Settings Screen | Web Page Screen |
-|:---:|:---:|:---:|
-| ![Favorite](https://github.com/user-attachments/assets/1006ec93-da19-4396-b4ed-33c063dea516) | ![Settings](https://github.com/user-attachments/assets/a20abbd9-bad7-4bdb-a04d-dd714aeb69da) | ![WebPage](https://github.com/user-attachments/assets/3e2e7211-5a07-4041-9155-93a732d33282) |
+|------------------|------------------|------------------|
+| <img src="https://github.com/user-attachments/assets/1006ec93-da19-4396-b4ed-33c063dea516" width="200"/> | <img src="https://github.com/user-attachments/assets/a20abbd9-bad7-4bdb-a04d-dd714aeb69da" width="200"/> | <img src="https://github.com/user-attachments/assets/3e2e7211-5a07-4041-9155-93a732d33282" width="200"/> |
 
 
 
