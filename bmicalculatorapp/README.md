@@ -1,7 +1,8 @@
-# bmicalculatorapp
+# BMI Calculator App
 
 ### 📱 App Screenshots
 
 | Loading Screen | Home Screen | Result Screen | History Screen |
-|----------------|-------------|---------------|----------------|
-| <img src="https://github.com/user-attachments/assets/7cefa21c-7cd2-4e4a-95ff-c7a9fde80e55" width="200"/> | <img src="https://github.com/user-attachments/assets/426c4d77-32c0-4a0b-ad17-0c6bfc5ab93e" width="200"/> | <img src="https://github.com/user-attachments/assets/1f692639-f7b5-48e8-bd85-0bd5bf47a7da" width="200"/> | <img src="https://github.com/user-attachments/assets/3c6f77ee-e914-4760-9a3b-5b0d003a8a6e" width="200"/> |
+|----------------|-------------|----------------|----------------|
+| <img src="https://github.com/user-attachments/assets/d7d120cb-0965-4efd-bf5e-75983bcac702" width="200"/> | <img src="https://github.com/user-attachments/assets/6de17aac-5b21-4918-b626-5c5999249e85" width="200"/> | <img src="https://github.com/user-attachments/assets/0c6e9b19-42d8-4f35-8192-12c3e9e137ac" width="200"/> | <img src="https://github.com/user-attachments/assets/838d78d3-1a0b-4ad1-9704-944da31a25de" width="200"/> |
+
