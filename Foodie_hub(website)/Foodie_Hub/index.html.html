@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieHub - Online Food Ordering</title>
+    <link rel="stylesheet" href="LABMID.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header id="navbar">
+        <div id="logo">
+            <img src="jpg/download.png" alt="FoodieHub">
+        </div>
+        <nav>
+            <ul>
+                <li class="item"><a href="#">Home</a></li>
+                <li class="item"><a href="#menu">Menu</a></li>
+                <li class="item"><a href="#orders">Orders</a></li>
+                <li class="item"><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for food...">
+            <button id="search-btn">Search</button>
+            <div id="search-error" class="error-message"></div>
+        </div>
+    </header>
+
+    <section id="hero">
+        <img src="jpg\StockCake-Festive Indian Feast_1724530465.jpg" alt="Delicious food" class="hero-img">
+        <div class="hero-content">
+            <h1 class="h-primary">Welcome to OnlineMeals</h1>
+            <p>Your favorite meals, delivered fast!</p>
+            <button class="btn btn-float btn-glow" onclick="scrollToMenu()">
+                <span>Explore Menu</span>
+            </button>
+        </div>
+    </section>
+
+    <section id="menu" class="section">
+        <h1 class="h-primary center">Our Featured Menu</h1>
+        <div id="menu-items" class="menu-container">
+            <div class="menu-item">
+                <img src="jpg\burger.jpg" alt="Spicy Chicken Burger">
+                <div class="item-content">
+                    <h3>Spicy Chicken Burger</h3>
+                    <p>Juicy chicken patty with spicy mayo, lettuce, and cheese</p>
+                    <span class="price">Rs.1299</span>
+                    <button class="order-btn" data-id="1">Add to Cart</button>
+                    <div class="order-confirmation" id="confirmation-1"></div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="jpg\pizza1.jpg" alt="Margherita Pizza">
+                <div class="item-content">
+                    <h3>Margherita Pizza</h3>
+                    <p>Classic pizza with tomato sauce, mozzarella, and basil</p>
+                    <span class="price">Rs.2199</span>
+                    <button class="order-btn" data-id="2">Add to Cart</button>
+                    <div class="order-confirmation" id="confirmation-2"></div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="jpg\StockCake-Lemon meringue pie_1724530442.jpg" alt="Lemon Meringue Pie">
+                <div class="item-content">
+                    <h3>Lemon Meringue Pie</h3>
+                    <p>Tangy lemon filling with fluffy meringue topping</p>
+                    <span class="price">Rs.1699</span>
+                    <button class="order-btn" data-id="3">Add to Cart</button>
+                    <div class="order-confirmation" id="confirmation-3"></div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="jpg\salmon.jpg" alt="Grilled Salmon">
+                <div class="item-content">
+                    <h3>Grilled Salmon</h3>
+                    <p>Fresh salmon fillet with lemon butter sauce</p>
+                    <span class="price">Rs.1599</span>
+                    <button class="order-btn" data-id="4">Add to Cart</button>
+                    <div class="order-confirmation" id="confirmation-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="orders" class="section">
+        <h1 class="h-primary center">Your Current Order</h1>
+        <div id="order-list">
+            <p class="center">Your cart is empty. Add items from our delicious menu!</p>
+        </div>
+        <button id="place-order-btn" class="btn" style="display: none; margin: 1rem auto;">Place Order</button>
+    </section>
+
+    <section id="contact" class="section">
+        <h1 class="h-primary center">Contact Us</h1>
+        <div class="contact-container">
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About OnlineMeals</h3>
+                <p>Your favorite meals, delivered fast! We bring the best restaurants in town to your doorstep.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#orders">Orders</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 OnlineMeals. All Rights Reserved. <a href="#" id="privacy-link">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="LABMID.js"></script>
+</body>
+</html>
