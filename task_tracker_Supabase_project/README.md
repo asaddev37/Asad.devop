@@ -135,13 +135,30 @@
 # Task_admin App  
 ### 📱 App Screenshots
 
-| Loading Screen | Login Screen | Admin Dashboard | Student Management | Task Management |
-|----------------|--------------|-----------------|--------------------|-----------------|
-| <img src="https://github.com/user-attachments/assets/e45b9b3b-9d6a-43b3-ba0d-ef155f6c7129" width="200"/> | <img src="https://github.com/user-attachments/assets/25562e0a-9e47-4744-abb9-0d5b6687b6d9" width="200"/> | <img src="https://github.com/user-attachments/assets/65f94b9b-e19d-4d4b-8fa6-8ab229463e2a" width="200"/> | <img src="https://github.com/user-attachments/assets/53fb3a56-e728-4fd9-b4ca-4832e3372dd1" width="200"/> | <img src="https://github.com/user-attachments/assets/68ac6456-b286-427d-a1c6-4cce47cff0c2" width="200"/> |
+| Loading Screen | Admin Login | Admin Dashboard | Student Management | Task Management |
+|----------------|-------------|------------------|---------------------|------------------|
+| <img src="https://github.com/user-attachments/assets/62fb9a72-16f2-4900-8daa-7efcaa21e0dd" width="200"/> | <img src="https://github.com/user-attachments/assets/929815e7-1654-4c53-9f96-c37e50af4c08" width="200"/> | <img src="https://github.com/user-attachments/assets/9400f734-2815-477b-a1bf-4f13d962d81b" width="200"/> | <img src="https://github.com/user-attachments/assets/898007eb-8f99-4173-98c2-f12aff053103" width="200"/> | <img src="https://github.com/user-attachments/assets/8d90edfe-1f10-4e81-acc1-383a4f3bbdf8" width="200"/> |
 
-| Reports | Leaderboard | Export Screen | Settings | Privacy Screen |
-|---------|-------------|---------------|----------|----------------|
-| <img src="https://github.com/user-attachments/assets/fd1e88d3-2427-431b-ab4f-63aa685d7484" width="200"/> | <img src="https://github.com/user-attachments/assets/61a03c79-3a2e-4e6f-88da-eda51a435665" width="200"/> | <img src="https://github.com/user-attachments/assets/e2a7d8dc-982a-4105-8bb1-15cf8c41821e" width="200"/> | <img src="https://github.com/user-attachments/assets/d6bfbb66-b43b-4c06-9f4f-6f9e2b384291" width="200"/> | <img src="https://github.com/user-attachments/assets/4c034e9b-ebaa-4343-bac9-4a39cd923d46" width="200"/> |
+| Performance Report | Leaderboard | Export Completed Task | Settings Screen | Privacy Screen |
+|--------------------|-------------|------------------------|------------------|-----------------|
+| <img src="https://github.com/user-attachments/assets/9a3592bb-74cc-4adc-9520-e7b623641755" width="200"/> | <img src="https://github.com/user-attachments/assets/459ac047-2aa9-4c50-a12c-8efd51dfc5aa" width="200"/> | <img src="https://github.com/user-attachments/assets/695f759b-e607-4368-a1e7-1b1996544286" width="200"/> | <img src="https://github.com/user-attachments/assets/2155ec37-8107-43e4-9b36-5d2b4c666964" width="200"/> | <img src="https://github.com/user-attachments/assets/ea71fdb9-11f4-4260-ae47-ae158dff4fee" width="200"/> |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
