@@ -124,22 +124,4 @@ A feature-rich Flutter application designed to help users manage their tasks eff
 
 
 
-Output Video:-
-1.non-repeated task working:-
-https://github.com/user-attachments/assets/2e0e12f9-f248-4080-b940-86895d5dbfca
-
-2.completed task of non-repeated:-
-https://github.com/user-attachments/assets/24a4ee56-bdfe-46be-b916-b3ead5b3c3cf
-
-3.repeated-tasks:-
-https://github.com/user-attachments/assets/e93dee39-6017-40c7-ad62-cd470121003f
-
-4.completed repeated task :-
-https://github.com/user-attachments/assets/48140297-e411-4dea-adb0-40bb1df63c20
-
-5.menu bar section:-
-https://github.com/user-attachments/assets/b37b544c-1b73-46f9-9749-26eda22f210e
-
-6.download tasks :-
-https://github.com/user-attachments/assets/cbc218b4-cdc7-4088-8756-d5ca44ad8b4c
 
