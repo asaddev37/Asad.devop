@@ -89,13 +89,14 @@
 # News App  
 ### 📰 App Screenshots
 
-| Loading Screen | Home Screen | Categories / Search |
-|----------------|-------------|----------------------|
-| <img src="https://github.com/user-attachments/assets/8aa7b927-8708-42d2-9375-b267815549bd" width="200"/> | <img src="https://github.com/user-attachments/assets/9c71be2c-560c-43ab-b6bf-49ec98b1a0aa" width="200"/> | <img src="https://github.com/user-attachments/assets/78628f80-bf5f-4fe2-a498-a30e3b7286e1" width="200"/> |
+| Loading Screen | Home Screen | Categories/Search |
+|----------------|-------------|-------------------|
+| <img src="https://github.com/user-attachments/assets/a107b1ea-d3a7-46e4-bf90-6bbf449526a6" width="200"/> | <img src="https://github.com/user-attachments/assets/155108a6-d7fe-4817-ad3a-0af4437b832f" width="200"/> | <img src="https://github.com/user-attachments/assets/2255a7c2-1ecb-482d-8f5c-6f9a2c5012d1" width="200"/> |
 
-| Favorite Screen | Settings Screen | Web Page Screen |
+| Favourite Screen | Settings Screen | Web Page Screen |
 |------------------|------------------|------------------|
-| <img src="https://github.com/user-attachments/assets/1006ec93-da19-4396-b4ed-33c063dea516" width="200"/> | <img src="https://github.com/user-attachments/assets/a20abbd9-bad7-4bdb-a04d-dd714aeb69da" width="200"/> | <img src="https://github.com/user-attachments/assets/3e2e7211-5a07-4041-9155-93a732d33282" width="200"/> |
+| <img src="https://github.com/user-attachments/assets/227cac3e-94df-49ad-b1af-297e7e7a8a90" width="200"/> | <img src="https://github.com/user-attachments/assets/2f333507-b961-41f1-ae9c-37800921d24b" width="200"/> | <img src="https://github.com/user-attachments/assets/abb63ae0-a68e-43cb-8ebd-f8d32e012de8" width="200"/> |
+
 
 
 
