@@ -1,0 +1,109 @@
+{% extends "base2.html" %}
+
+{% block body %}
+<div class="container" id="reviewer">
+    <h1>Assign Papers to Reviewers</h1>
+
+    <!-- Display Available Papers -->
+    <h2>Available Papers</h2>
+    <div class="existing-reviewers">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Abstract</th>
+                    <th>Keywords</th>
+                    <th>Type</th>
+                    <th>Submission Date</th>
+                    <th>Status</th>
+                    <th>Author ID</th>
+                    <th>Author Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paper in papers %}
+                <tr>
+                    <td>{{ paper.id }}</td>
+                    <td>{{ paper.title }}</td>
+                    <td>{{ paper.abstract }}</td>
+                    <td>{{ paper.keywords }}</td>
+                    <td>{{ paper.paper_type }}</td>
+                    <td>{{ paper.submission_date }}</td>
+                    <td>{{ paper.status }}</td>
+                    <td>{{ paper.author.Author_ID }}</td>
+                    <td>{{ paper.author.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Assignment Form -->
+    <h2>Assign a Paper to a Reviewer</h2>
+    <form action="/assignment" method="POST" id="assignment-form">
+        <div class="form-group">
+            <label for="Paper_ID">Select Paper:</label>
+            <select id="Paper_ID" name="Paper_ID" class="form-control" required>
+                {% for paper in papers %}
+                <option value="{{ paper.id }}">{{ paper.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Reviewer_ID">Select Reviewer:</label>
+            <select id="Reviewer_ID" name="Reviewer_ID" class="form-control" required>
+                {% for reviewer in reviewers %}
+                <option value="{{ reviewer.Reviewer_ID }}">{{ reviewer.name }} ({{ reviewer.specialization }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="button">Assign</button>
+    </form>
+
+    <!-- Display Assigned Papers -->
+    <h2>Assigned Papers</h2>
+    <div class="existing-reviewers">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Paper Title</th>
+                    <th>Paper Type</th>
+                    <th>Author Name</th>
+                    <th>Reviewer Name</th>
+                    <th>Reviewer Specialization</th>
+                    <th>Reviewer Paper Limit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assignment in assignments %}
+                <tr>
+                    <td>{{ assignment.paper_title }}</td>
+                    <td>{{ assignment.paper_type }}</td>
+                    <td>{{ assignment.author_name }}</td>
+                    <td>{{ assignment.reviewer_name }}</td>
+                    <td>{{ assignment.reviewer_specialization }}</td>
+                    <td>{{ assignment.max_papers }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- JavaScript for Confirmation -->
+<script>
+    // Add an event listener for form submission
+    document.getElementById("assignment-form").addEventListener("submit", function(event) {
+        // Display a confirmation dialog
+        const userConfirmed = confirm("Are you sure you want to assign this paper to the selected reviewer?");
+        
+        // If the user cancels, prevent form submission
+        if (!userConfirmed) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+{% endblock %}

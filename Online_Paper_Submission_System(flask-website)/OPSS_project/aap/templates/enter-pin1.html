@@ -1,0 +1,15 @@
+{% extends "base1.html" %}
+
+{% block body %}
+<div class="container" id="contact">
+    <h2>Enter PIN to Access Paper Upload</h2>
+    <form method="POST" action="{{ url_for('enter_pin1') }}">
+        <div class="form-group">
+            <label class="label" for="access_pin">5-Digit PIN:</label>
+            <input class="input" type="text" id="access_pin" name="access_pin" maxlength="5" required 
+                   placeholder="Enter your 5-digit PIN">
+        </div>
+        <button type="submit" class="button">Submit</button>
+    </form>
+</div>
+{% endblock %}

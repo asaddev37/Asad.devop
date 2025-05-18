@@ -1,0 +1,77 @@
+{% extends "base3.html" %}
+
+{% block body %}
+    <!-- Home Section -->
+    <div class="container" id="home">
+        <h1>Welcome to the Online Paper Submission System</h1>
+        <p>
+            Our system is designed to streamline the process of submitting, reviewing, and managing research papers for conferences, journals, and academic events.
+        </p>
+
+        <h2>How It Works</h2>
+        <ol>
+            <li>
+                <strong>Register/Log In:</strong> 
+                <a href="/signup">Sign up</a> for an account or 
+                <a href="/login">log in</a> to access your dashboard.
+            </li>
+            <li>
+                <strong>Add Reviewers:</strong> Administrators can add and manage reviewers, including their specializations, via the 
+                <a href="/reviewer">Add Reviewers</a> section.
+            </li>
+            {% if current_user.is_authenticated and current_user.__class__.__name__ == 'ReviewerLogin' %}
+            <li>
+                <strong>View Assignments:</strong> Track the papers assigned to you for review in the 
+                <a href="/view-assignments">View Assignments</a> section.
+            </li>
+            <li>
+                <strong>View Papers:</strong> Check papers that need reviewing in the 
+                <a href="/view-papers3">View Paper</a> section.
+            </li>
+            <li>
+                <strong>Submit Reviews:</strong> Reviewers can evaluate papers and submit detailed feedback in the 
+                <a href="/submit-review">Submit Review</a> section.
+            </li>
+            <li>
+                <strong>Contact Us:</strong> Reach out for support or queries in the 
+                <a href="/contact3">Contact Us</a> section.
+            </li>
+            {% endif %}
+        </ol>
+
+        {% if not current_user.is_authenticated %}
+        <h2>Get Started</h2>
+        <ul>
+            <li>
+                <a href="/login/author">Author Login:</a> Submit your research papers and manage submissions.
+            </li>
+            <li>
+                <a href="/login/reviewer">Reviewer Login:</a> Evaluate and provide feedback on submitted papers.
+            </li>
+            <li>
+                <a href="/login/admin">Admin Login:</a> Manage submissions, reviewers, and conference details.
+            </li>
+        </ul>
+        {% endif %}
+
+        <h2>Key Features</h2>
+        <ul>
+            <li>
+                <a href="/reviewer">Add Reviewers:</a> Administrators can add reviewers and manage their details, including their areas of expertise, to ensure proper assignment of research papers.
+            </li>
+            {% if current_user.is_authenticated and current_user.__class__.__name__ == 'ReviewerLogin' %}
+            <li>
+                <a href="/view-assignments">View Assignments:</a> Check the status of papers assigned to you.
+            </li>
+            <li>
+                <a href="/submit-review">Submit Reviews:</a> Provide detailed evaluations of assigned papers.
+            </li>
+            <li>
+                <a href="/contact3">Contact Us:</a> Get in touch with the support team.
+            </li>
+            {% endif %}
+        </ul>
+
+        <p>Explore the platform to ensure a seamless experience in research paper submission and review.</p>
+    </div>
+{% endblock %}

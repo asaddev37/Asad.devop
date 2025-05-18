@@ -1,0 +1,47 @@
+{% extends "base2.html" %}
+
+{% block body %}
+<!-- Reviews Section -->
+<div class="container" id="reviewer">
+    <h1>View Reviews</h1>
+
+    <!-- Reviews Table -->
+    <div class="existing-reviewers">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Review ID</th>
+                    <th>Assignment ID</th>
+                    <th>Paper ID</th>
+                    <th>Paper Title</th>
+                    <th>Reviewer ID</th>
+                    <th>Reviewer Name</th>
+                    <th>Quality Score</th>
+                    <th>Comments</th>
+                    <th>Submitted AT</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+                {% for review in reviews %}
+                <tr>
+                    <td>{{ review.review_id}}</td>
+                    <td>{{ review.assignment_id if review.assignment_id is not none else "N/A" }}</td>
+                    <td>{{ review.paper_id }}</td>
+                    <td>{{ review.paper_title }}</td>
+                    <td>{{ review.reviewer_id }}</td>
+                    <td>{{ review.reviewer_name }}</td>
+                    <td>{{ review.quality_score }}</td>
+                    <td>{{ review.comments }}</td>
+                    <td>{{ review.submitted_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if reviews|length == 0 %}
+        <p>No reviews found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

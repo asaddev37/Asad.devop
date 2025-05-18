@@ -1,0 +1,92 @@
+{% extends "base2.html" %}
+
+{% block body %}
+    <!-- Home Section -->
+    <div class="container" id="home">
+        <h1>Welcome to the Online Paper Submission System</h1>
+        <p>
+            Our system is designed to streamline the process of submitting, reviewing, and managing research papers for conferences, journals, and academic events.
+        </p>
+
+        <h2>How It Works</h2>
+        <ol>
+            {% if current_user.is_authenticated %}
+                {% if current_user.__class__.__name__ == 'AdminLogin' %}
+                    <li>
+                        <strong>View Papers:</strong> Check all submitted papers in the 
+                        <a href="/view-papers2">View Papers</a> section.
+                    </li>
+                    <li>
+                        <strong>View Reviewers:</strong> Manage and view all reviewers in the 
+                        <a href="existing-reviewers">View Reviewers</a> section.
+                    </li>
+                    <li>
+                        <strong>Manage Assignments:</strong> Track and manage paper assignments in the 
+                        <a href="assignment">Assignments</a> section.
+                    </li>
+                    <li>
+                        <strong>View Reviews:</strong> Access completed reviews submitted by reviewers in the 
+                        <a href="/view-reviews">View Reviews</a> section.
+                    </li>
+                    <li>
+                        <strong>Conference Details:</strong> View schedules and details about conferences in the 
+                        <a href="/conference_details">Conference Details</a> section.
+                    </li>
+                    <li>
+                        <strong>View Contacts:</strong> Access all user queries or messages in the 
+                        <a href="/view_contacts">View Contacts</a> section.
+                    </li>
+                {% endif %}
+                <li>
+                    <strong>Logout:</strong> Sign out of your account via the 
+                    <a href="/logout">Logout</a> option.
+                </li>
+            {% else %}
+                <li>
+                    <strong>Author Login:</strong> If you are an author, access your dashboard via 
+                    <a href="/login/author">Author Login</a>.
+                </li>
+                <li>
+                    <strong>Reviewer Login:</strong> If you are a reviewer, manage tasks via 
+                    <a href="/login/reviewer">Reviewer Login</a>.
+                </li>
+                <li>
+                    <strong>Admin Login:</strong> Administrators can log in via 
+                    <a href="/login/admin">Admin Login</a> to manage the platform.
+                </li>
+            {% endif %}
+        </ol>
+
+        <h2>Key Features</h2>
+        <ul>
+            {% if current_user.is_authenticated %}
+                {% if current_user.__class__.__name__ == 'AdminLogin' %}
+                    <li>
+                        <a href="/view-papers2">View Papers:</a> Access all submitted research papers.
+                    </li>
+                    <li>
+                        <a href="existing-reviewers">View Reviewers:</a> Manage and track reviewer details.
+                    </li>
+                    <li>
+                        <a href="assignment">Assignments:</a> Manage assignments of papers to reviewers.
+                    </li>
+                    <li>
+                        <a href="/view-reviews">View Reviews:</a> Check feedback provided by reviewers.
+                    </li>
+                    <li>
+                        <a href="/conference_details">Conference Details:</a> View conference schedules and locations.
+                    </li>
+                    <li>
+                        <a href="/view_contacts">View Contacts:</a> View queries and messages submitted by users.
+                    </li>
+                {% endif %}
+            {% else %}
+                <li><a href="/login/author">Author Login:</a> Access your dashboard.</li>
+                <li><a href="/login/reviewer">Reviewer Login:</a> Manage review tasks.</li>
+                <li><a href="/login/admin">Admin Login:</a> Manage the system.</li>
+            {% endif %}
+        </ul>
+
+        <p>Explore the platform to ensure a seamless experience in research paper submission and review.</p>
+    </div>
+{% endblock %}

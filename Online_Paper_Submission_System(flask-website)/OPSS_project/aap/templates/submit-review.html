@@ -1,0 +1,47 @@
+{% extends "base3.html" %}
+
+{% block body %}
+    <!-- Review Section -->
+    <div class="container" id="review">
+        <h2>Review</h2>
+        <p>Submit a review for a paper.</p>
+        <form action="/submit-review" method="POST" id="review-form">
+        
+            <div class="form-group">
+                <label class="label" for="paper_id">Paper ID:</label>
+                <input class="input" type="number" id="paper_id" name="paper_id">
+            </div>
+            <div class="form-group">
+                <label class="label" for="reviewer_id">Reviewer ID:</label>
+                <input class="input" type="number" id="reviewer_id" name="reviewer_id">
+            </div>
+            <div class="form-group">
+                <label class="label" for="quality_score">Quality Score (1-10):</label>
+                <input class="input" type="number" id="quality_score" name="quality_score" min="1" max="10">
+            </div>
+            <div class="form-group">
+                <label class="label" for="comments">Comments:</label>
+                <textarea class="input" id="comments" name="comments"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="label" for="submitted_at">Submitted At:</label>
+                <input class="input" type="datetime-local" id="submitted_at" name="submitted_at">
+            </div>
+            <button class="button" type="submit">Submit Review</button>
+        </form>
+    </div>
+
+    <!-- JavaScript for Confirmation -->
+    <script>
+        // Add an event listener to the form submission
+        document.getElementById("review-form").addEventListener("submit", function(event) {
+            // Display the confirmation dialog
+            const userConfirmed = confirm("Are you sure you want to submit this review?");
+            
+            // If the user clicks 'Cancel', prevent form submission
+            if (!userConfirmed) {
+                event.preventDefault();
+            }
+        });
+    </script>
+{% endblock %}

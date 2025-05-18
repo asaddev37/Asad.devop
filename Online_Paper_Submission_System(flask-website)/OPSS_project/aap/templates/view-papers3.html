@@ -1,0 +1,33 @@
+{% extends 'base3.html' %}
+
+{% block body %}
+  <div class="container">
+    <h1 class="heading">Available Papers</h1>
+
+  
+    <div class="papers-list">
+      {% for paper in papers %}
+      <div class="paper-item">
+        <h3 class="paper-title">{{ paper.title}}</h3>
+        <!-- <p class="paper-category"><strong>Author:</strong> {{ paper['Author_Name'] }}</p> -->
+        <p class="paper-category"><strong>Keywords:</strong> {{ paper.keywords }}</p>
+        <p class="paper-description"><strong>Abstracts:</strong> {{ paper.abstract }}</p>
+        <p class="paper-type"><strong>Type:</strong> {{ paper.paper_type}}</p>
+        <p class="paper-date"><strong>Publication Date:</strong> {{ paper.submission_date }}</p>
+        <!-- <p class="paper-date"><strong>Status:</strong> {{ paper['Status'] }}</p> -->
+        <img src="{{ url_for('static', filename='media/' + paper.file_name) }}" 
+             alt="{{ paper['Title'] }}" class="paper-image">
+             <p><strong>File Name: </strong>{{paper.file_name }}</p> 
+             <!-- Add Download Link at the End -->
+          {% if paper.file_name and paper.file_name.endswith('.pdf') %}
+          <p><a href="{{ url_for('static', filename='media/' + paper.file_name) }}" download>Download PDF</a></p>
+        {% elif paper.file_name and paper.file_name.endswith('.docx') %}
+          <p><a href="{{ url_for('static', filename='media/' + paper.file_name) }}" download>Download DOCX</a></p>
+        {% endif %}
+         
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+
+{% endblock %}

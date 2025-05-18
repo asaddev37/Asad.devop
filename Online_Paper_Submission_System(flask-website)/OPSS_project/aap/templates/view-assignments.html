@@ -1,0 +1,43 @@
+{% extends "base3.html" %}
+
+{% block body %}
+<div class="container" id="reviewer">
+    <h1>Your Assigned Papers</h1>
+
+    <!-- Display Assignments -->
+    <div class="existing-reviewers">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Assignment ID</th>
+                    <th>Paper ID</th>
+                    <th>Paper Title</th>
+                    <th>Paper Type</th>
+                    <th>Reviewer ID</th>
+                    <th>Reviewer Name</th>
+                    <th>Author Name</th>
+                    <th>Assigned Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assignment in assignments %}
+                <tr>
+                    <td>{{ assignment.id }}</td>
+                    <td>{{ assignment.paper.id }}</td>
+                    <td>{{ assignment.paper.title }}</td>
+                    <td>{{ assignment.paper.paper_type }}</td>
+                    <td>{{ assignment.reviewer.Reviewer_ID}}</td>
+                    <td>{{ assignment.reviewer.name }}</td>
+                    <td>{{ assignment.paper.author.name }}</td>
+                    <td>{{ assignment.assigned_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if assignments|length == 0 %}
+        <p>No assignments found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

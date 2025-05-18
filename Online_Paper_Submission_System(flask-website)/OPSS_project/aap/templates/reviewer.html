@@ -1,0 +1,56 @@
+{% extends "base3.html" %}
+
+{% block body %}
+
+<!-- Reviewer Section -->
+<div class="container" id="reviewer">
+    <h2>Reviewer Management</h2>
+    <p>Manage reviewer information and specializations.</p>
+
+    <!-- Add Reviewer Form -->
+<!-- Add Reviewer Form -->
+<form action="/reviewer" method="POST" id="add-reviewer-form">
+    <div class="form-group">
+        <label class="label" for="reviewer_name">Name:</label>
+        <input class="input" type="text" id="reviewer_name" name="reviewer_name" required>
+    </div>
+    <div class="form-group">
+        <label class="label" for="reviewer_specialization">Specialization:</label>
+        <input class="input" type="text" id="reviewer_specialization" name="reviewer_specialization" required>
+    </div>
+    <div class="form-group">
+        <label class="label" for="reviewer_max_papers">Max Papers:</label>
+        <input class="input" type="number" id="reviewer_max_papers" name="reviewer_max_papers" min="1">
+    </div>
+    <div class="form-group">
+        <label class="label" for="reviewer_email">Email:</label>
+        <input class="input" type="email" id="reviewer_email" name="reviewer_email" required>
+    </div>
+    <div class="form-group">
+        <label class="label" for="reviewer_pin">5-Digit PIN:</label>
+        <input class="input" type="text" id="reviewer_pin" name="reviewer_pin" minlength="5" maxlength="5" required
+        placeholder="Enter 5-digit PIN (numbers only)">
+        <small class="note">Please! remember this PIN carefully. It will be required to access your submission later.</small>
+    </div>
+    <button class="button" type="submit">Add Reviewer</button>
+</form>
+
+
+   
+</div>
+
+<!-- JavaScript for Confirmation -->
+<script>
+    // Add an event listener for form submission
+    document.getElementById("add-reviewer-form").addEventListener("submit", function(event) {
+        // Display a confirmation dialog
+        const userConfirmed = confirm("Are you sure you want to add this reviewer?");
+        
+        // If the user cancels, prevent form submission
+        if (!userConfirmed) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+{% endblock %}

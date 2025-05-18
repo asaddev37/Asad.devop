@@ -1,0 +1,41 @@
+{% extends "base1.html" %}
+
+{% block body %}
+<!-- Conference Details View Section -->
+<div class="container" id="reviewer">
+    <h1>Conference Details</h1>
+    <p>Below are the details of the conference presentations.</p>
+
+    <!-- Conference Details Table -->
+    <div class="existing-reviewers">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Conference ID</th>
+                    <th>Paper ID</th>
+                    <th>Paper Title</th>
+                    <th>Author Name</th>
+                    <th>Presentation Time</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for detail in conference_details %}
+                <tr>
+                    <td>{{ detail.conference_id }}</td>
+                    <td>{{ detail.paper_id }}</td>
+                    <td>{{ detail.paper_title }}</td>
+                    <td>{{ detail.author_name }}</td>
+                    <td>{{ detail.presentation_time }}</td>
+                    <td>{{ detail.location }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if conference_details|length == 0 %}
+        <p>No conference details found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

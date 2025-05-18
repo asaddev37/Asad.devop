@@ -1,0 +1,38 @@
+{% extends 'base2.html' %}
+
+{% block body %}
+<div class="container">
+  <h1 class="heading">Available Papers</h1>
+
+  <div class="papers-list">
+    {% for paper in papers %}
+    <div class="paper-item">
+      <h3 class="paper-title">{{ paper[1] }}</h3>
+      <p class="paper-category"><strong>Keywords:</strong> {{ paper[3] }}</p>
+      <p class="paper-description"><strong>Description:</strong> {{ paper[2] }}</p>
+      <p class="paper-type"><strong>Type:</strong> {{ paper[4] }}</p>
+      <p class="paper-date"><strong>Publication Date:</strong> {{ paper[5] }}</p>
+      <img src="{{ url_for('static', filename='media/'+paper[6]) }}" alt="{{ paper[1] }}" class="paper-image">
+    <!-- Debugging: Check if the file exists -->
+    <p><strong>File Name: </strong>{{ paper[6] }}</p>
+
+    <!-- Check if the file name exists and ends with .pdf or .docx -->
+    {% if paper[6] %}
+      {% set file_extension = paper[6].strip() | lower %}
+      {% if file_extension.endswith('.pdf') %}
+        <p><a href="{{ url_for('static', filename='media/' + paper[6]) }}" download>Download PDF</a></p>
+      {% elif file_extension.endswith('.docx') %}
+        <p><a href="{{ url_for('static', filename='media/' + paper[6]) }}" download>Download DOCX</a></p>
+    
+      {% endif %}
+    {% else %}
+      <p><em>No downloadable file available</em></p>
+    {% endif %}
+    </div>
+    {% endfor %}
+
+
+    
+  </div>
+</div>
+{% endblock %}

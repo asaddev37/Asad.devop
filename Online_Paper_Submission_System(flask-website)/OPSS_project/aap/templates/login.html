@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="auth-panel">
+    <h2>Login as {{ role }}</h2>
+
+    {% if error_message %}
+        <p class="message">{{ error_message }}</p>
+    {% endif %}
+
+    <form action="/login/{{ role }}" method="POST">
+        <div class="form-group">
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn-glow">Login</button>
+    </form>
+
+    <p class="message">Don't have an account? <a href="/signup/{{ role }}">Sign up</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base1.html" %}
+
+{% block body %}
+
+<form id="paper_form" action="/paper-upload" method="POST" enctype="multipart/form-data">
+    <div class="container">
+        <h3 id="upload_paper">Author Information</h3>
+        <div class="form-group">
+            <label class="label" for="author_name">Name:</label>
+            <input class="input" type="text" id="author_name" name="author_name">
+        </div>
+        <div class="form-group">
+            <label class="label" for="author_affiliation">Affiliation:</label>
+            <input class="input" type="text" id="author_affiliation" name="author_affiliation">
+        </div>
+        <div class="form-group">
+            <label class="label" for="author_tel_no">Tel No:</label>
+            <input class="input" type="text" id="author_tel_no" name="author_tel_no">
+        </div>
+        <div class="form-group">
+            <label class="label" for="author_email_address">Email Address:</label>
+            <input class="input" type="email" id="author_email_address" name="author_email_address">
+        </div>
+        <div class="form-group">
+            <label class="label" for="author_postal_address">Postal Address:</label>
+            <input class="input" type="text" id="author_postal_address" name="author_postal_address">
+        </div>
+        <h3>Paper Information</h3>
+        <div class="form-group">
+            <label class="label" for="paper_title">Title:</label>
+            <input class="input" type="text" id="paper_title" name="paper_title">
+        </div>
+        <div class="form-group">
+            <label class="label" for="paper_abstract">Abstract:</label>
+            <textarea class="input" id="paper_abstract" name="paper_abstract"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="label" for="paper_keywords">Keywords:</label>
+            <input class="input" type="text" id="paper_keywords" name="paper_keywords">
+        </div>
+        <div class="form-group">
+            <label class="label" for="paper_type">Paper Type:</label>
+            <select class="input" id="paper_type" name="paper_type">
+                <option value="full">Full Paper</option>
+                <option value="short">Short Paper</option>
+                <option value="poster">Poster Paper</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="label" for="paper_submission_date">Submission Date:</label>
+            <input class="input" type="date" id="paper_submission_date" name="paper_submission_date">
+        </div>
+        <div class="form-group">
+            <label class="label" for="access_pin">5-Digit PIN:</label>
+            <input class="input" type="text" id="access_pin" name="access_pin" maxlength="5" required
+                   placeholder="Enter 5-digit PIN (numbers only)">
+            <small class="note">Please! remember this PIN carefully. It will be required to access your submission later.</small>
+        </div>
+        
+        <div class="form-group">
+            <label class="label" for="paper_file">Upload Paper:</label>
+            <input class="input" type="file" id="paper_file" name="paper_file">
+        </div>
+        <div class="form-actions">
+            <button class="reset-button" type="reset">Reset</button>
+            <button class="button" id="submit_button" type="submit">Submit Paper</button>
+        </div>
+    </div>
+</form>
+<script>
+    // Attach the event listener to the form's submit event
+    document.getElementById("paper_form").addEventListener("submit", function(event) {
+        // Show a confirmation dialog
+        const userConfirmed = confirm("Are you sure you want to submit the paper?");
+        
+        // If the user clicks "Cancel", prevent form submission
+        if (!userConfirmed) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base3.html' %}
+
+{% block body %}
+  <div class="container">
+    <h2>Enter PIN</h2>
+    <form method="POST" action="{{ url_for('view_assignments') }}">
+      <div class="form-group">
+        <label class="label" for="reviewer_pin">5-Digit PIN:</label>
+        <input class="input" type="text" id="reviewer_pin" name="reviewer_pin" minlength="5" maxlength="5" required>
+      </div>
+      <button type="submit" class="button">Submit</button>
+    </form>
+  </div>
+{% endblock %}

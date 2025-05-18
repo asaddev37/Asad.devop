@@ -1,0 +1,34 @@
+{% extends "base2.html" %}
+
+{% block body %}
+
+<!-- Display Existing Reviewers -->
+<div class="container" id="reviewer">
+    <h1>Existing Reviewers</h1>
+    <div class="existing-reviewers">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Specialization</th>
+                    <th>Max Papers</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reviewer in reviewers %}
+                <tr>
+                    <td>{{ reviewer.Reviewer_ID }}</td>
+                    <td>{{ reviewer.name }}</td>
+                    <td>{{ reviewer.specialization }}</td>
+                    <td>{{ reviewer.max_papers }}</td>
+                    <td>{{ reviewer.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

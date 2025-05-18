@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block body %}
+
+<style>
+ .button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.button-group button {
+    margin: 0;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.button-group button:hover {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    transform: scale(1.08);
+}
+
+</style>
+
+<div class="container1">
+    <h1>Welcome to the Online Paper Submission System</h1>
+    <h2>Choose Your Role</h2>
+    
+    <div class="button-group">
+        <button onclick="window.location.href='/login/author'">Login as Author</button>
+        <button onclick="window.location.href='/login/admin'">Login as Admin</button>
+        <button onclick="window.location.href='/login/reviewer'">Login as Reviewer</button>
+    </div>
+</div>
+
+
+{% endblock %}

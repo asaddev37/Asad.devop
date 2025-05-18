@@ -1,0 +1,48 @@
+{% extends "base3.html" %}
+
+{% block body %}
+<div class="container" id="contact">
+    <h2>Contact Us</h2>
+    <p>Get in touch with us for any queries or concerns.</p>
+    
+    <form action="/contact3" method="POST" id="contact-form">
+        <div class="form-group">
+            <label class="label" for="name">Name:</label>
+            <input class="input" type="text" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label class="label" for="email">Email:</label>
+            <input class="input" type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label class="label" for="message">Message:</label>
+            <textarea class="input" id="message" name="message"></textarea>
+        </div>
+        <button class="button" type="submit">Send Message</button>
+    </form>
+    
+    <h3>Address</h3>
+    <p>Online Paper Submission System<br>
+    Comsats University<br>
+    Vehari , Pakistan , 61100</p>
+    
+    <h3>Phone and Email</h3>
+    <p>Phone: 0303-3000003<br>
+    Email: <a href="mailto:contact@example.com">asadkamboh111@gmail.com</a></p>
+</div>
+
+<!-- JavaScript for Confirmation -->
+<script>
+    // Add an event listener for form submission
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        // Display a confirmation dialog
+        const userConfirmed = confirm("Are you sure you want to send this message?");
+        
+        // If the user clicks 'Cancel', prevent form submission
+        if (!userConfirmed) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+{% endblock %}

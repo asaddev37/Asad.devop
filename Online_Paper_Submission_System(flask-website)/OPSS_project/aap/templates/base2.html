@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My APP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cs/css1.css') }}">
+    {% block head %}
+        
+    {% endblock %}
+</head>
+<body>  
+    <div class="container" id="top_container">
+        <h2 style="word-spacing: 10px;"><span class="large-text">O</span>nline 
+            <span class="large-text">P</span>aper 
+            <span class="large-text">S</span>ubmission
+            <span class="large-text">S</span>ystem</h2>
+
+<h4>Admin_Dashboard</h4>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="home2">Home</a></li>
+                    {% if current_user.is_authenticated %}
+                        {% if current_user.__class__.__name__ == 'AdminLogin' %}
+                            <li><a href="/view-papers2">View Papers</a></li>                          
+                            <li><a href="existing-reviewers">View-Reviewers</a></li>                          
+                            <li><a href="assignment">Assignments</a></li>                          
+                            <li><a href="/view-reviews">View Reviews</a></li>                          
+                            <li><a href="/conference_details">Conference_Detais</a></li>
+                            <li><a href="/view_contacts">View Contacts</a></li>
+                        {% endif %}
+                        <li><a href="/logout">Logout</a></li>
+                    {% else %}
+                        <li><a href="/login/author">Author Login</a></li>
+                        <li><a href="/login/reviewer">Reviewer Login</a></li>
+                        <li><a href="/login/admin">Admin Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+            
+     
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        {% block body %}
+        {% endblock %}
+    </div>
+
+       <!-- Footer Section -->
+       <footer class="container" id="top_container">
+        <div class="container">
+            <div class="footer-about">
+                <h3>About</h3>
+                <p>The Online Paper Submission System is your platform for streamlined academic submissions and reviews.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home2">Home</a></li>
+                    <!-- <li> <a href="/login">Log In</a></li> -->
+                    <li><a href="view_contacts">View Contacts</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+            <p>&copy; 2024 Online Paper Submission System. All rights reserved.</p>
+        </div>       
+    </footer>
+</body>
+</html>

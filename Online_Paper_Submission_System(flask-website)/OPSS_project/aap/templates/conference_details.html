@@ -1,0 +1,39 @@
+{% extends "base2.html" %}
+
+{% block body %}
+ <!-- Conference Details Section -->
+ <div class="container" id="conference_details">
+    <h2>Conference Details</h2>
+    <p>Provide information about the conference presentations.</p>
+    <form action="/conference_details" method="POST" id="conference-details-form">
+        <div class="form-group">
+            <label class="label" for="paper_id_conference">Paper ID:</label>
+            <input class="input" type="number" id="paper_id_conference" name="paper_id_conference">
+        </div>
+        <div class="form-group">
+            <label class="label" for="presentation_time">Presentation Time:</label>
+            <input class="input" type="datetime-local" id="presentation_time" name="presentation_time">
+        </div>
+        <div class="form-group">
+            <label class="label" for="location">Location:</label>
+            <input class="input" type="text" id="location" name="location">
+        </div>
+        <button class="button" type="submit">Add Details</button>
+    </form>
+</div>
+
+<!-- JavaScript for Confirmation -->
+<script>
+    // Add an event listener for form submission
+    document.getElementById("conference-details-form").addEventListener("submit", function(event) {
+        // Display a confirmation dialog
+        const userConfirmed = confirm("Are you sure you want to add these conference details?");
+        
+        // If the user clicks 'Cancel', prevent form submission
+        if (!userConfirmed) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+{% endblock %}

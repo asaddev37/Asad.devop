@@ -1,0 +1,37 @@
+{% extends "base2.html" %}
+
+{% block body %}
+<!-- View Contacts Section -->
+<div class="container" id="reviewer">
+    <h1>View Contacts</h1>
+    <p>Below is the list of messages sent through the contact form.</p>
+
+    <!-- Contacts Table -->
+    <div class="existing-reviewers">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Contact ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.message }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if contacts|length == 0 %}
+        <p>No contacts found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
