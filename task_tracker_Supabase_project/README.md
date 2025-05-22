@@ -139,7 +139,7 @@ Efficiently manage students, tasks, and performance insights — all in one plac
 
 ---
 
-### 🔐 Authentication & Dashboard
+### 🔐 Authentication & Dashboard (Admin)
 
 | Loading Screen | Admin Login | Admin Dashboard |
 |----------------|-------------|------------------|
@@ -147,7 +147,7 @@ Efficiently manage students, tasks, and performance insights — all in one plac
 
 ---
 
-### 👥 User & Task Management
+### 👥 User & Task Management (Admin)
 
 | Student Management | Task Management | Assign Task | View All Tasks |
 |---------------------|------------------|-------------|----------------|
@@ -155,7 +155,7 @@ Efficiently manage students, tasks, and performance insights — all in one plac
 
 ---
 
-### 📊 Reports & Settings
+### 📊 Reports & Settings (Admin)
 
 | Performance Report | Leaderboard | Export Completed Task |
 |--------------------|-------------|------------------------|
@@ -163,7 +163,7 @@ Efficiently manage students, tasks, and performance insights — all in one plac
 
 ---
 
-### ⚙️ Preferences
+### ⚙️ Preferences (Admin)
 
 | Settings Screen | Privacy Screen |
 |------------------|-----------------|
@@ -171,11 +171,36 @@ Efficiently manage students, tasks, and performance insights — all in one plac
 
 ---
 
+## 👨‍🎓 Task_Student App  
+### 📱 App Screenshots
 
+A focused dashboard for students to manage tasks, view progress, and stay on track.
 
+---
 
+### 🔐 Authentication & Dashboard (Student)
 
+| Loading Screen | Student Login | Home Page |
+|----------------|---------------|-----------|
+| <img src="https://github.com/user-attachments/assets/7575de7a-356f-4883-bcb7-90defc0a1123" width="200"/> | <img src="https://github.com/user-attachments/assets/68a00605-f447-445e-96ae-866704493fd3" width="200"/> | <img src="https://github.com/user-attachments/assets/bd4fe4e6-69a9-4eb5-9556-57b98c4d29af" width="200"/> |
 
+---
+
+### 📊 Progress & Planner (Student)
+
+| Dashboard | Progress Chart | Calendar |
+|-----------|----------------|----------|
+| <img src="https://github.com/user-attachments/assets/1fac2da9-aa69-42ee-a78f-d60104a8119a" width="200"/> | <img src="https://github.com/user-attachments/assets/20cd235a-7caf-40a7-9a7d-b09fb28c5579" width="200"/> | <img src="https://github.com/user-attachments/assets/36eb3f53-15a1-43ac-a6cf-a6462437d664" width="200"/> |
+
+---
+
+### 🏆 Achievements & Preferences (Student)
+
+| Achievements | Settings | Privacy Policy |
+|--------------|----------|----------------|
+| <img src="https://github.com/user-attachments/assets/3560c4ad-3feb-495b-b3b3-24065c79e8a6" width="200"/> | <img src="https://github.com/user-attachments/assets/f7e56ca0-09a1-407c-8c98-dfe8ac924e9c" width="200"/> | <img src="https://github.com/user-attachments/assets/b815a58d-0f97-4964-acac-ed95c7d3fa55" width="200"/> |
+
+---
 
 
 
