@@ -144,7 +144,7 @@ Efficiently manage students, tasks, and performance insights — all in one plac
 
 | Loading Screen | Admin Login | Admin Dashboard | Chat List | Student Chat |
 |----------------|-------------|------------------|-----------|---------------|
-| <img src="https://github.com/user-attachments/assets/62fb9a72-16f2-4900-8daa-7efcaa21e0dd" width="200"/> | <img src="https://github.com/user-attachments/assets/929815e7-1654-4c53-9f96-c37e50af4c08" width="200"/> | <img src="https://github.com/user-attachments/assets/e4369745-0ba9-4555-921e-968b09331368" width="200"/> | <img src="https://github.com/user-attachments/assets/7cbeefdf-f25d-4c68-88de-44205c07efc1" width="200"/> | <img src="https://github.com/user-attachments/assets/e77f3587-0051-47a0-9134-bc128acd6add" width="200"/> |
+| <img src="https://github.com/user-attachments/assets/62fb9a72-16f2-4900-8daa-7efcaa21e0dd" width="200"/> | <img src="https://github.com/user-attachments/assets/929815e7-1654-4c53-9f96-c37e50af4c08" width="200"/> | <img src="https://github.com/user-attachments/assets/059ffca5-88c0-4ca1-8190-b78eaa17db0a" width="200"/> | <img src="https://github.com/user-attachments/assets/6e95acae-09c9-464a-9f87-6070fc41b4a6" width="200"/> | <img src="https://github.com/user-attachments/assets/233c983b-dc1d-4c29-962b-2be889643daf" width="200"/> |
 
 ---
 
@@ -175,7 +175,7 @@ A focused dashboard for students to manage tasks, view progress, and stay on tra
 
 | Loading Screen | Student Login | Home Page | Dashboard | Progress Chart |
 |----------------|---------------|-----------|-----------|----------------|
-| <img src="https://github.com/user-attachments/assets/7575de7a-356f-4883-bcb7-90defc0a1123" width="200"/> | <img src="https://github.com/user-attachments/assets/68a00605-f447-445e-96ae-866704493fd3" width="200"/> | <img src="https://github.com/user-attachments/assets/bd4fe4e6-69a9-4eb5-9556-57b98c4d29af" width="200"/> | <img src="https://github.com/user-attachments/assets/eefb931f-7649-43e8-a6eb-f06832c52375" width="200"/> | <img src="https://github.com/user-attachments/assets/20cd235a-7caf-40a7-9a7d-b09fb28c5579" width="200"/> |
+| <img src="https://github.com/user-attachments/assets/7575de7a-356f-4883-bcb7-90defc0a1123" width="200"/> | <img src="https://github.com/user-attachments/assets/68a00605-f447-445e-96ae-866704493fd3" width="200"/> | <img src="https://github.com/user-attachments/assets/bd4fe4e6-69a9-4eb5-9556-57b98c4d29af" width="200"/> | <img src="https://github.com/user-attachments/assets/bd946831-a54f-4ead-92b4-79e5131fa3bd" width="200"/> | <img src="https://github.com/user-attachments/assets/20cd235a-7caf-40a7-9a7d-b09fb28c5579" width="200"/> |
 
 ---
 
@@ -183,10 +183,7 @@ A focused dashboard for students to manage tasks, view progress, and stay on tra
 
 | Calendar | Chat with Admin | Settings Screen | Privacy Policy | - |
 |----------|------------------|------------------|------------------|---|
-| <img src="https://github.com/user-attachments/assets/36eb3f53-15a1-43ac-a6cf-a6462437d664" width="200"/> | <img src="https://github.com/user-attachments/assets/6dfde0e1-63c4-4fb6-b062-cec738bf44b3" width="200"/> | <img src="https://github.com/user-attachments/assets/16653503-b768-4d85-8dc3-61d1efa954b6" width="200"/> | <img src="https://github.com/user-attachments/assets/3ef65b65-4189-4f9f-91d3-a73dbca29549" width="200"/> | - |
-
-
-
+| <img src="https://github.com/user-attachments/assets/36eb3f53-15a1-43ac-a6cf-a6462437d664" width="200"/> | <img src="https://github.com/user-attachments/assets/41ece79f-2f96-427a-bd24-d211704b31db" width="200"/> | <img src="https://github.com/user-attachments/assets/a7e920e5-d949-4950-b660-c1afc0d88ab7" width="200"/> | <img src="https://github.com/user-attachments/assets/e1f9ef82-6099-4080-a144-ce40535281f4" width="200"/> | - |
 
 
 
