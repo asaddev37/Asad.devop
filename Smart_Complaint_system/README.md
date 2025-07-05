@@ -324,12 +324,10 @@ Functional screens available for Head of Department operations.
 ### 📈 Smart Analysis
 
 <p float="left">
-  <img src="https://github.com/user-attachments/assets/1b2c7c41-317b-4318-932b-5f53d0d24749" width="30%" />
-  <img src="https://github.com/user-attachments/assets/3f1e3e6a-0a63-4089-b23c-53b6669c8eaa" width="30%" />
-  <img src="https://github.com/user-attachments/assets/a95d1ddb-456c-4f18-8308-e97ff2a8963d" width="30%" />
-</p>
-<p float="left">
-  <img src="https://github.com/user-attachments/assets/a27f38a3-48b9-495e-b9f0-ec7ef214836e" width="30%" />
+  <img src="https://github.com/user-attachments/assets/1b2c7c41-317b-4318-932b-5f53d0d24749" width="24%" />
+  <img src="https://github.com/user-attachments/assets/3f1e3e6a-0a63-4089-b23c-53b6669c8eaa" width="24%" />
+  <img src="https://github.com/user-attachments/assets/a95d1ddb-456c-4f18-8308-e97ff2a8963d" width="24%" />
+  <img src="https://github.com/user-attachments/assets/a27f38a3-48b9-495e-b9f0-ec7ef214836e" width="24%" />
 </p>
 
 ---
@@ -337,13 +335,15 @@ Functional screens available for Head of Department operations.
 ### 💰 Budget Goals
 
 <p float="left">
-  <img src="https://github.com/user-attachments/assets/a4773238-5a38-4467-9b7b-f1b3a90f3835" width="22%" />
-  <img src="https://github.com/user-attachments/assets/d720c015-6bb8-4370-aaf2-f27cc3c9abe0" width="22%" />
-  <img src="https://github.com/user-attachments/assets/262f8466-0157-48e5-8445-c5c5a8c7a831" width="22%" />
-  <img src="https://github.com/user-attachments/assets/96ef8c53-64da-4a38-9eb6-978463e8ed83" width="22%" />
+  <img src="https://github.com/user-attachments/assets/a4773238-5a38-4467-9b7b-f1b3a90f3835" width="24%" />
+  <img src="https://github.com/user-attachments/assets/d720c015-6bb8-4370-aaf2-f27cc3c9abe0" width="24%" />
+  <img src="https://github.com/user-attachments/assets/262f8466-0157-48e5-8445-c5c5a8c7a831" width="24%" />
+  <img src="https://github.com/user-attachments/assets/96ef8c53-64da-4a38-9eb6-978463e8ed83" width="24%" />
 </p>
 
 ---
+
+
 
 ### 🤖 Chat Bot
 
