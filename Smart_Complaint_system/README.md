@@ -195,11 +195,15 @@ A simple and efficient mobile solution for managing user complaints with role-ba
 
 ### 🏠 Home & Navigation
 
-| Loading Screen | Home Screen | Menu Bar |
-|----------------|-------------|-----------|
-| <img src="https://github.com/user-attachments/assets/fc156e6e-cc26-43f3-990d-934eff6baf15" width="200"/> | <img src="https://github.com/user-attachments/assets/556a9021-0e0b-48f9-b86f-abc3557435d0" width="200"/> | <img src="https://github.com/user-attachments/assets/476a639b-3501-4656-8e80-124d70a29a33" width="200"/> |
+| Loading Screen                                                                                           | Home Screen                                                                                              | Menu Bar                                                                                                 |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/628d44fe-6955-4aa8-a6de-1a7bf9b70bdb" width="200"/> | <img src="https://github.com/user-attachments/assets/263e8dfd-f9fa-4fdd-8e07-1c383af7a136" width="200"/> | <img src="https://github.com/user-attachments/assets/5ce642c5-f116-4b9a-9d09-fb7ada427cff" width="200"/> |
 
----
+
+| About Screen                                                                                             | Policy Screen                                                                                            | Contact Screen                                                                                           |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/91c7cec5-243b-4dca-b36d-648ae6ba3248" width="200"/> | <img src="https://github.com/user-attachments/assets/a8e2e9fa-89e0-4729-bc29-a9cdabcb60cf" width="200"/> | <img src="https://github.com/user-attachments/assets/174049d9-0bfe-4bc5-b33a-a00d44785174" width="200"/> |
+
 
 ### 🔐 Account Access
 
@@ -312,46 +316,8 @@ Functional screens available for Head of Department operations.
 
 ---
 
-### 📊 Dashboard
-
-<p float="left">
-  <img src="https://github.com/user-attachments/assets/a58d5b3a-16df-44ac-ae71-b880006e564d" width="45%" />
-  <img src="https://github.com/user-attachments/assets/f1acdb5f-d153-46c5-8c77-23e21b0538ae" width="45%" />
-</p>
-
----
-
-### 📈 Smart Analysis
-
-<p float="left">
-  <img src="https://github.com/user-attachments/assets/1b2c7c41-317b-4318-932b-5f53d0d24749" width="24%" />
-  <img src="https://github.com/user-attachments/assets/3f1e3e6a-0a63-4089-b23c-53b6669c8eaa" width="24%" />
-  <img src="https://github.com/user-attachments/assets/a95d1ddb-456c-4f18-8308-e97ff2a8963d" width="24%" />
-  <img src="https://github.com/user-attachments/assets/a27f38a3-48b9-495e-b9f0-ec7ef214836e" width="24%" />
-</p>
-
----
-
-### 💰 Budget Goals
-
-<p float="left">
-  <img src="https://github.com/user-attachments/assets/a4773238-5a38-4467-9b7b-f1b3a90f3835" width="24%" />
-  <img src="https://github.com/user-attachments/assets/d720c015-6bb8-4370-aaf2-f27cc3c9abe0" width="24%" />
-  <img src="https://github.com/user-attachments/assets/262f8466-0157-48e5-8445-c5c5a8c7a831" width="24%" />
-  <img src="https://github.com/user-attachments/assets/96ef8c53-64da-4a38-9eb6-978463e8ed83" width="24%" />
-</p>
-
----
 
 
-
-### 🤖 Chat Bot
-
-<p float="left">
-  <img src="https://github.com/user-attachments/assets/41301f93-a652-46a5-badd-3df5cbc6876c" width="45%" />
-</p>
-
----
 
 
 
