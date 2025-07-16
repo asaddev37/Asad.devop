@@ -1,4 +1,4 @@
-# 📱 Smart Complaint Management System Scope
+![IMG-20250624-WA0020](https://github.com/user-attachments/assets/ce743ea6-ddb7-4add-ba5d-ece87e68eb56)# 📱 Smart Complaint Management System Scope
 
 ---
 
@@ -249,19 +249,19 @@ Overview of student-facing features such as complaints, profiles, and quick acce
 
 ### 🔍 Main Screens
 
-| Dashboard | Quick Actions | Menu Bar | Profile |
-|-----------|----------------|----------|---------|
-| <img src="https://github.com/user-attachments/assets/e2e1a6db-8521-43b6-b16a-d402cad6d8e9" width="150"/> | <img src="https://github.com/user-attachments/assets/aa4e00a9-4b67-4c46-aefb-cc88c30eb5d6" width="150"/> | <img src="https://github.com/user-attachments/assets/600504f6-8596-40f9-906a-5f0d17325b8b" width="150"/> | <img src="https://github.com/user-attachments/assets/0306fccd-4f7d-47dd-9a35-3e50876f8fd3" width="150"/> |
+| Dashboard                                                                                                | Quick Actions                                                                                            | Menu Bar                                                                                                 | Profile                                                                                                  |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/fd1e41e6-cb1e-4e18-8703-7e55f673cc4d" width="150"/> | <img src="https://github.com/user-attachments/assets/fe8922f8-6ec1-45dd-9277-13a0241f414e" width="150"/> | <img src="https://github.com/user-attachments/assets/ad94254c-d6f7-49d2-8ab5-583262092319" width="150"/> | <img src="https://github.com/user-attachments/assets/5fdfb108-4323-4d49-875d-e4fff7f2aa8a" width="150"/> |
 
----
+
 
 ### 📝 Complaints & Support
 
-| Sent Complaints | Complaint Status | Support & Help | — |
-|------------------|------------------|----------------|----|
-| <img src="https://github.com/user-attachments/assets/2518fc49-40ee-4715-af40-fb49524932b7" width="150"/> | <img src="https://github.com/user-attachments/assets/0dfd6006-2c80-4aad-90f3-6f9a80009ab5" width="150"/> | <img src="https://github.com/user-attachments/assets/b3860bc6-403f-4486-bfea-194b7034eb64" width="150"/> |  |
+| Sent Complaints                                                                                          | Complaint Status                                                                                         | Support & Help                                                                                           | — |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | - |
+| <img src="https://github.com/user-attachments/assets/5d7015e9-87cf-4272-89d3-32cb5b5e95d2" width="150"/> | <img src="https://github.com/user-attachments/assets/06bba2ba-8065-4902-97fe-eeb31540a60b" width="150"/> | <img src="https://github.com/user-attachments/assets/37b64dec-70fb-41d5-bb1a-7cb3aa32441d" width="150"/> |   |
 
----
+
 
 ## 🧑‍🏫 Batch Advisor Dashboard  
 ### 📲 Application Interface Screens
