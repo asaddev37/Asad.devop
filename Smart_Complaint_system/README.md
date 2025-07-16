@@ -221,27 +221,24 @@ Efficient admin panel to manage departments, students, batches, and complaints.
 
 ### 📌 Main Dashboard Views
 
-| Dashboard | System Overview | Quick Actions | Menu Bar | Profile |
-|-----------|------------------|----------------|----------|---------|
-| <img src="https://github.com/user-attachments/assets/04aa6d63-6356-4def-886e-88ba13571cb9" width="150"/> | <img src="https://github.com/user-attachments/assets/10f067c7-d99b-471e-96cd-ab4be38854de" width="150"/> | <img src="https://github.com/user-attachments/assets/24be5b3d-3abe-4beb-b94e-18e0262fce3f" width="150"/> | <img src="https://github.com/user-attachments/assets/4e9ab510-49ca-4caf-bb20-f8f5881e3ce9" width="150"/> | <img src="https://github.com/user-attachments/assets/34dcf328-f230-4cfc-b178-41ad86f076ab" width="150"/> |
+| Dashboard                                                                                                | System Overview                                                                                          | Quick Actions                                                                                            | Menu Bar                                                                                                 | Profile                                                                                                  |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/b3cdf6c3-48da-4f6f-ab1a-f831f389d3fb" width="150"/> | <img src="https://github.com/user-attachments/assets/284a8598-1cb8-4f35-a29e-a7422a0bc85e" width="150"/> | <img src="https://github.com/user-attachments/assets/d5e7b3ec-78db-497f-b70a-25c0b39bd7a2" width="150"/> | <img src="https://github.com/user-attachments/assets/28dfeaf0-54af-42b7-82bd-a417043993db" width="150"/> | <img src="https://github.com/user-attachments/assets/da9213d2-373f-432e-a51b-afa777acc7e6" width="150"/> |
 
----
 
 ### 🧑‍💼 Admin Management Modules
 
-| Departments | Batches | HODs | Advisors | Students |
-|-------------|---------|------|----------|----------|
-| <img src="https://github.com/user-attachments/assets/b1cf6912-3ba7-4bc1-899a-28cc1a4a02ad" width="150"/> | <img src="https://github.com/user-attachments/assets/66556aad-f964-447a-9cbd-06a8c01376cd" width="150"/> | <img src="https://github.com/user-attachments/assets/b4d0cf1b-11aa-4f6d-bfd0-a02bbea53268" width="150"/> | <img src="https://github.com/user-attachments/assets/c1e69b21-bc49-4960-91d9-11f75da17a2f" width="150"/> | <img src="https://github.com/user-attachments/assets/4bbc05af-9b71-40ee-9a7a-ff8e56764e01" width="150"/> |
+| Departments                                                                                              | Batches                                                                                                  | HODs                                                                                                     | Advisors                                                                                                 | Students                                                                                                 |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/a1937158-7e47-4918-aca9-7daee22224ec" width="150"/> | <img src="https://github.com/user-attachments/assets/d5c601fc-cde3-4f5d-9201-dd774846c21e" width="150"/> | <img src="https://github.com/user-attachments/assets/794d5a71-521a-4832-807b-ce61bdee998d" width="150"/> | <img src="https://github.com/user-attachments/assets/b8545942-4002-42d8-8afc-7c4812ea683d" width="150"/> | <img src="https://github.com/user-attachments/assets/a97c8d19-8d3f-4fc7-b648-c9b2a1dff2e3" width="150"/> |
 
----
 
 ### 🗂️ Batch & Complaint Overview
 
-| Batches Overview | Batches Detail | Complaints Detail |
-|------------------|----------------|---------------------|
-| <img src="https://github.com/user-attachments/assets/9ae7f485-2992-4b22-836b-329f73c57b54" width="150"/> | <img src="https://github.com/user-attachments/assets/9bd464e9-c6d6-46be-bf2c-9c87948ec043" width="150"/> | <img src="https://github.com/user-attachments/assets/2ceee480-e6c8-40f6-acbb-273ceaa959b3" width="150"/> |
+| Batches Overview                                                                                         | Batches Detail                                                                                           | Complaints Detail                                                                                        |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/38975537-4986-405f-98f1-19183708db5f" width="150"/> | <img src="https://github.com/user-attachments/assets/e9b4f4fa-012a-43f3-9721-27d718eb85bb" width="150"/> | <img src="https://github.com/user-attachments/assets/461f129e-4c5f-46df-8954-50fe7e61f379" width="150"/> |
 
----
 
 ## 🎓 Student Dashboard  
 ### 📱 App Interface Screenshots
