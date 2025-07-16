@@ -1,4 +1,4 @@
-![IMG-20250624-WA0020](https://github.com/user-attachments/assets/ce743ea6-ddb7-4add-ba5d-ece87e68eb56)# 📱 Smart Complaint Management System Scope
+📱 Smart Complaint Management System Scope
 
 ---
 
@@ -272,19 +272,18 @@ Overview of core functionalities available to batch advisors.
 
 ### 🧭 Main Navigation
 
-| Dashboard | Quick Actions | Menu Bar | Profile | View Students |
-|-----------|----------------|----------|---------|----------------|
-| <img src="https://github.com/user-attachments/assets/ba0be898-3efc-49ec-897c-b2574dead443" width="150"/> | <img src="https://github.com/user-attachments/assets/d9652ffd-abde-4c69-b928-0c45846d4dbe" width="150"/> | <img src="https://github.com/user-attachments/assets/258e5261-5986-4803-be11-70b4589cf0dc" width="150"/> | <img src="https://github.com/user-attachments/assets/76a8f814-2ae3-4443-84f4-587a462eade0" width="150"/> | <img src="https://github.com/user-attachments/assets/d59ee2c3-a75e-4184-bc66-3e827957a82a" width="150"/> |
+| Dashboard                                                                                                | Quick Actions                                                                                            | Menu Bar                                                                                                 | Profile                                                                                                  | View Students                                                                                            |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/0e9ee355-cf0b-4e45-ae59-e41532bd303b" width="150"/> | <img src="https://github.com/user-attachments/assets/d36cc016-6473-4f6b-826f-6db6168720fa" width="150"/> | <img src="https://github.com/user-attachments/assets/7845eb5e-f6ad-414f-9df7-dd0a1ad08404" width="150"/> | <img src="https://github.com/user-attachments/assets/21ed14ef-ce59-40c3-939d-6138ccdb0433" width="150"/> | <img src="https://github.com/user-attachments/assets/372b710a-946e-4fe5-878f-2ea07205a27f" width="150"/> |
 
----
+
 
 ### 📋 Complaints & Reports
 
-| View Complaints | Update Status | Reports | Help & Support | — |
-|------------------|----------------|---------|----------------|----|
-| <img src="https://github.com/user-attachments/assets/2bef9ee2-b3f9-4589-8d2f-f7f2013c6cfe" width="150"/> | <img src="https://github.com/user-attachments/assets/6e59606c-d4f9-4cd9-a9b6-d2f2d6b68385" width="150"/> | <img src="https://github.com/user-attachments/assets/cbe4a00e-42f1-4907-9d18-355e43a458d6" width="150"/> | <img src="https://github.com/user-attachments/assets/ab3da52d-d5f0-4746-815f-b090c3d619e0" width="150"/> |  |
+| View Complaints                                                                                          | Update Status                                                                                            | Reports                                                                                                  | Help & Support                                                                                           | — |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | - |
+| <img src="https://github.com/user-attachments/assets/3ff50f37-1232-4724-b119-48ab90592f93" width="150"/> | <img src="https://github.com/user-attachments/assets/4773f839-d819-49b2-a352-b116a766693a" width="150"/> | <img src="https://github.com/user-attachments/assets/e784b971-91af-4870-a03f-cd8ffa32bbf4" width="150"/> | <img src="https://github.com/user-attachments/assets/bdcb030e-adb0-4b49-880a-9ec6a3875b70" width="150"/> |   |
 
----
 
 ## 🧑‍💼 HOD Dashboard  
 ### 📲 Application Interface Screens
