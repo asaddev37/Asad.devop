@@ -1,4 +1,4 @@
-###📱 Smart Complaint Management System Scope
+### 📱 Smart Complaint Management System Scope
 
 ---
 
