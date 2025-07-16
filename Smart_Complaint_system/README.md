@@ -207,11 +207,10 @@ A simple and efficient mobile solution for managing user complaints with role-ba
 
 ### 🔐 Account Access
 
-| Login Screen | Signup Screen | Denied Signup |
-|--------------|----------------|----------------|
-| <img src="https://github.com/user-attachments/assets/5028d6e5-6ef3-4b1f-9b8a-0c61caa66672" width="200"/> | <img src="https://github.com/user-attachments/assets/e97daf29-6d2c-43ba-bd97-83a3ef4fc1dc" width="200"/> | <img src="https://github.com/user-attachments/assets/e5a505cd-7396-4cc8-a5a8-bea67a059c62" width="200"/> |
+| Login Screen                                                                                             | Signup Screen                                                                                            | Denied Signup                                                                                            |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/695d216b-8ac5-46aa-b1bc-a104785e8be0" width="200"/> | <img src="https://github.com/user-attachments/assets/4bb1e92e-2352-4883-9926-b27f37bb5b78" width="200"/> | <img src="https://github.com/user-attachments/assets/c3ba17f5-0a34-4f19-bf13-0057abfb3b47" width="200"/> |
 
----
 
 ## 🛠️ Admin Dashboard  
 ### 📊 Interface Screenshots
