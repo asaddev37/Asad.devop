@@ -306,6 +306,54 @@ Functional screens available for Head of Department operations.
 | <img src="https://github.com/user-attachments/assets/7a9ece31-32f4-47f7-9a28-fee7cf05751c" width="150"/> | <img src="https://github.com/user-attachments/assets/0dd17284-6c6e-426b-9c66-872dd157cf78" width="150"/> | <img src="https://github.com/user-attachments/assets/7d6bbfc7-4a32-4de3-8b6c-8377016f2f75" width="150"/> | <img src="https://github.com/user-attachments/assets/d958706d-0c4f-40aa-9d57-1e9af6f41bce" width="150"/> | <img src="https://github.com/user-attachments/assets/5d54f005-26fd-460b-b78b-1c46e2308efa" width="150"/> |
 
 
+---
+
+## 📧 Email Login Credentials
+
+### Screenshots:
+
+| Admin Email                                                                                     | Student Email                                                                                     | Batch Advisor Email                                                                                     | HOD Email                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| ![Admin Email](https://github.com/user-attachments/assets/5f0bd0e9-8589-4a29-8b27-79238d1bd388) | ![Student Email](https://github.com/user-attachments/assets/26db1488-be1a-4a48-ae9b-981b2f943843) | ![Batch Advisor Email](https://github.com/user-attachments/assets/2ee3cadd-dcf6-4b62-be39-2294eb0f2738) | ![HOD Email](https://github.com/user-attachments/assets/35ab9417-c125-460b-a244-dbeaa323a31e) |
+
+
+### 🧾 Supabase Tables
+
+| Profiles | Batches | Departments |
+|----------|---------|-------------|
+| <img src="https://github.com/user-attachments/assets/6b7c1132-7c99-4b30-8eb0-6da16ee48947" width="250"/> | <img src="https://github.com/user-attachments/assets/2ce8f0e3-1d15-46c5-9e43-4b6f46d07cbf" width="250"/> | <img src="https://github.com/user-attachments/assets/d3961209-c0b8-4fd4-a01a-8192a7a326ad" width="250"/> |
+
+| Complaints | Complaints Timeline | Authentication |
+|------------|----------------------|----------------|
+| <img src="https://github.com/user-attachments/assets/5ba7530a-86d5-4fc7-a104-a941e18a1bae" width="250"/> | <img src="https://github.com/user-attachments/assets/cd87e4d6-508f-472a-bb8b-74b39aecc850" width="250"/> | <img src="https://github.com/user-attachments/assets/886fd535-fbfd-4ce2-84db-8de87a08653d" width="250"/> |
+
+
+---
+
+
+## 🎥 Supported Demo Video
+
+You can watch a demo of the system in action via the link below:
+
+🔗 [Click here to view the video](https://drive.google.com/file/d/10dmUWM8dqSloW1vUBRlrKuNzs0nW95Rl/view?usp=sharing)
+
+> 📁 *Hosted on Google Drive – ensure you're logged into your Google account to view.*
+
+
+---
+
+
+## 📦 Download APK File
+
+You can download the latest version of the APK from the link below:
+
+🔗 [Download APK](https://drive.google.com/file/d/1BOcJWt5Ofu2pcsiYrmFmGIrsLc3QmuN9/view?usp=sharing)
+
+> 📁 *Hosted on Google Drive – make sure you're signed in to access the file.*
+
+
+
+---
 
 
 
