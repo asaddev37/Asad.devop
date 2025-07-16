@@ -1,4 +1,4 @@
-📱 Smart Complaint Management System Scope
+###📱 Smart Complaint Management System Scope
 
 ---
 
@@ -294,22 +294,16 @@ Functional screens available for Head of Department operations.
 
 ### 🧭 Main Controls
 
-| Dashboard | Quick Actions | Menu Bar | Profile | View Batch Advisors |
-|-----------|----------------|----------|---------|----------------------|
-| <img src="https://github.com/user-attachments/assets/f22e16db-2fe0-40bd-928d-702cbb8f1afc" width="150"/> | <img src="https://github.com/user-attachments/assets/836da22c-23d3-4832-89aa-b2407da43ed3" width="150"/> | <img src="https://github.com/user-attachments/assets/320e270a-97f7-449e-b33a-2484c754adb1" width="150"/> | <img src="https://github.com/user-attachments/assets/05003790-f6eb-491c-9a6f-c55ab69a5fbc" width="150"/> | <img src="https://github.com/user-attachments/assets/3d657f69-f34d-418c-9a77-a198e19f14f1" width="150"/> |
+| Dashboard                                                                                                | Quick Actions                                                                                            | Menu Bar                                                                                                 | Profile                                                                                                  | View Batch Advisors                                                                                      |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/08a60ed5-fb7f-45c4-b979-12795854423d" width="150"/> | <img src="https://github.com/user-attachments/assets/825ce56b-0df8-4f99-8f36-d86ad51b0784" width="150"/> | <img src="https://github.com/user-attachments/assets/b4c26384-e4f2-4a90-a792-49abaa8f4185" width="150"/> | <img src="https://github.com/user-attachments/assets/895b3cdf-27e2-454e-8bdb-9d724d43342f" width="150"/> | <img src="https://github.com/user-attachments/assets/12e7df19-2027-4a4b-b2c7-fd4e8fa01cba" width="150"/> |
 
----
 
 ### 📋 Complaint & System Management
 
-| Esclated Complaints | Update Status | Reports | Help & Support | Settings |
-|---------------------|----------------|---------|----------------|----------|
-| <img src="https://github.com/user-attachments/assets/62bcfaa0-f9bd-480d-b66b-d95e75ea4408" width="150"/> | <img src="https://github.com/user-attachments/assets/c55b6855-2a04-4dd5-9877-54534f345809" width="150"/> | <img src="https://github.com/user-attachments/assets/eadb6e13-998c-42d2-a654-b6c1cee74966" width="150"/> | <img src="https://github.com/user-attachments/assets/178ba80a-c86d-41b6-bae5-652484d96965" width="150"/> | <img src="https://github.com/user-attachments/assets/c42e46a7-503d-4dad-8b50-326551e9f571" width="150"/> |
-
-
-
-
----
+| Esclated Complaints                                                                                      | Update Status                                                                                            | Reports                                                                                                  | Help & Support                                                                                           | Settings                                                                                                 |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/7a9ece31-32f4-47f7-9a28-fee7cf05751c" width="150"/> | <img src="https://github.com/user-attachments/assets/0dd17284-6c6e-426b-9c66-872dd157cf78" width="150"/> | <img src="https://github.com/user-attachments/assets/7d6bbfc7-4a32-4de3-8b6c-8377016f2f75" width="150"/> | <img src="https://github.com/user-attachments/assets/d958706d-0c4f-40aa-9d57-1e9af6f41bce" width="150"/> | <img src="https://github.com/user-attachments/assets/5d54f005-26fd-460b-b78b-1c46e2308efa" width="150"/> |
 
 
 
