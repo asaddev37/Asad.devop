@@ -209,6 +209,50 @@ InventoryManagementSystem/
 
 ---
 
+## 📊 Manager Dashboard
+
+### 📦 View & Manage Inventory
+
+<img src="https://github.com/user-attachments/assets/f26a19c9-89ee-47d2-871e-a7f946246c03" width="800"/>
+
+---
+
+### 📁 View Transaction History
+
+<img src="https://github.com/user-attachments/assets/db701e74-e8e2-48a3-b2d2-29dbaf43bbd5" width="800"/>
+
+---
+
+### 📑 Generate Reports
+
+<img src="https://github.com/user-attachments/assets/d82a363a-b323-4d3d-9d0c-b5b89dcca2cb" width="800"/>
+
+---
+
+### 🏭 View Supplier Information
+
+<img src="https://github.com/user-attachments/assets/0e51d88f-be5f-4726-92c3-b64862ddd002" width="800"/>
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
