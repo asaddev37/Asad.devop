@@ -163,4 +163,57 @@ InventoryManagementSystem/
 
 ---
 
+## 📸 Screenshots
+
+### 🔐 Login Screen
+
+<img src="https://github.com/user-attachments/assets/94436b26-b8ab-4f46-80c8-a9cc5f91d42a" width="800"/>
+
+---
+
+### 📝 Signup Screen
+
+<img src="https://github.com/user-attachments/assets/f0936660-fd27-423b-9744-057dd433a530" width="800"/>
+
+---
+
+## 🧑‍💼 Admin Dashboard
+
+### 👥 User Management
+
+<img src="https://github.com/user-attachments/assets/d017110f-e419-4b74-ad32-b0553c4d463d" width="800"/>
+
+---
+
+### 📦 Inventory Management
+
+<img src="https://github.com/user-attachments/assets/e45b63b3-e0b1-4825-b492-2f876770070f" width="800"/>
+
+---
+
+### 🚚 Supplier Management
+
+<img src="https://github.com/user-attachments/assets/542a58f0-c517-4872-88d8-fcd45f26ea69" width="800"/>
+
+---
+
+### 📜 View Audit Logs
+
+<img src="https://github.com/user-attachments/assets/2adfc52f-5e8d-4e53-a835-e413701e4d5a" width="800"/>
+
+---
+
+### ⚙️ System Settings
+
+<img src="https://github.com/user-attachments/assets/0f24687e-7e89-469b-a6f5-fb7088e8459b" width="800"/>
+
+---
+
+
+
+
+
+
+
+
 
