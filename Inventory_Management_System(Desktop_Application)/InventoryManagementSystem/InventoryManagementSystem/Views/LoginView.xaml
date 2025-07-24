@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="InventoryManagementSystem.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="AnimatedGradientBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#00fff0" Offset="0" x:Name="Stop1"/>
+            <GradientStop Color="#ff61a6" Offset="0.5" x:Name="Stop2"/>
+            <GradientStop Color="#00fff0" Offset="1" x:Name="Stop3"/>
+            <LinearGradientBrush.RelativeTransform>
+                <TranslateTransform x:Name="GradientShift" X="0" Y="0"/>
+            </LinearGradientBrush.RelativeTransform>
+        </LinearGradientBrush>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource WindowBackgroundBrush}">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <!-- 🔄 Animated Outline Diamond -->
+            <Canvas Width="440" Height="440">
+                <Polygon Points="220,10 430,220 220,430 10,220"
+             StrokeThickness="3"
+             StrokeDashArray="4,2"
+             RenderTransformOrigin="0.5,0.5">
+                    <Polygon.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#00fff0" Offset="0" x:Name="GS1"/>
+                            <GradientStop Color="#ff61a6" Offset="0.5" x:Name="GS2"/>
+                            <GradientStop Color="#00fff0" Offset="1" x:Name="GS3"/>
+                        </LinearGradientBrush>
+                    </Polygon.Stroke>
+                    <Polygon.RenderTransform>
+                        <RotateTransform x:Name="OutlineRotate" Angle="0"/>
+                    </Polygon.RenderTransform>
+                </Polygon>
+            </Canvas>
+
+
+
+            <!-- 💠 Main Panel -->
+            <Border Style="{StaticResource FloatingPanelStyle}" Width="400">
+                <StackPanel>
+
+                    <TextBlock Text="🧬 Identity Access"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="#00FFF0"
+                               FontFamily="Orbitron"
+                               TextAlignment="Center"
+                               Margin="0,0,0,20"/>
+
+                    <!-- Username -->
+                    <Label Content="Username:" Style="{StaticResource ModernLabel}"/>
+                    <TextBox Style="{StaticResource ModernTextBox}" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <!-- Password -->
+                    <Label Content="Password:" Style="{StaticResource ModernLabel}"/>
+                    <PasswordBox x:Name="passwordBox" Style="{StaticResource ModernPasswordBox}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PasswordChanged">
+                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
+                                                       CommandParameter="{Binding ElementName=passwordBox}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </PasswordBox>
+
+                    <!-- Role -->
+                    <Label Content="Role:" Style="{StaticResource ModernLabel}"/>
+                    <ComboBox SelectedItem="{Binding Role, Converter={StaticResource ComboBoxItemToStringConverter}}"
+                              Style="{StaticResource ModernComboBox}">
+                        <ComboBoxItem Content="Admin"/>
+                        <ComboBoxItem Content="Manager"/>
+                        <ComboBoxItem Content="Staff"/>
+                    </ComboBox>
+
+                    <!-- Error -->
+                    <TextBlock Text="{Binding ErrorMessage}"
+                               Foreground="Yellow"
+                               Margin="0,10,0,0"
+                               FontWeight="Bold"
+                               TextAlignment="Center"/>
+
+                    <!-- Login -->
+                    <Button Content="Enter" Style="{StaticResource ModernButton}" Command="{Binding LoginCommand}" Margin="0,20,0,10"/>
+
+                    <!-- Sign up -->
+                    <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0">
+                        <Hyperlink Command="{Binding NavigateToSignupCommand}">
+                            <TextBlock Text="Don't have an account? Sign Up" Foreground="#00FFF0"/>
+                        </Hyperlink>
+                    </TextBlock>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- 🎬 Animation -->
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded">
+                <BeginStoryboard>
+                    <Storyboard RepeatBehavior="Forever">
+
+                        <!-- Rotate the diamond -->
+                        <DoubleAnimation Storyboard.TargetName="OutlineRotate"
+                             Storyboard.TargetProperty="Angle"
+                             From="0" To="360"
+                             Duration="0:0:10" />
+
+                        <!-- Animate gradient stops to shift colors -->
+                        <DoubleAnimation Storyboard.TargetName="GS1"
+                             Storyboard.TargetProperty="Offset"
+                             From="0" To="1"
+                             Duration="0:0:6" AutoReverse="True"/>
+                        <DoubleAnimation Storyboard.TargetName="GS2"
+                             Storyboard.TargetProperty="Offset"
+                             From="0.5" To="1.5"
+                             Duration="0:0:6" AutoReverse="True"/>
+                        <DoubleAnimation Storyboard.TargetName="GS3"
+                             Storyboard.TargetProperty="Offset"
+                             From="1" To="2"
+                             Duration="0:0:6" AutoReverse="True"/>
+
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+
+        </Grid.Triggers>
+    </Grid>
+</UserControl>

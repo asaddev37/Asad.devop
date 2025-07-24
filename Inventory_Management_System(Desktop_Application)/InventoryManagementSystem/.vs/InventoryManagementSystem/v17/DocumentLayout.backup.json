@@ -1,0 +1,1022 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\auditlogview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\auditlogview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\auditlogview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\auditlogview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\auditlogviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\auditlogviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\services\\auditlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\services\\auditlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\resources\\styles\\theme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\resources\\styles\\theme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\managerdashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\managerdashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\adminviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\managerinventoryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\managerinventoryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\reportsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\reportsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\staffdashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\staffdashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\managerdashboardview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\managerdashboardview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\staffdashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\staffdashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\adduserview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\adduserview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\manageritemformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\manageritemformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\manageritemformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\manageritemformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\itemformview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\itemformview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\itemformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\itemformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\supplierformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\supplierformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\supplierform.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\supplierform.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\itemformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\itemformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\admindashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\admindashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\managerinventoryview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\managerinventoryview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\supportrequestview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\supportrequestview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\transactionhistoryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\transactionhistoryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\transactionformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\transactionformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\staffinventoryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\staffinventoryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\managerdashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\managerdashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\settingsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\settingsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\suppliermanagementview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\suppliermanagementview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\usermanagementview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\usermanagementview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\usermanagementviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\usermanagementviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\usermanagementview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\usermanagementview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\inventoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\inventoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\inventorymanagementview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\inventorymanagementview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\adduserviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\adduserviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\adduserview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\adduserview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\inventorymanagementview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\inventorymanagementview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\resources\\styles\\buttonstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\resources\\styles\\buttonstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\resources\\styles\\datagridstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\resources\\styles\\datagridstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\admindashboardview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\admindashboardview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\signupview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\signupview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\signupview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\signupview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\supportrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\supportrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\services\\supportrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\services\\supportrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\supportrequestview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\supportrequestview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\models\\supportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\models\\supportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\staffviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\staffviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\staffinventoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\staffinventoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\staffinventoryview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\staffinventoryview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\managerinventoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\managerinventoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\transactionformview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\transactionformview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\transactionformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\transactionformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\utils\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\utils\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\transactionhistoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\transactionhistoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\app.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\app.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\supplierform.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\supplierform.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\views\\staffdashboard.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\views\\staffdashboard.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|d:\\my files\\github\\asad.devop\\inventory_management_system(desktop_application)\\inventorymanagementsystem\\inventorymanagementsystem\\inventorymanagementsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0DB7C1E8-1B21-4604-88DB-08BC01D1E67A}|InventoryManagementSystem\\InventoryManagementSystem.csproj|solutionrelative:inventorymanagementsystem\\inventorymanagementsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuditLogView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AuditLogView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\AuditLogView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AuditLogView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\AuditLogView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T15:23:04.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuditLogViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\AuditLogViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\AuditLogViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\AuditLogViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\AuditLogViewModel.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAQwJIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T15:21:25.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\LoginView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\LoginView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\LoginView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\LoginView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T03:52:31.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Theme.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Resources\\Styles\\Theme.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Resources\\Styles\\Theme.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Resources\\Styles\\Theme.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Resources\\Styles\\Theme.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T03:58:01.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuditLogService.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Services\\AuditLogService.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Services\\AuditLogService.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Services\\AuditLogService.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Services\\AuditLogService.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwEsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T17:45:13.022Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuditLogView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AuditLogView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\AuditLogView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AuditLogView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\AuditLogView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T11:34:19.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\App.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\App.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\App.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-02T15:11:22.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ManagerDashboardView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ManagerDashboardView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\ManagerDashboardView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ManagerDashboardView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\ManagerDashboardView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T13:34:57.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AdminViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\AdminViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\AdminViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\AdminViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\AdminViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T10:42:46.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ManagerInventoryView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ManagerInventoryView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\ManagerInventoryView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ManagerInventoryView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\ManagerInventoryView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-02T17:03:19.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ReportsView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ReportsView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\ReportsView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ReportsView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\ReportsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-02T17:51:50.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "StaffDashboard.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\StaffDashboard.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\StaffDashboard.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\StaffDashboard.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\StaffDashboard.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T17:22:58.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "StaffDashboard.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\StaffDashboard.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\StaffDashboard.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\StaffDashboard.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\StaffDashboard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T13:49:24.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ManagerDashboardView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ManagerDashboardView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\ManagerDashboardView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ManagerDashboardView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\ManagerDashboardView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T13:35:32.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AddUserView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AddUserView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\AddUserView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AddUserView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\AddUserView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T11:13:54.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SupplierForm.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SupplierForm.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\SupplierForm.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SupplierForm.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\SupplierForm.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T17:31:15.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ItemFormView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ItemFormView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\ItemFormView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ItemFormView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\ItemFormView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T16:45:58.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ManagerItemFormView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ManagerItemFormView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\ManagerItemFormView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ManagerItemFormView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\ManagerItemFormView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T17:37:51.12Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ManagerItemFormViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\ManagerItemFormViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\ManagerItemFormViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\ManagerItemFormViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\ManagerItemFormViewModel.cs",
+              "ViewState": "AgIAAIYAAAAAAAAAAADwv54AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T17:38:53.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ItemFormViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\ItemFormViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\ItemFormViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\ItemFormViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\ItemFormViewModel.cs",
+              "ViewState": "AgIAAJgAAAAAAAAAAADwv50AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T11:24:01.821Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SupplierFormViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\SupplierFormViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\SupplierFormViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\SupplierFormViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\SupplierFormViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T10:54:59.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AdminDashboardView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AdminDashboardView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\AdminDashboardView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AdminDashboardView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\AdminDashboardView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T08:22:41.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ItemFormView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ItemFormView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\ItemFormView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ItemFormView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\ItemFormView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T11:24:25.228Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ManagerInventoryView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ManagerInventoryView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\ManagerInventoryView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\ManagerInventoryView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\ManagerInventoryView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T17:03:59.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "SupportRequestView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SupportRequestView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\SupportRequestView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SupportRequestView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\SupportRequestView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-02T15:07:18.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "TransactionHistoryView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\TransactionHistoryView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\TransactionHistoryView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\TransactionHistoryView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\TransactionHistoryView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T13:57:02.184Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "TransactionFormView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\TransactionFormView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\TransactionFormView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\TransactionFormView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\TransactionFormView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-02T15:25:08.699Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "StaffInventoryView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\StaffInventoryView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\StaffInventoryView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\StaffInventoryView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\StaffInventoryView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-02T17:06:36.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ManagerDashboardViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\ManagerDashboardViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\ManagerDashboardViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\ManagerDashboardViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\ManagerDashboardViewModel.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAowDgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T10:37:16.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "SettingsView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SettingsView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\SettingsView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SettingsView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\SettingsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T13:10:08.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "SupplierManagementView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SupplierManagementView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\SupplierManagementView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SupplierManagementView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\SupplierManagementView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T13:08:18.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "UserManagementViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\UserManagementViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\UserManagementViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\UserManagementViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\UserManagementViewModel.cs",
+              "ViewState": "AgIAAM4AAAAAAAAAAAAIwNgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T11:24:20.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "UserManagementView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\UserManagementView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\UserManagementView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\UserManagementView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\UserManagementView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T13:02:05.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "UserManagementView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\UserManagementView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\UserManagementView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\UserManagementView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\UserManagementView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T13:01:00.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "InventoryViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\InventoryViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\InventoryViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\InventoryViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\InventoryViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T10:54:23.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "InventoryManagementView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\InventoryManagementView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\InventoryManagementView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\InventoryManagementView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\InventoryManagementView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T08:25:45.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "AddUserView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AddUserView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\AddUserView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AddUserView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\AddUserView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T11:16:50.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "AddUserViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\AddUserViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\AddUserViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\AddUserViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\AddUserViewModel.cs",
+              "ViewState": "AgIAAAkBAAAAAAAAAAAwwBUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T10:41:37.045Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "InventoryManagementView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\InventoryManagementView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\InventoryManagementView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\InventoryManagementView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\InventoryManagementView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T08:26:21.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ButtonStyles.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Resources\\Styles\\ButtonStyles.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Resources\\Styles\\ButtonStyles.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Resources\\Styles\\ButtonStyles.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Resources\\Styles\\ButtonStyles.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T11:00:28.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "DataGridStyles.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Resources\\Styles\\DataGridStyles.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Resources\\Styles\\DataGridStyles.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Resources\\Styles\\DataGridStyles.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Resources\\Styles\\DataGridStyles.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T11:00:58.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "AdminDashboardView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AdminDashboardView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\AdminDashboardView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\AdminDashboardView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\AdminDashboardView.xaml.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAIwC4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T08:25:15.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "SignupView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SignupView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\SignupView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SignupView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\SignupView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T08:19:08.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "SignupView.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SignupView.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\SignupView.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SignupView.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\SignupView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-03T08:18:40.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "LoginView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\LoginView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\LoginView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\LoginView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\LoginView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T04:03:50.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "SupportRequestService.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Services\\SupportRequestService.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Services\\SupportRequestService.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Services\\SupportRequestService.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Services\\SupportRequestService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:05:01.401Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "SupportRequestViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\SupportRequestViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\SupportRequestViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\SupportRequestViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\SupportRequestViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:06:34.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "SupportRequestView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SupportRequestView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\SupportRequestView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SupportRequestView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\SupportRequestView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:34:14.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "SupportRequest.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Models\\SupportRequest.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Models\\SupportRequest.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Models\\SupportRequest.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Models\\SupportRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:05:42.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "StaffViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\StaffViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\StaffViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\StaffViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\StaffViewModel.cs",
+              "ViewState": "AgIAACsAAABAMTMzMzMtwDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T11:21:31.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "StaffInventoryViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\StaffInventoryViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\StaffInventoryViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\StaffInventoryViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\StaffInventoryViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T17:07:44.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "StaffInventoryView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\StaffInventoryView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\StaffInventoryView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\StaffInventoryView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\StaffInventoryView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T17:07:10.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "InventoryService.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Services\\InventoryService.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Services\\InventoryService.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Services\\InventoryService.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Services\\InventoryService.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAQwJQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T17:19:42.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "ManagerInventoryViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\ManagerInventoryViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\ManagerInventoryViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\ManagerInventoryViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\ManagerInventoryViewModel.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAxwGoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T17:04:13.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "TransactionFormView.xaml.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\TransactionFormView.xaml.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\TransactionFormView.xaml.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\TransactionFormView.xaml.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\TransactionFormView.xaml.cs",
+              "ViewState": "AgIAABMAAACAm5mZmZkJwCgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:25:47.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "TransactionService.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Services\\TransactionService.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Services\\TransactionService.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Services\\TransactionService.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Services\\TransactionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:39:44.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "TransactionFormViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\TransactionFormViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\TransactionFormViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\TransactionFormViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\TransactionFormViewModel.cs",
+              "ViewState": "AgIAAKMAAAAAzczMzMwiwLwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:26:17.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "NavigationService.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Utils\\NavigationService.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Utils\\NavigationService.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Utils\\NavigationService.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\Utils\\NavigationService.cs",
+              "ViewState": "AgIAACUAAAAAlpmZmZkJwCoAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:46:36.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "TransactionHistoryViewModel.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\TransactionHistoryViewModel.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\TransactionHistoryViewModel.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\TransactionHistoryViewModel.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\TransactionHistoryViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:41:33.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\ViewModels\\ViewModelBase.cs",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\ViewModels\\ViewModelBase.cs",
+              "RelativeToolTip": "InventoryManagementSystem\\ViewModels\\ViewModelBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:01:43.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\App.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\App.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\App.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-02T11:21:04.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "SupplierForm.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SupplierForm.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\SupplierForm.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\SupplierForm.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\SupplierForm.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswHwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-02T10:54:14.325Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "StaffDashboard.xaml",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\StaffDashboard.xaml",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\Views\\StaffDashboard.xaml",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\Views\\StaffDashboard.xaml",
+              "RelativeToolTip": "InventoryManagementSystem\\Views\\StaffDashboard.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-02T10:54:07.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "InventoryManagementSystem.csproj",
+              "DocumentMoniker": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\InventoryManagementSystem.csproj",
+              "RelativeDocumentMoniker": "InventoryManagementSystem\\InventoryManagementSystem.csproj",
+              "ToolTip": "D:\\My files\\GitHub\\Asad.devop\\Inventory_Management_System(Desktop_Application)\\InventoryManagementSystem\\InventoryManagementSystem\\InventoryManagementSystem.csproj",
+              "RelativeToolTip": "InventoryManagementSystem\\InventoryManagementSystem.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-02T10:36:39.401Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

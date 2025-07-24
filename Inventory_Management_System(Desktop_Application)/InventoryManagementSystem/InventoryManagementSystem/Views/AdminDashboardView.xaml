@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="InventoryManagementSystem.Views.AdminDashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:InventoryManagementSystem.ViewModels"
+             xmlns:v="clr-namespace:InventoryManagementSystem.Views"
+             mc:Ignorable="d"
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="650" d:DesignWidth="1200">
+    <UserControl.Resources>
+        <!-- Data Templates for ViewModels -->
+        <DataTemplate DataType="{x:Type vm:UserManagementViewModel}">
+            <v:UserManagementView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:InventoryViewModel}">
+            <v:InventoryManagementView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SupplierViewModel}">
+            <v:SupplierManagementView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AuditLogViewModel}">
+            <v:AuditLogView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+            <v:SettingsView DataContext="{Binding}"/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource WindowBackgroundBrush}">
+        <Grid Margin="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Admin Dashboard Sidebar -->
+            <Border Grid.Column="0" Style="{StaticResource FloatingPanelStyle}" Width="280" Height="580">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="🧬 Admin Dashboard"
+                               FontSize="21"
+                               FontWeight="Bold"
+                               Foreground="#00FFF0"
+                               FontFamily="Orbitron"
+                               TextAlignment="Center"
+                               Margin="0,20,0,60"/>
+                    <Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+                        <Button Content="Manage Users"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding ShowUserManagementCommand}"
+                                Margin="5"/>
+                    </Border>
+                    <Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+                        <Button Content="Manage Inventory"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding ShowInventoryManagementCommand}"
+                                Margin="5"/>
+                    </Border>
+                    <Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+                        <Button Content="Manage Suppliers"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding ShowSupplierManagementCommand}"
+                                Margin="5"/>
+                    </Border>
+                    <Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+                        <Button Content="View Audit Logs"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding ShowAuditLogsCommand}"
+                                Margin="5"/>
+                    </Border>
+                    <Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+                        <Button Content="System Settings"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding ShowSettingsCommand}"
+                                Margin="5"/>
+                    </Border>
+                    <Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+                        <Button Content="Logout"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding LogoutCommand}"
+                                Margin="5"/>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <!-- Main Content -->
+            <Border Grid.Column="1" Style="{StaticResource FloatingPanelStyle}" Margin="30,0,0,0" Padding="20">
+                <ContentControl Content="{Binding CurrentView, FallbackValue={x:Null}}"/>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

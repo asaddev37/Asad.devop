@@ -1,0 +1,84 @@
+﻿<Application x:Class="InventoryManagementSystem.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:utils="clr-namespace:InventoryManagementSystem.Utils"
+             xmlns:vm="clr-namespace:InventoryManagementSystem.ViewModels"
+             xmlns:views="clr-namespace:InventoryManagementSystem.Views"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Merge external resource dictionaries -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Define converters -->
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <utils:ComboBoxItemToStringConverter x:Key="ComboBoxItemToStringConverter"/>
+            <utils:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+
+            <!-- Data Templates for ViewModel to View mapping -->
+            <DataTemplate DataType="{x:Type vm:LoginViewModel}">
+                <views:LoginView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:SignupViewModel}">
+                <views:SignupView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AdminViewModel}">
+                <views:AdminDashboardView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ManagerDashboardViewModel}">
+                <views:ManagerDashboardView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:StaffViewModel}">
+                <views:StaffDashboard/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:UserManagementViewModel}">
+                <views:UserManagementView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AddUserViewModel}">
+                <views:AddUserView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ManagerInventoryViewModel}">
+                <views:ManagerInventoryView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ManagerItemFormViewModel}">
+                <views:ManagerItemFormView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:InventoryViewModel}">
+                <views:InventoryManagementView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ItemFormViewModel}">
+                <views:ItemFormView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:SupplierViewModel}">
+                <views:SupplierManagementView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:SupplierFormViewModel}">
+                <views:SupplierFormView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AuditLogViewModel}">
+                <views:AuditLogView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+                <views:SettingsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:TransactionHistoryViewModel}">
+                <views:TransactionHistoryView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ReportsViewModel}">
+                <views:ReportsView/>
+            </DataTemplate>
+			<DataTemplate DataType="{x:Type vm:TransactionFormViewModel}">
+                <views:TransactionFormView/>
+            </DataTemplate> 
+			<DataTemplate DataType="{x:Type vm:SupportRequestViewModel}">
+                <views:SupportRequestView/>
+            </DataTemplate>  
+			<DataTemplate DataType="{x:Type vm:StaffInventoryViewModel}">
+                <views:StaffInventoryView/>
+            </DataTemplate>  
+			
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

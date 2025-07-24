@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="InventoryManagementSystem.Views.InventoryManagementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="580" d:DesignWidth="820">
+    <Grid Background="{StaticResource WindowBackgroundBrush}">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header with Title -->
+            <Border Grid.Row="0" Style="{StaticResource FloatingPanelStyle}" Height="100" Margin="0,0,0,20">
+                <TextBlock Text="🧬 Inventory Management"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#00FFF0"
+                           FontFamily="Orbitron"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+            </Border>
+
+            <!-- DataGrid (Full Width, No Horizontal Scroll) -->
+            <DataGrid Grid.Row="1"
+                      ItemsSource="{Binding Items, FallbackValue={x:Null}}"
+                      SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue={x:Null}}"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      Margin="0,0,0,20"
+                      Background="#33000000"
+                      Foreground="#00FFF0"
+                      BorderBrush="#00FFF0"
+                      BorderThickness="1"
+                      GridLinesVisibility="None">
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#66000000"/>
+                        <Setter Property="Foreground" Value="#00FFF0"/>
+                        <Setter Property="FontFamily" Value="Orbitron"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="Padding" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#00FFF0"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    </Style>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Foreground" Value="#00FFF0"/>
+                        <Setter Property="FontFamily" Value="Orbitron"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Padding" Value="10"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow" BasedOn="{StaticResource {x:Type DataGridRow}}">
+                        <Setter Property="Background" Value="#66000000"/>
+                        <Style.Triggers>
+                            <!-- Hover Effect -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#66CCFF"/>
+                                <Setter Property="Foreground" Value="#000000"/>
+                            </Trigger>
+                            <!-- Selected Row Color -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Black"/>
+                                <Setter Property="Foreground" Value="#000000"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Item ID" Binding="{Binding ItemID}" IsReadOnly="True" Width="0.1*"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding ItemName}" Width="0.2*"/>
+                    <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="0.15*"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="0.1*"/>
+                    <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice, StringFormat=C}" Width="0.15*"/>
+                    <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierID}" Width="0.15*"/>
+                    <DataGridTextColumn Header="Last Updated" Binding="{Binding LastUpdated, StringFormat=yyyy-MM-dd}" Width="0.15*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Buttons -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+                <Button Content="Add Item" Style="{StaticResource ModernButton}" Command="{Binding AddItemCommand}" Margin="5"/>
+                <Button Content="Edit Item" Style="{StaticResource ModernButton}" Command="{Binding EditItemCommand}" IsEnabled="{Binding SelectedItem, Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=Inverse}" Margin="5"/>
+                <Button Content="Delete Item" Style="{StaticResource ModernButton}" Command="{Binding DeleteItemCommand}" IsEnabled="{Binding SelectedItem, Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=Inverse}" Margin="5"/>
+                <Button Content="View Low Stock" Style="{StaticResource ModernButton}" Command="{Binding ViewLowStockCommand}" Margin="5"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

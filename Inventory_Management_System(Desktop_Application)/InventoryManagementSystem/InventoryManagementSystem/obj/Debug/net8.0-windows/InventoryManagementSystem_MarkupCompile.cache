@@ -1,0 +1,20 @@
+﻿InventoryManagementSystem
+
+
+winexe
+C#
+.cs
+D:\My files\documents\6th semester codes\visual_studio_codes\final_project\InventoryManagementSystem\InventoryManagementSystem\obj\Debug\net8.0-windows\
+InventoryManagementSystem
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+D:\My files\documents\6th semester codes\visual_studio_codes\final_project\InventoryManagementSystem\InventoryManagementSystem\App.xaml
+24-1956505841
+
+67828982073
+2221370945110
+MainWindow.xaml;Resources\Styles\ButtonStyles.xaml;Resources\Styles\DataGridStyles.xaml;Resources\Styles\Theme.xaml;Views\AddUserView.xaml;Views\AdminDashboardView.xaml;Views\AuditLogView.xaml;Views\InventoryManagementView.xaml;Views\ItemFormView.xaml;Views\LoginView.xaml;Views\ManagerDashboardView.xaml;Views\ManagerInventoryView.xaml;Views\ManagerItemFormView.xaml;Views\ReportsView.xaml;Views\SettingsView.xaml;Views\SignupView.xaml;Views\StaffDashboard.xaml;Views\StaffInventoryView.xaml;Views\SupplierForm.xaml;Views\SupplierManagementView.xaml;Views\SupportRequestView.xaml;Views\TransactionFormView.xaml;Views\TransactionHistoryView.xaml;Views\UserManagementView.xaml;
+
+False
+

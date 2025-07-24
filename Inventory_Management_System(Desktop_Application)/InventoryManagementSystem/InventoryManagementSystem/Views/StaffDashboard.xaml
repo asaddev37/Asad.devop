@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="InventoryManagementSystem.Views.StaffDashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:InventoryManagementSystem.ViewModels"
+             xmlns:v="clr-namespace:InventoryManagementSystem.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="650" d:DesignWidth="1200">
+	<UserControl.Resources>
+		<!-- Data Templates for ViewModels -->
+		<DataTemplate DataType="{x:Type vm:StaffInventoryViewModel}">
+			<v:StaffInventoryView DataContext="{Binding}"/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type vm:TransactionFormViewModel}">
+			<v:TransactionFormView DataContext="{Binding}"/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type vm:TransactionHistoryViewModel}">
+			<v:TransactionHistoryView DataContext="{Binding}"/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type vm:SupportRequestViewModel}">
+			<v:SupportRequestView DataContext="{Binding}"/>
+		</DataTemplate>
+	</UserControl.Resources>
+
+	<Grid Background="{StaticResource WindowBackgroundBrush}">
+		<Grid Margin="30">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="300"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<!-- Staff Dashboard Sidebar -->
+			<Border Grid.Column="0" Style="{StaticResource FloatingPanelStyle}" Width="280" Height="580">
+				<StackPanel VerticalAlignment="Center">
+					<TextBlock Text="🧬 Staff Dashboard"
+                               FontSize="21"
+                               FontWeight="Bold"
+                               Foreground="#00FFF0"
+                               FontFamily="Orbitron"
+                               TextAlignment="Center"
+                               Margin="0,20,0,60"/>
+					<Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+						<Button Content="View Inventory"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding ShowInventoryCommand}"
+                                Margin="5"/>
+					</Border>
+					<Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+						<Button Content="Record Transactions"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding ShowTransactionFormCommand}"
+                                Margin="5"/>
+					</Border>
+					<Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+						<Button Content="View Transaction History"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding ShowTransactionHistoryCommand}"
+                                Margin="5"/>
+					</Border>
+					<Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+						<Button Content="Request Support"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding ShowSupportRequestCommand}"
+                                Margin="5"/>
+					</Border>
+					<Border Background="#33000000" CornerRadius="10" Margin="10,5" Padding="5">
+						<Button Content="Logout"
+                                Style="{StaticResource ModernButton}"
+                                Command="{Binding LogoutCommand}"
+                                Margin="5"/>
+					</Border>
+				</StackPanel>
+			</Border>
+
+			<!-- Main Content -->
+			<Border Grid.Column="1" Style="{StaticResource FloatingPanelStyle}" Margin="30,0,0,0" Padding="20">
+				<ContentControl Content="{Binding CurrentView, FallbackValue={x:Null}}"/>
+			</Border>
+		</Grid>
+	</Grid>
+</UserControl>

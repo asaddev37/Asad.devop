@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="InventoryManagementSystem.Views.UserManagementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="580" d:DesignWidth="820">
+    <Grid Background="{StaticResource WindowBackgroundBrush}">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Border Grid.Row="0" Style="{StaticResource FloatingPanelStyle}" Height="100" Margin="0,0,0,20">
+                <TextBlock Text="🧬 User Management"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#00FFF0"
+                           FontFamily="Orbitron"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+            </Border>
+
+            <!-- Buttons -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,20">
+                <Button Content="Add User"
+                        Style="{StaticResource ModernButton}"
+                        Command="{Binding AddUserCommand}"
+                        Width="100"
+                        Margin="5"/>
+                <Button Content="Edit User"
+                        Style="{StaticResource ModernButton}"
+                        Command="{Binding EditUserCommand}"
+                        Width="100"
+                        Margin="5"/>
+                <Button Content="Delete User"
+                        Style="{StaticResource ModernButton}"
+                        Command="{Binding DeleteUserCommand}"
+                        Width="100"
+                        Margin="5"/>
+                <Button Content="Reset Password"
+                        Style="{StaticResource ModernButton}"
+                        Command="{Binding ResetPasswordCommand}"
+                        Width="100"
+                        Margin="5"/>
+            </StackPanel>
+
+            <!-- DataGrid -->
+            <Border Grid.Row="2" Style="{StaticResource FloatingPanelStyle}" Margin="0,0,0,20" Padding="20">
+                <DataGrid ItemsSource="{Binding Users, FallbackValue={x:Null}}"
+                          SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue={x:Null}}"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          Background="#33000000"
+                          Foreground="#00FFF0"
+                          BorderBrush="#00FFF0"
+                          BorderThickness="1"
+                          GridLinesVisibility="None">
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#66000000"/>
+                            <Setter Property="Foreground" Value="#00FFF0"/>
+                            <Setter Property="FontFamily" Value="Orbitron"/>
+                            <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="BorderBrush" Value="#00FFF0"/>
+                            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                        </Style>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="#00FFF0"/>
+                            <Setter Property="FontFamily" Value="Orbitron"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="Padding" Value="10"/>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow" BasedOn="{StaticResource {x:Type DataGridRow}}">
+                            <Setter Property="Background" Value="#66000000"/>
+                            <Style.Triggers>
+                                <!-- Hover Effect -->
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#66CCFF"/>
+                                    <Setter Property="Foreground" Value="#000000"/>
+                                </Trigger>
+                                <!-- Selected Row Color -->
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="Black"/>
+                                    <Setter Property="Foreground" Value="#000000"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="User ID" Binding="{Binding UserID}" IsReadOnly="True" Width="0.1*"/>
+                        <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="0.2*"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="0.2*"/>
+                        <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="0.2*"/>
+                        <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="0.15*"/>
+                        <DataGridTextColumn Header="Created At" Binding="{Binding CreatedAt, StringFormat='yyyy-MM-dd HH:mm:ss'}" Width="0.15*"/>
+                        <DataGridTextColumn Header="Last Login" Binding="{Binding LastLogin, StringFormat='yyyy-MM-dd HH:mm:ss', Converter={StaticResource NullToVisibilityConverter}}" Width="0.15*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
