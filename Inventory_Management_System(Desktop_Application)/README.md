@@ -233,7 +233,49 @@ InventoryManagementSystem/
 
 <img src="https://github.com/user-attachments/assets/0e51d88f-be5f-4726-92c3-b64862ddd002" width="800"/>
 
+
 ---
+
+## 🧑‍🔧 Staff Dashboard
+
+### 📋 View Inventory
+
+<img src="https://github.com/user-attachments/assets/1ea5a637-b3e2-4d8c-ab8f-50da65c2d0a0" width="800"/>
+
+---
+
+### 📝 Record Transactions
+
+<img src="https://github.com/user-attachments/assets/59fae3f0-51e5-4091-b58d-b118cc5934ba" width="800"/>
+
+---
+
+### 📄 View Transaction History
+
+<img src="https://github.com/user-attachments/assets/158be484-ec8e-4151-b205-1c2352e83528" width="800"/>
+
+---
+
+### 🆘 Request Support from Admin
+
+<img src="https://github.com/user-attachments/assets/b22b4172-ac26-4df2-a77f-05878ac2e977" width="800"/>
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
