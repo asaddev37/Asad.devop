@@ -1,4 +1,4 @@
-<img width="539" height="237" alt="image" src="https://github.com/user-attachments/assets/d59bcbfc-be67-481e-90da-dcd8700698f0" /># Inventory Management System Scope Overview (PHP, HTML, CSS, JS, MySQL)
+# Inventory Management System Scope Overview (PHP, HTML, CSS, JS, MySQL)
 
 ## ✨ Project Summary
 
@@ -131,6 +131,14 @@ Admin login: `admin / admin123`
 <img src="https://github.com/user-attachments/assets/750f5ff7-7e42-4061-b0f3-cba6d12e7d20" width="800"/>
 
 <img src="https://github.com/user-attachments/assets/011b73f9-5f0b-47f8-98f2-2af73eb9f7a4" width="800"/>
+
+<img src="https://github.com/user-attachments/assets/d59bcbfc-be67-481e-90da-dcd8700698f0" width="800"/>
+
+<img src="https://github.com/user-attachments/assets/5eeb693e-18f2-4da9-81a4-3010a45e1ccb" width="800"/>
+
+<img src="https://github.com/user-attachments/assets/f2756592-868a-4260-b713-a25cd82fe4e0" width="800"/>
+
+<img src="https://github.com/user-attachments/assets/a0c98c80-d94f-4ef3-b6e7-c968689c3fc7" width="800"/>
 
 
 
