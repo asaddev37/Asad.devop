@@ -1,4 +1,4 @@
-# Inventory Management System Scope Overview (PHP, HTML, CSS, JS, MySQL)
+<img width="539" height="237" alt="image" src="https://github.com/user-attachments/assets/d59bcbfc-be67-481e-90da-dcd8700698f0" /># Inventory Management System Scope Overview (PHP, HTML, CSS, JS, MySQL)
 
 ## ✨ Project Summary
 
@@ -121,3 +121,27 @@ http://localhost/inventory-management-system/
 Admin login: `admin / admin123`
 
 > *Built with care using pure PHP and clean UI components.*
+
+## 🖼️ Web Screenshots
+
+<img src="https://github.com/user-attachments/assets/bbea40d6-ef09-48c2-9555-076bfce9e631" width="800"/>
+
+<img src="https://github.com/user-attachments/assets/af86447a-abe8-4fa3-829b-20b0a77ee5ed" width="800"/>
+
+<img src="https://github.com/user-attachments/assets/750f5ff7-7e42-4061-b0f3-cba6d12e7d20" width="800"/>
+
+<img src="https://github.com/user-attachments/assets/011b73f9-5f0b-47f8-98f2-2af73eb9f7a4" width="800"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
