@@ -1,0 +1,199 @@
+/* global-theme.css - Neon Modern Theme for Inventory Management System */
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%) fixed;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+}
+
+.neon-panel {
+  background: rgba(0,0,0,0.6);
+  border-radius: 20px;
+  box-shadow: 0 0 30px 0 #00fff0, 0 2px 24px 0 #0008;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  max-width: 420px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.neon-panel .form-label, .neon-panel label {
+  color: #00fff0;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+.neon-panel .form-control, .neon-panel .form-select {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0 1.5px #00fff0 inset;
+  transition: box-shadow 0.3s;
+}
+
+.neon-panel .form-control:focus, .neon-panel .form-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2.5px #ff61a6 inset, 0 0 8px #00fff0;
+}
+
+.neon-panel .btn-neon {
+  background: linear-gradient(90deg, #ff61a6 0%, #00fff0 100%);
+  color: #222;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 2.5rem;
+  box-shadow: 0 0 18px #00fff0, 0 2px 12px #0008;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.neon-panel .btn-neon:hover, .neon-panel .btn-neon:focus {
+  box-shadow: 0 0 32px #00fff0, 0 2px 18px #ff61a6;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.neon-panel .form-text, .neon-panel .alert {
+  color: #ffe066;
+  text-align: center;
+  font-weight: bold;
+}
+
+.neon-anim-outline {
+  width: 440px;
+  height: 440px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -54%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .neon-anim-outline {
+    width: 320px;
+    height: 320px;
+  }
+  .neon-panel {
+    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+    max-width: 98vw;
+  }
+}
+
+/* Add spacing above/below neon-panel for login/signup pages */
+.neon-auth-spacing {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+@media (max-width: 600px) {
+  .neon-auth-spacing {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+}
+
+@keyframes rotateDiamond {
+  0% { transform: translate(-50%, -54%) rotate(0deg); }
+  100% { transform: translate(-50%, -54%) rotate(360deg); }
+}
+
+.neon-anim-outline svg {
+  width: 100%;
+  height: 100%;
+  stroke-dasharray: 12 6;
+  stroke-width: 3;
+  stroke: url(#neon-gradient);
+  fill: none;
+  filter: drop-shadow(0 0 12px #00fff0);
+  animation: rotateDiamond 10s linear infinite;
+}
+
+.neon-panel .login-title {
+  color: #00fff0;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.neon-panel .signup-link {
+  color: #00fff0;
+  text-align: center;
+  display: block;
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.neon-header-bar {
+  background: linear-gradient(90deg, #00fff0 0%, #4e4376 100%);
+  color: #fff;
+  box-shadow: 0 2px 24px #00fff044, 0 1.5px 0 #ff61a6;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  margin-bottom: 0.5rem;
+}
+
+.neon-navbar {
+  background: linear-gradient(90deg, #23243a 0%, #2b5876 100%) !important;
+  box-shadow: 0 2px 18px #00fff088, 0 1.5px 0 #ff61a6;
+  border-radius: 0 0 18px 18px;
+}
+
+.neon-navbar .navbar-brand {
+  color: #00fff0 !important;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.neon-navbar .nav-link {
+  color: #fff !important;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.neon-navbar .nav-link:hover, .neon-navbar .nav-link.active {
+  color: #00fff0 !important;
+  text-shadow: 0 0 8px #00fff0, 0 0 2px #ff61a6;
+}
+
+.neon-footer {
+  background: linear-gradient(90deg, #23243a 0%, #2b5876 100%);
+  color: #00fff0;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -2px 18px #00fff088, 0 -1.5px 0 #ff61a6;
+}
+
+.btn-outline-neon {
+  border: 2px solid #00fff0;
+  color: #00fff0 !important;
+  background: transparent;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 8px #00fff0aa;
+}
+
+.btn-outline-neon:hover, .btn-outline-neon:focus {
+  background: linear-gradient(90deg, #ff61a6 0%, #00fff0 100%);
+  color: #23243a !important;
+  box-shadow: 0 0 18px #00fff0, 0 2px 12px #ff61a6;
+}
