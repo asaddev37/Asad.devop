@@ -158,6 +158,12 @@ Admin login: `admin / admin123`
 
 <img src="https://github.com/user-attachments/assets/15fbb03c-0de9-4afd-a137-af3ec15547ad" width="800"/>
 
+<img  src="https://github.com/user-attachments/assets/d5cf17b0-6642-4f75-ac6b-04293840e3b0" width="800"/>
+
+<img  src="https://github.com/user-attachments/assets/549f9504-e25a-4f47-bc23-3ed8bb4d3113" width="800"/>
+
+<img  src="https://github.com/user-attachments/assets/61a4bf5b-c1fc-4db5-8ac9-b70ad3523b69" width="800"/>
+
 
 
 
