@@ -164,7 +164,13 @@ Admin login: `admin / admin123`
 
 <img  src="https://github.com/user-attachments/assets/61a4bf5b-c1fc-4db5-8ac9-b70ad3523b69" width="800"/>
 
+<img  src="https://github.com/user-attachments/assets/6bc4eafd-8323-487c-8837-17b650f20c0e" width="800"/>
 
+<img  src="https://github.com/user-attachments/assets/c2a6720c-6122-47fd-86ea-17888308b9ab" width="800"/>
+
+<img  src="https://github.com/user-attachments/assets/64a19734-2840-4534-a5aa-b698cec6e552" width="800"/>
+
+<img  src="https://github.com/user-attachments/assets/93a88984-b864-45a6-b55e-df16a72698f6" width="800"/>
 
 
 
