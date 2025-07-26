@@ -7,6 +7,20 @@ import type { Task, NotificationReminder } from '../types';
 // Check if running in Expo Go
 const isExpoGo = Constants.appOwnership === 'expo';
 
+// Mock notification functions for Expo Go
+const mockNotification = {
+  requestPermissionsAsync: async () => ({ status: 'denied' }),
+  getPermissionsAsync: async () => ({ status: 'denied' }),
+  scheduleNotificationAsync: async () => '',
+  cancelScheduledNotificationAsync: async () => {},
+  cancelAllScheduledNotificationsAsync: async () => {},
+  setNotificationHandler: () => {},
+  setNotificationChannelAsync: async () => {},
+};
+
+// Use mock in Expo Go
+const Notification = isExpoGo ? mockNotification : Notifications;
+
 export class NotificationManager {
   private static scheduledNotifications: Map<string, string> = new Map();
 
@@ -17,21 +31,26 @@ export class NotificationManager {
       return;
     }
 
-    // Request permissions
-    const { status } = await Notifications.requestPermissionsAsync();
+    try {
+
+      // Request permissions
+      const { status } = await Notification.requestPermissionsAsync();
     if (status !== 'granted') {
       console.log('Notification permissions not granted');
       return;
     }
 
-    // Configure notification channel for Android
-    if (Platform.OS === 'android') {
-      await Notifications.setNotificationChannelAsync('default', {
-        name: 'Default',
-        importance: Notifications.AndroidImportance.MAX,
-        vibrationPattern: [0, 250, 250, 250],
-        lightColor: '#8B5CF6',
-      });
+      // Configure notification channel for Android
+      if (Platform.OS === 'android') {
+        await Notification.setNotificationChannelAsync('default', {
+          name: 'Default',
+          importance: Notifications.AndroidImportance.MAX,
+          vibrationPattern: [0, 250, 250, 250],
+          lightColor: '#8B5CF6',
+        });
+      }
+    } catch (error) {
+      console.warn('Failed to initialize notifications:', error);
     }
   }
 
