@@ -1,12 +1,22 @@
 import * as Notifications from 'expo-notifications';
 import * as Haptics from 'expo-haptics';
 import { Platform } from 'react-native';
+import Constants from 'expo-constants';
 import type { Task, NotificationReminder } from '../types';
+
+// Check if running in Expo Go
+const isExpoGo = Constants.appOwnership === 'expo';
 
 export class NotificationManager {
   private static scheduledNotifications: Map<string, string> = new Map();
 
   static async initialize() {
+    // Skip initialization in Expo Go
+    if (isExpoGo) {
+      console.log('Running in Expo Go - notifications are disabled');
+      return;
+    }
+
     // Request permissions
     const { status } = await Notifications.requestPermissionsAsync();
     if (status !== 'granted') {
@@ -26,12 +36,16 @@ export class NotificationManager {
   }
 
   static async requestPermission(): Promise<boolean> {
+    if (isExpoGo) {
+      console.log('Running in Expo Go - notifications are disabled');
+      return false;
+    }
     const { status } = await Notifications.requestPermissionsAsync();
     return status === 'granted';
   }
 
   static async scheduleTaskNotifications(task: Task): Promise<void> {
-    if (!task.notifications?.enabled || !task.dueDate) return;
+    if (isExpoGo || !task.notifications?.enabled || !task.dueDate) return;
 
     // Clear existing notifications for this task
     this.clearTaskNotifications(task.id);

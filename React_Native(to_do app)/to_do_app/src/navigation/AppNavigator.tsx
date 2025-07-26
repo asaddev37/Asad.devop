@@ -227,6 +227,9 @@ const TabNavigator = () => {
 };
 
 
+// Memoize the TabNavigator to prevent unnecessary re-renders
+const MemoizedTabNavigator = React.memo(TabNavigator);
+
 const DrawerNavigator = () => {
   const drawerScreenOptions: DrawerNavigationOptions = {
     headerShown: true,
@@ -240,32 +243,27 @@ const DrawerNavigator = () => {
       fontWeight: "600",
     },
     drawerStyle: {
-      backgroundColor: "#FFFFFF",
+      backgroundColor: "#F9FAFB",
       width: 280,
     },
     drawerType: "slide",
     overlayColor: "rgba(0, 0, 0, 0.5)",
   };
 
-  const sceneContainerStyle = {
-    backgroundColor: "#F9FAFB",
-  };
+  // Memoize the drawer content to prevent unnecessary re-renders
+  const drawerContent = React.useCallback(
+    (props: any) => <DrawerContent {...props} />,
+    []
+  );
 
   return (
     <Drawer.Navigator
-      drawerContent={(props) => <DrawerContent {...props} />}
-      screenOptions={{
-        ...drawerScreenOptions,
-        drawerStyle: {
-          ...(drawerScreenOptions.drawerStyle as object),
-          backgroundColor: "#F9FAFB",
-          width: 280,
-        },
-      }}
+      drawerContent={drawerContent}
+      screenOptions={drawerScreenOptions}
     >
       <Drawer.Screen
         name="Main"
-        component={TabNavigator}
+        component={MemoizedTabNavigator}
         options={{
           title: "TaskFlow",
         }}
@@ -280,59 +278,68 @@ const DrawerNavigator = () => {
 
 
 
+// Memoize the DrawerNavigator to prevent unnecessary re-renders
+const MemoizedDrawerNavigator = React.memo(DrawerNavigator);
+
 const RootStack = () => {
+  // Memoize the screen options to prevent unnecessary re-renders
+  const screenOptions = React.useMemo<StackNavigationOptions>(
+    () => ({
+      headerShown: false,
+      gestureEnabled: true,
+      gestureDirection: 'horizontal',
+    }),
+    []
+  );
+
+  // Memoize the TaskForm screen options
+  const taskFormOptions: StackNavigationOptions = React.useMemo(
+    () => ({
+      presentation: 'modal' as const,
+      headerShown: true,
+      headerTitle: 'Add Task',
+      headerStyle: {
+        backgroundColor: '#FFFFFF',
+      },
+      headerTintColor: '#1F2937',
+      cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS,
+      transitionSpec: {
+        open: {
+          animation: 'timing' as const,
+          config: {
+            duration: 300,
+            easing: Easing.out(Easing.cubic),
+          },
+        },
+        close: {
+          animation: 'timing' as const,
+          config: {
+            duration: 250,
+            easing: Easing.in(Easing.cubic),
+          },
+        },
+      },
+    }),
+    []
+  );
+
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-        gestureEnabled: true,
-        gestureDirection: "horizontal",
-      }}
-    >
+    <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen
         name="Home"
-        component={DrawerNavigator}
+        component={MemoizedDrawerNavigator}
       />
       <Stack.Screen
         name="TaskForm"
         component={TaskFormScreen}
-        options={{
-          presentation: "modal",
-          headerShown: true,
-          headerTitle: "Add Task",
-          headerStyle: {
-            backgroundColor: "#FFFFFF",
-          },
-          headerTintColor: "#1F2937",
-          cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS,
-          transitionSpec: {
-            open: {
-              animation: "timing",
-              config: {
-                duration: 300,
-                easing: Easing.out(Easing.cubic),
-              },
-            },
-            close: {
-              animation: "timing",
-              config: {
-                duration: 250,
-                easing: Easing.in(Easing.cubic),
-              },
-            },
-          },
-        }}
+        options={taskFormOptions}
       />
     </Stack.Navigator>
   );
 };
 
 const AppNavigator = () => {
-  return (
-    <NavigationContainer>
-      <RootStack />
-    </NavigationContainer>
-  );
+  return <RootStack />;
 };
 
 export default AppNavigator;
