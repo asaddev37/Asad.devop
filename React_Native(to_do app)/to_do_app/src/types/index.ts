@@ -12,6 +12,7 @@ export interface Task {
   parentTaskId?: string
   recurringPattern?: RecurringPattern
   notifications?: NotificationSettings
+  occurrenceCount?: number
 }
 
 export interface RecurringPattern {

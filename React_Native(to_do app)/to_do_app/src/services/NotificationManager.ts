@@ -135,6 +135,10 @@ export class NotificationManager {
     }
   }
 
+  static async cancelAllScheduledNotifications(): Promise<void> {
+    await this.clearAllNotifications();
+  }
+
   static async triggerHapticFeedback(type: 'light' | 'medium' | 'heavy' = 'medium') {
     try {
       switch (type) {

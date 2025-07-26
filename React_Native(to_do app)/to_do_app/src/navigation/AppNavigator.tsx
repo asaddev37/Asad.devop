@@ -193,37 +193,35 @@ const DrawerNavigator = () => (
 )
 
 const AppNavigator = () => (
-  <NavigationContainer>
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-        gestureEnabled: true,
-        gestureDirection: "horizontal",
+  <Stack.Navigator
+    screenOptions={{
+      headerShown: false,
+      gestureEnabled: true,
+      gestureDirection: "horizontal",
+    }}
+  >
+    <Stack.Screen
+      name="Home"
+      component={DrawerNavigator}
+      options={{
+        ...slideFromRightConfig,
       }}
-    >
-      <Stack.Screen
-        name="Home"
-        component={DrawerNavigator}
-        options={{
-          ...slideFromRightConfig,
-        }}
-      />
-      <Stack.Screen
-        name="TaskForm"
-        component={TaskFormScreen}
-        options={{
-          presentation: "modal",
-          headerShown: true,
-          headerTitle: "Add Task",
-          headerStyle: {
-            backgroundColor: "#FFFFFF",
-          },
-          headerTintColor: "#1F2937",
-          ...modalConfig,
-        }}
-      />
-    </Stack.Navigator>
-  </NavigationContainer>
+    />
+    <Stack.Screen
+      name="TaskForm"
+      component={TaskFormScreen}
+      options={{
+        presentation: "modal",
+        headerShown: true,
+        headerTitle: "Add Task",
+        headerStyle: {
+          backgroundColor: "#FFFFFF",
+        },
+        headerTintColor: "#1F2937",
+        ...modalConfig,
+      }}
+    />
+  </Stack.Navigator>
 )
 
 export default AppNavigator

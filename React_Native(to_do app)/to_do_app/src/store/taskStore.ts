@@ -4,12 +4,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage"
 import type { Task, Category } from "../types"
 import { generateNextRecurringTask } from "../utils/recurringUtils"
 import { NotificationManager } from "../services/NotificationManager"
+import { isAfter, parseISO } from "date-fns"
 
 interface TaskStore {
   tasks: Task[]
   categories: Category[]
   selectedCategory: string | null
   globalNotificationsEnabled: boolean
+  isInitialized: boolean
+
+  // Initialization
+  initialize: () => Promise<void>
 
   // Task actions
   addTask: (task: Omit<Task, "id" | "createdAt" | "updatedAt">) => void
@@ -40,6 +45,27 @@ export const useTaskStore = create<TaskStore>()(
       categories: defaultCategories,
       selectedCategory: null,
       globalNotificationsEnabled: true,
+      isInitialized: false,
+
+      initialize: async () => {
+        if (get().isInitialized) return;
+        
+        // Clean up old notifications
+        await NotificationManager.cancelAllScheduledNotifications();
+        
+        // Reschedule notifications for incomplete tasks
+        const state = get();
+        if (state.globalNotificationsEnabled) {
+          const now = new Date();
+          state.tasks.forEach(task => {
+            if (!task.completed && task.dueDate && isAfter(parseISO(task.dueDate), now)) {
+              NotificationManager.scheduleTaskNotifications(task);
+            }
+          });
+        }
+        
+        set({ isInitialized: true });
+      },
 
       addTask: (taskData) => {
         const newTask: Task = {
