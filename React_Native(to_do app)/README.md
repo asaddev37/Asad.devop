@@ -208,17 +208,11 @@ Settings Table: key, value, updated_at
 
 
 ---
-App ScreenShots :
+### 📱 App Screenshots
+| Loading Screen                                                                                           | Home Screen                                                                                              | Menu Bar                                                                                                 |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/user-attachments/assets/035e5fb7-95cf-4190-ac66-130761a222f2" width="200"/> | <img src="https://github.com/user-attachments/assets/147e312c-c43f-46cf-817c-e29088f3105c" width="200"/> | <img src="https://github.com/user-attachments/assets/3225667d-9a1f-4e57-8403-2f1f0b3b4a25" width="200"/> |
 
-Loading screen:
 
-home screen:
 
-menu bar:
-
-about:
-
-privacy policiy:
-
-settings:
 
