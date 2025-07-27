@@ -208,3 +208,17 @@ Settings Table: key, value, updated_at
 
 
 ---
+App ScreenShots :
+
+Loading screen:
+
+home screen:
+
+menu bar:
+
+about:
+
+privacy policiy:
+
+settings:
+
