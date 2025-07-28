@@ -1,52 +1,66 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { View, Text, StyleSheet, ScrollView, RefreshControl, Image, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect, useRef, useContext } from 'react';
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  ScrollView, 
+  RefreshControl, 
+  TouchableOpacity, 
+  Animated, 
+  StatusBar,
+  SafeAreaView,
+  Image
+} from 'react-native';
 import { useTheme } from '../../contexts/ThemeContext';
 import { UserContext } from '../../contexts/UserContext';
 import { getWeatherData } from '../../services/weatherService';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Location from 'expo-location';
+import { DrawerActions } from '@react-navigation/native';
 
 const HomeScreen = ({ navigation }) => {
-  const { colors, styles } = useTheme();
+  const { colors, isDark, toggleTheme } = useTheme();
   const { user } = useContext(UserContext);
   const [refreshing, setRefreshing] = useState(false);
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState([]);
   const [location, setLocation] = useState('Loading...');
   const [error, setError] = useState('');
+  const scrollY = useRef(new Animated.Value(0)).current;
+  
+  // Header animation
+  const headerTranslateY = scrollY.interpolate({
+    inputRange: [0, 100],
+    outputRange: [0, -50],
+    extrapolate: 'clamp',
+  });
 
-  // Get user's current location and weather data
+  // Load weather data
   const loadWeatherData = async () => {
     try {
       setRefreshing(true);
       setError('');
       
-      // Check if location services are enabled
       const isLocationEnabled = await Location.hasServicesEnabledAsync();
       if (!isLocationEnabled) {
         setError('Location services are disabled. Please enable them in your device settings.');
         return;
       }
 
-      // Request location permission
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setError('Location permission is required to show weather for your current location.');
-        // Set a default location
-        setLocation('New York, US');
-        // Try to load weather for default location
         await loadWeatherForDefaultLocation();
         return;
       }
 
-      // Get current position with timeout
       let location;
       try {
         location = await Promise.race([
           Location.getCurrentPositionAsync({
-            accuracy: Location.Accuracy.Low, // Lower accuracy for faster response
-            timeout: 10000 // 10 second timeout
+            accuracy: Location.Accuracy.Low,
+            timeout: 10000
           }),
           new Promise((_, reject) => 
             setTimeout(() => reject(new Error('Location request timed out')), 10000)
@@ -55,48 +69,30 @@ const HomeScreen = ({ navigation }) => {
       } catch (locationError) {
         console.warn('Error getting location:', locationError);
         setError('Could not get your current location. Using default location.');
-        setLocation('New York, US');
         await loadWeatherForDefaultLocation();
         return;
       }
 
       const { latitude, longitude } = location.coords;
       
-      // Get address from coordinates
       try {
         let address = await Location.reverseGeocodeAsync({ latitude, longitude });
-        if (address && address[0]) {
+        if (address?.[0]) {
           const { city, region, country } = address[0];
-          setLocation(`${city || ''}${city && region ? ', ' : ''}${region || ''}${(city || region) && country ? ', ' : ''}${country || ''}`);
+          setLocation(`${city || ''}${city && region ? ', ' : ''}${region || ''}${(city || region) && country ? ', ' : ''}${country || ''}`.trim() || 'Your Location');
         }
       } catch (addressError) {
         console.warn('Error getting address:', addressError);
         setLocation('Your Location');
       }
 
-      // Fetch weather data
       try {
-        console.log('Fetching weather data...');
         const weatherData = await getWeatherData(latitude, longitude);
-        console.log('Weather data received in HomeScreen:', JSON.stringify({
-          current: weatherData.current ? 'exists' : 'missing',
-          daily: weatherData.daily ? `array with ${weatherData.daily.length} items` : 'missing'
-        }, null, 2));
-        
-        if (!weatherData || !weatherData.current) {
+        if (!weatherData?.current) {
           throw new Error('Invalid weather data received');
         }
-        
         setCurrentWeather(weatherData.current);
-        
-        // Safely handle daily forecast data
-        const dailyForecast = Array.isArray(weatherData.daily) 
-          ? weatherData.daily.slice(0, 5) 
-          : [];
-          
-        console.log(`Setting forecast with ${dailyForecast.length} items`);
-        setForecast(dailyForecast);
-        
+        setForecast(Array.isArray(weatherData.daily) ? weatherData.daily.slice(0, 5) : []);
       } catch (weatherError) {
         console.error('Error in weather data processing:', weatherError);
         setError('Failed to load weather data. Please try again later.');
@@ -112,21 +108,20 @@ const HomeScreen = ({ navigation }) => {
     }
   };
 
-  // Load weather for default location (New York)
+  // Load default location (New York)
   const loadWeatherForDefaultLocation = async () => {
     try {
-      const defaultLat = 40.7128; // New York
-      const defaultLon = -74.0060;
-      const weatherData = await getWeatherData(defaultLat, defaultLon);
+      const weatherData = await getWeatherData(40.7128, -74.0060);
       setCurrentWeather(weatherData.current);
-      setForecast(weatherData.daily.slice(0, 5));
+      setForecast(weatherData.daily?.slice(0, 5) || []);
+      setLocation('New York, US');
     } catch (error) {
       console.error('Error loading default weather data:', error);
       setError('Failed to load weather data for default location.');
     }
   };
 
-  // Load weather data on component mount
+  // Load data on component mount
   useEffect(() => {
     loadWeatherData();
   }, []);
@@ -149,18 +144,8 @@ const HomeScreen = ({ navigation }) => {
     return `${speed.toFixed(1)} km/h`;
   };
 
-  // Format time based on user preference
-  const formatTime = (timestamp) => {
-    const date = new Date(timestamp * 1000);
-    if (user?.preferences?.timeFormat === '12h') {
-      return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-    }
-    return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
-  };
-
   // Get weather icon based on condition code
   const getWeatherIcon = (conditionCode) => {
-    // This is a simplified version - you'll want to map all possible condition codes
     const iconMap = {
       '01d': 'sunny',
       '01n': 'moon',
@@ -184,254 +169,543 @@ const HomeScreen = ({ navigation }) => {
     return iconMap[conditionCode] || 'help';
   };
 
+  // Render the app bar with menu button
+  const renderAppBar = () => (
+    <View style={[
+      styles.appBar,
+      { 
+        backgroundColor: colors.card,
+        shadowColor: isDark ? '#000' : '#888',
+      }
+    ]}>
+      <View style={styles.appBarContent}>
+        <TouchableOpacity 
+          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+          style={[styles.menuButton, { backgroundColor: colors.primary + '15' }]}
+        >
+          <Ionicons name="menu" size={28} color={colors.primary} />
+        </TouchableOpacity>
+        
+        <View style={styles.headerContent}>
+          <Text style={[styles.headerGreeting, { color: colors.text }]}>
+            {getGreeting()}
+          </Text>
+          <Text style={[styles.headerTitle, { color: colors.text }]}>
+            {user?.name || 'Welcome Back'}
+          </Text>
+        </View>
+        
+        <TouchableOpacity 
+          onPress={toggleTheme}
+          style={[styles.themeButton, { backgroundColor: colors.primary + '15' }]}
+        >
+          <Ionicons 
+            name={isDark ? 'sunny' : 'moon'} 
+            size={24} 
+            color={colors.primary} 
+          />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+
+  // Get time-based greeting
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good Morning';
+    if (hour < 18) return 'Good Afternoon';
+    return 'Good Evening';
+  };
+
+  // Render loading/error state
   if (!currentWeather) {
     return (
-      <View style={[localStyles.container, { backgroundColor: colors.background }]}>
-        <Text style={[localStyles.loadingText, { color: colors.text }]}>
+      <View style={[styles.container, { backgroundColor: colors.background }]}>
+        <Text style={[styles.loadingText, { color: colors.text }]}>
           {error || 'Loading weather data...'}
         </Text>
       </View>
     );
   }
 
-  return (
-    <ScrollView
-      style={[styles.container, { backgroundColor: colors.background }]}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={loadWeatherData}
-          colors={[colors.primary]}
-          tintColor={colors.primary}
-        />
-      }
-    >
-      {/* Header with greeting and location */}
-      <View style={localStyles.header}>
-        <Text style={[localStyles.greeting, { color: colors.text }]}>
-          {`Hello, ${user?.name || 'Guest'}`}
-        </Text>
-        <View style={localStyles.locationContainer}>
-          <Ionicons name="location" size={20} color={colors.primary} />
-          <Text style={[localStyles.location, { color: colors.text }]}>{location}</Text>
-        </View>
-      </View>
+  // Define styles inside the component to access theme colors
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+    },
+    scrollContent: {
+      paddingTop: 120,
+      paddingBottom: 30,
+      paddingHorizontal: 20,
+    },
+    appBar: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      backgroundColor: 'transparent',
+      zIndex: 1000,
+      paddingTop: StatusBar.currentHeight,
+      elevation: 0,
+      shadowOpacity: 0,
+    },
+    appBarContent: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: 15,
+      paddingVertical: 20,
+      backgroundColor: colors.card,
+      borderRadius: 20,
+      margin: 15,
+      marginTop: 10,
+      elevation: 3,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 8,
+    },
+    headerContent: {
+      flex: 1,
+      marginLeft: 15,
+    },
+    headerGreeting: {
+      fontSize: 14,
+      opacity: 0.8,
+      marginBottom: 2,
+    },
+    headerTitle: {
+      fontSize: 20,
+      fontWeight: '700',
+      color: colors.text,
+    },
+    menuButton: {
+      padding: 8,
+      borderRadius: 20,
+    },
+    themeButton: {
+      padding: 8,
+      borderRadius: 20,
+    },
+    appBarTitle: {
+      fontSize: 18,
+      fontWeight: '700',
+      flex: 1,
+      textAlign: 'center',
+      marginLeft: 10,
+    },
+    loadingText: {
+      fontSize: 16,
+      textAlign: 'center',
+      marginTop: 20,
+    },
+    weatherCard: {
+      borderRadius: 20,
+      padding: 20,
+      marginBottom: 24,
+      borderWidth: 1,
+      overflow: 'hidden',
+    },
+    weatherHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: 20,
+    },
+    location: {
+      fontSize: 22,
+      fontWeight: '700',
+      marginBottom: 4,
+    },
+    date: {
+      fontSize: 14,
+      opacity: 0.8,
+    },
+    weatherIconContainer: {
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      borderRadius: 50,
+      padding: 10,
+    },
+    currentWeather: {
+      alignItems: 'center',
+      marginBottom: 20,
+    },
+    temperature: {
+      fontSize: 48,
+      fontWeight: 'bold',
+      marginVertical: 10,
+    },
+    weatherDescription: {
+      fontSize: 18,
+      marginBottom: 10,
+      textTransform: 'capitalize',
+    },
+    weatherDetails: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      width: '100%',
+      marginTop: 20,
+    },
+    detailItem: {
+      alignItems: 'center',
+    },
+    detailValue: {
+      fontSize: 16,
+      fontWeight: '600',
+      marginTop: 4,
+    },
+    detailLabel: {
+      fontSize: 12,
+      opacity: 0.8,
+    },
+    forecastContainer: {
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      borderRadius: 20,
+      padding: 20,
+    },
+    forecastTitle: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      marginBottom: 16,
+    },
+    forecastItem: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingVertical: 12,
+      borderBottomWidth: 1,
+    },
+    forecastDay: {
+      fontSize: 16,
+      fontWeight: '500',
+      flex: 2,
+    },
+    forecastIcon: {
+      marginHorizontal: 10,
+    },
+    forecastTempContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+    },
+    forecastTemp: {
+      fontSize: 16,
+      fontWeight: '600',
+    },
+    errorContainer: {
+      marginTop: 20,
+      alignItems: 'center',
+    },
+    errorText: {
+      textAlign: 'center',
+      marginBottom: 16,
+    },
+    retryButton: {
+      paddingHorizontal: 20,
+      paddingVertical: 10,
+      borderRadius: 8,
+    },
+    retryButtonText: {
+      color: 'white',
+      fontWeight: '600',
+    },
+  });
 
-      {/* Current weather card */}
+  // Gradient colors based on theme
+  const gradientColors = isDark 
+    ? [
+        colors.background,
+        '#1a1a2e',
+        '#16213e',
+      ]
+    : [
+        '#f8f9fa',
+        '#e9ecef',
+        '#dee2e6',
+      ];
+
+  return (
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
+      <StatusBar 
+        barStyle={isDark ? 'light-content' : 'dark-content'} 
+        backgroundColor="transparent"
+        translucent
+      />
       <LinearGradient
-        colors={colors.gradient}
-        style={localStyles.weatherCard}
+        colors={gradientColors}
+        style={StyleSheet.absoluteFillObject}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
-      >
-        <Text style={localStyles.temperature}>
-          {formatTemperature(currentWeather.temp)}
-        </Text>
-        <View style={localStyles.weatherInfo}>
-          <Ionicons 
-            name={getWeatherIcon(currentWeather.weather[0].icon)} 
-            size={48} 
-            color="white" 
+      />
+      {renderAppBar()}
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.scrollContent}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={loadWeatherData}
+            colors={[colors.primary]}
+            tintColor={colors.primary}
+            progressViewOffset={80}
           />
-          <Text style={localStyles.weatherDescription}>
-            {currentWeather.weather[0].description}
-          </Text>
-        </View>
-        <Text style={localStyles.feelsLike}>
-          Feels like: {formatTemperature(currentWeather.feels_like)}
-        </Text>
-      </LinearGradient>
-
-      {/* Additional weather details */}
-      <View style={[styles.card, localStyles.detailsCard]}>
-        <View style={localStyles.detailRow}>
-          <View style={localStyles.detailItem}>
-            <Ionicons name="water" size={24} color={colors.primary} />
-            <Text style={[localStyles.detailText, { color: colors.text }]}>
-              {currentWeather.humidity}%
-            </Text>
-            <Text style={[localStyles.detailLabel, { color: colors.text }]}>Humidity</Text>
-          </View>
-          <View style={localStyles.detailItem}>
-            <Ionicons name="speedometer" size={24} color={colors.primary} />
-            <Text style={[localStyles.detailText, { color: colors.text }]}>
-              {currentWeather.pressure} hPa
-            </Text>
-            <Text style={[localStyles.detailLabel, { color: colors.text }]}>Pressure</Text>
-          </View>
-          <View style={localStyles.detailItem}>
-            <Ionicons name="eye" size={24} color={colors.primary} />
-            <Text style={[localStyles.detailText, { color: colors.text }]}>
-              {currentWeather.visibility / 1000} km
-            </Text>
-            <Text style={[localStyles.detailLabel, { color: colors.text }]}>Visibility</Text>
-          </View>
-        </View>
-        <View style={localStyles.detailRow}>
-          <View style={localStyles.detailItem}>
-            <Ionicons name="speedometer-outline" size={24} color={colors.primary} />
-            <Text style={[localStyles.detailText, { color: colors.text }]}>
-              {formatWindSpeed(currentWeather.wind_speed)}
-            </Text>
-            <Text style={[localStyles.detailLabel, { color: colors.text }]}>Wind</Text>
-          </View>
-          <View style={localStyles.detailItem}>
-            <Ionicons name="sunny" size={24} color={colors.primary} />
-            <Text style={[localStyles.detailText, { color: colors.text }]}>
-              {formatTime(currentWeather.sunrise)}
-            </Text>
-            <Text style={[localStyles.detailLabel, { color: colors.text }]}>Sunrise</Text>
-          </View>
-          <View style={localStyles.detailItem}>
-            <Ionicons name="moon" size={24} color={colors.primary} />
-            <Text style={[localStyles.detailText, { color: colors.text }]}>
-              {formatTime(currentWeather.sunset)}
-            </Text>
-            <Text style={[localStyles.detailLabel, { color: colors.text }]}>Sunset</Text>
-          </View>
-        </View>
-      </View>
-
-      {/* 5-day forecast */}
-      <Text style={[styles.subheading, { marginTop: 16, marginBottom: 8 }]}>
-        5-Day Forecast
-      </Text>
-      <View style={[styles.card, localStyles.forecastContainer]}>
-        {forecast.map((day, index) => (
-          <View key={index} style={localStyles.forecastItem}>
-            <Text style={[localStyles.forecastDay, { color: colors.text }]}>
-              {new Date(day.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' })}
-            </Text>
-            <Ionicons 
-              name={getWeatherIcon(day.weather[0].icon)} 
-              size={24} 
-              color={colors.primary} 
-            />
-            <View style={localStyles.forecastTemps}>
-              <Text style={[localStyles.forecastTempHigh, { color: colors.text }]}>
-                {formatTemperature(day.temp.max)}
-              </Text>
-              <Text style={[localStyles.forecastTempLow, { color: colors.text }]}>
-                {formatTemperature(day.temp.min)}
+        }
+      >
+        {/* Weather Card */}
+        <LinearGradient
+          colors={[
+            isDark ? 'rgba(26, 26, 46, 0.9)' : 'rgba(255, 255, 255, 0.9)',
+            isDark ? 'rgba(22, 33, 62, 0.9)' : 'rgba(245, 247, 250, 0.9)',
+          ]}
+          style={[
+            styles.weatherCard, 
+            { 
+              backgroundColor: colors.card,
+              borderColor: colors.border,
+              shadowColor: isDark ? '#000' : '#888',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.1,
+              shadowRadius: 8,
+              elevation: 3,
+            }
+          ]}
+        >
+          <View style={styles.weatherHeader}>
+            <View>
+              <Text style={[styles.location, { color: colors.text }]}>{location}</Text>
+              <Text style={[styles.date, { color: colors.textSecondary }]}>
+                {new Date().toLocaleDateString('en-US', { 
+                  weekday: 'long', 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
               </Text>
             </View>
+            <View style={[styles.weatherIconContainer, { backgroundColor: colors.primary + '15' }]}>
+              <Ionicons 
+                name={getWeatherIcon(currentWeather.weather?.[0]?.icon || '01d')} 
+                size={40} 
+                color={colors.primary} 
+              />
+            </View>
           </View>
-        ))}
-      </View>
-    </ScrollView>
+
+          <View style={styles.currentWeather}>
+            <Text style={[styles.temperature, { color: colors.text }]}>
+              {formatTemperature(currentWeather.temp)}
+            </Text>
+            <Text style={[styles.weatherDescription, { color: colors.text }]}>
+              {currentWeather.weather?.[0]?.description || 'Clear sky'}
+            </Text>
+            
+            <View style={styles.weatherDetails}>
+              <View style={styles.detailItem}>
+                <Ionicons name="water" size={20} color={colors.primary} />
+                <Text style={[styles.detailValue, { color: colors.text }]}>
+                  {currentWeather.humidity}%
+                </Text>
+                <Text style={[styles.detailLabel, { color: colors.textSecondary }]}>
+                  Humidity
+                </Text>
+              </View>
+              
+              <View style={styles.detailItem}>
+                <Ionicons name="speedometer" size={20} color={colors.primary} />
+                <Text style={[styles.detailValue, { color: colors.text }]}>
+                  {formatWindSpeed(currentWeather.wind_speed)}
+                </Text>
+                <Text style={[styles.detailLabel, { color: colors.textSecondary }]}>
+                  Wind
+                </Text>
+              </View>
+              
+              <View style={styles.detailItem}>
+                <Ionicons name="thermometer" size={20} color={colors.primary} />
+                <Text style={[styles.detailValue, { color: colors.text }]}>
+                  {formatTemperature(currentWeather.feels_like)}
+                </Text>
+                <Text style={[styles.detailLabel, { color: colors.textSecondary }]}>
+                  Feels Like
+                </Text>
+              </View>
+            </View>
+          </View>
+        </LinearGradient>
+
+        {/* Forecast Section */}
+        <View style={[styles.forecastContainer, { backgroundColor: colors.card + '80', borderColor: colors.border }]}>
+          <Text style={[styles.forecastTitle, { color: colors.text }]}>
+            5-Day Forecast
+          </Text>
+          
+          {forecast.map((day, index) => (
+            <View 
+              key={index} 
+              style={[
+                styles.forecastItem, 
+                { 
+                  borderBottomColor: colors.border + '50',
+                  borderBottomWidth: index === forecast.length - 1 ? 0 : 1
+                }
+              ]}
+            >
+              <Text style={[styles.forecastDay, { color: colors.text }]}>
+                {new Date(day.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' })}
+              </Text>
+              <Ionicons 
+                name={getWeatherIcon(day.weather?.[0]?.icon || '01d')} 
+                size={24} 
+                color={colors.primary} 
+                style={styles.forecastIcon}
+              />
+              <View style={styles.forecastTempContainer}>
+                <Text style={[styles.forecastTemp, { color: colors.text }]}>
+                  {formatTemperature(day.temp?.max || day.temp)}
+                </Text>
+                <Text style={[styles.forecastTemp, { color: colors.textSecondary, marginLeft: 8 }]}>
+                  {formatTemperature(day.temp?.min || day.temp)}
+                </Text>
+              </View>
+            </View>
+          ))}
+        </View>
+
+        {/* Error message */}
+        {error ? (
+          <View style={styles.errorContainer}>
+            <Text style={[styles.errorText, { color: 'red' }]}>{error}</Text>
+            <TouchableOpacity 
+              style={[styles.retryButton, { backgroundColor: colors.primary }]}
+              onPress={loadWeatherData}
+            >
+              <Text style={styles.retryButtonText}>Retry</Text>
+            </TouchableOpacity>
+          </View>
+        ) : null}
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
-const localStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    backgroundColor: '#fff',
   },
-  loadingText: {
-    textAlign: 'center',
-    marginTop: 20,
-    fontSize: 16,
+  scrollView: {
+    flex: 1,
   },
   header: {
-    marginBottom: 24,
+    padding: 20,
+    paddingTop: 60,
+    paddingBottom: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
-  greeting: {
-    fontSize: 28,
+  headerText: {
+    fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 8,
+  },
+  menuButton: {
+    padding: 8,
+  },
+  weatherContainer: {
+    padding: 20,
+    borderRadius: 20,
+    margin: 20,
+    overflow: 'hidden',
   },
   locationContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 10,
   },
-  location: {
-    fontSize: 16,
-    marginLeft: 4,
+  locationText: {
+    fontSize: 18,
+    marginLeft: 5,
   },
-  weatherCard: {
-    borderRadius: 16,
-    padding: 24,
-    marginBottom: 20,
-    alignItems: 'center',
-    elevation: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-  },
-  temperature: {
-    fontSize: 72,
+  currentTemp: {
+    fontSize: 64,
     fontWeight: '200',
-    color: 'white',
-  },
-  weatherInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 8,
+    marginVertical: 10,
   },
   weatherDescription: {
-    fontSize: 20,
-    color: 'white',
-    marginLeft: 8,
+    fontSize: 18,
     textTransform: 'capitalize',
-  },
-  feelsLike: {
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.8)',
-    marginTop: 4,
-  },
-  detailsCard: {
     marginBottom: 20,
   },
-  detailRow: {
+  weatherDetails: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 16,
+    marginTop: 30,
   },
   detailItem: {
     alignItems: 'center',
-    flex: 1,
   },
-  detailText: {
+  detailValue: {
     fontSize: 18,
     fontWeight: '600',
-    marginVertical: 4,
+    marginVertical: 5,
   },
   detailLabel: {
     fontSize: 12,
-    opacity: 0.7,
+    opacity: 0.8,
   },
   forecastContainer: {
-    marginBottom: 20,
+    margin: 20,
+    borderRadius: 20,
+    padding: 20,
+    borderWidth: 1,
+  },
+  forecastTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 15,
   },
   forecastItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 12,
+    paddingVertical: 15,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(0, 0, 0, 0.1)',
   },
   forecastDay: {
-    flex: 1,
     fontSize: 16,
+    width: 70,
   },
-  forecastTemps: {
+  forecastIcon: {
+    width: 40,
+    textAlign: 'center',
+  },
+  forecastTempContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
     width: 100,
     justifyContent: 'flex-end',
   },
-  forecastTempHigh: {
+  forecastTemp: {
     fontSize: 16,
-    fontWeight: '600',
-    marginRight: 16,
+    fontWeight: '500',
   },
-  forecastTempLow: {
-    fontSize: 16,
-    opacity: 0.7,
-    width: 40,
-    textAlign: 'right',
+  errorContainer: {
+    margin: 20,
+    padding: 15,
+    borderRadius: 10,
+    backgroundColor: '#ffebee',
+    alignItems: 'center',
+  },
+  errorText: {
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  retryButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+  },
+  retryButtonText: {
+    color: '#fff',
+    fontWeight: '600',
   },
 });
 
