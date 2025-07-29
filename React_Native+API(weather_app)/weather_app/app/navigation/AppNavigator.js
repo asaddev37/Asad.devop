@@ -1,28 +1,16 @@
-import React, { useContext } from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
+import React from 'react';
+import { Link, useRouter } from 'expo-router';
+import { Drawer } from 'expo-router/drawer';
+import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTheme } from '../../contexts/ThemeContext';
-import { UserContext } from '../../contexts/UserContext';
+import { useUser } from '../../contexts/UserContext';
 
-// Import screens
-import HomeScreen from '../screens/HomeScreen';
-import SearchScreen from '../screens/SearchScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import AboutScreen from '../screens/AboutScreen';
-import PrivacyPolicyScreen from '../screens/PrivacyPolicyScreen';
-import LoadingScreen from '../screens/LoadingScreen';
-
-const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
-
-// Custom Drawer Content
-const CustomDrawerContent = (props) => {
+function CustomDrawerContent(props) {
   const { colors } = useTheme();
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
+  const router = useRouter();
   
   return (
     <View style={[styles.drawerContainer, { backgroundColor: colors.background }]}>
@@ -47,104 +35,104 @@ const CustomDrawerContent = (props) => {
       </View>
     </View>
   );
-};
+}
 
-// Drawer Navigator
-const DrawerNavigator = () => {
+export default function AppNavigator() {
   const { colors } = useTheme();
   
   return (
-    <Drawer.Navigator
-      drawerContent={props => <CustomDrawerContent {...props} />}
+    <Drawer
       screenOptions={{
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: colors.background,
+        },
+        headerTintColor: colors.text,
         drawerActiveTintColor: colors.primary,
         drawerInactiveTintColor: colors.text,
         drawerLabelStyle: {
           marginLeft: -20,
-          fontSize: 15,
+          fontSize: 16,
         },
         drawerStyle: {
+          backgroundColor: colors.background,
           width: '75%',
         },
       }}
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
-      <Drawer.Screen 
-        name="Home" 
-        component={HomeScreen}
+      <Drawer.Screen
+        name="home/index"
         options={{
+          title: 'Home',
+          headerTitle: 'Weather App',
           drawerIcon: ({ color }) => (
             <Ionicons name="home-outline" size={22} color={color} />
           ),
         }}
-      />
-      <Drawer.Screen 
-        name="Search" 
-        component={SearchScreen}
+      >
+        {() => (
+          <Stack.Screen
+            name="index"
+            options={{
+              headerShown: false,
+            }}
+          />
+        )}
+      </Drawer.Screen>
+      <Drawer.Screen
+        name="search"
         options={{
+          title: 'Search',
+          headerTitle: 'Search',
           drawerIcon: ({ color }) => (
             <Ionicons name="search-outline" size={22} color={color} />
           ),
         }}
       />
-      <Drawer.Screen 
-        name="Settings" 
-        component={SettingsScreen}
+      <Drawer.Screen
+        name="settings"
         options={{
+          title: 'Settings',
+          headerTitle: 'Settings',
           drawerIcon: ({ color }) => (
             <Ionicons name="settings-outline" size={22} color={color} />
           ),
         }}
       />
-      <Drawer.Screen 
-        name="About" 
-        component={AboutScreen} 
+      <Drawer.Screen
+        name="about"
         options={{
+          title: 'About',
+          headerTitle: 'About',
           drawerIcon: ({ color }) => (
             <Ionicons name="information-circle-outline" size={22} color={color} />
           ),
         }}
       />
-      <Drawer.Screen 
-        name="Privacy Policy" 
-        component={PrivacyPolicyScreen} 
+      <Drawer.Screen
+        name="privacy"
         options={{
+          title: 'Privacy Policy',
+          headerTitle: 'Privacy Policy',
           drawerIcon: ({ color }) => (
             <Ionicons name="shield-checkmark-outline" size={22} color={color} />
           ),
         }}
       />
-    </Drawer.Navigator>
+    </Drawer>
   );
-};
+}
 
-// Main App Tabs - Removed in favor of drawer navigation
-
-// Main App Navigator
-const AppNavigator = () => {
+// Tabs Navigator (for the home screen)
+function TabsLayout() {
   return (
-    <Stack.Navigator 
-      initialRouteName="Loading"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Stack.Screen 
-        name="Loading" 
-        component={LoadingScreen}
-        options={{
-          animationEnabled: false,
-        }}
-      />
-      <Stack.Screen 
-        name="Main" 
-        component={DrawerNavigator}
-        options={{
-          animationEnabled: false,
-        }}
-      />
-    </Stack.Navigator>
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="loading" options={{ headerShown: false }} />
+    </Stack>
   );
-};
+}
 
 const styles = StyleSheet.create({
   drawerContainer: {
@@ -180,5 +168,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
-export default AppNavigator;

@@ -121,18 +121,11 @@ const LoadingScreen = () => {
       // Progress bar animation
       Animated.timing(progressAnim, {
         toValue: 1,
-        duration: 4000,
+        duration: 3000, // Match the loading time in _layout.js
         easing: Easing.out(Easing.ease),
         useNativeDriver: false,
       })
     ]).start();
-
-    // Auto-navigate to Main (drawer navigator) after 3 seconds
-    const timer = setTimeout(() => {
-      navigation.replace('Main');
-    }, 3000);
-
-    return () => clearTimeout(timer);
   }, []); 
 
   const progressWidth = progressAnim.interpolate({

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef, useContext, useMemo } from 'react';
 import { 
   View, 
   Text, 
@@ -28,6 +28,9 @@ const HomeScreen = ({ navigation }) => {
   const [location, setLocation] = useState('Loading...');
   const [error, setError] = useState('');
   const scrollY = useRef(new Animated.Value(0)).current;
+  
+  // Use the styles function with current theme colors
+  const styles = useMemo(() => stylesFn(colors), [colors]);
   
   // Header animation
   const headerTranslateY = scrollY.interpolate({
@@ -228,188 +231,6 @@ const HomeScreen = ({ navigation }) => {
     );
   }
 
-  // Define styles inside the component to access theme colors
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-    scrollContent: {
-      paddingTop: 120,
-      paddingBottom: 30,
-      paddingHorizontal: 20,
-    },
-    appBar: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      backgroundColor: 'transparent',
-      zIndex: 1000,
-      paddingTop: StatusBar.currentHeight,
-      elevation: 0,
-      shadowOpacity: 0,
-    },
-    appBarContent: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      padding: 15,
-      paddingVertical: 20,
-      backgroundColor: colors.card,
-      borderRadius: 20,
-      margin: 15,
-      marginTop: 10,
-      elevation: 3,
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.1,
-      shadowRadius: 8,
-    },
-    headerContent: {
-      flex: 1,
-      marginLeft: 15,
-    },
-    headerGreeting: {
-      fontSize: 14,
-      opacity: 0.8,
-      marginBottom: 2,
-    },
-    headerTitle: {
-      fontSize: 20,
-      fontWeight: '700',
-      color: colors.text,
-    },
-    menuButton: {
-      padding: 8,
-      borderRadius: 20,
-    },
-    themeButton: {
-      padding: 8,
-      borderRadius: 20,
-    },
-    appBarTitle: {
-      fontSize: 18,
-      fontWeight: '700',
-      flex: 1,
-      textAlign: 'center',
-      marginLeft: 10,
-    },
-    loadingText: {
-      fontSize: 16,
-      textAlign: 'center',
-      marginTop: 20,
-    },
-    weatherCard: {
-      borderRadius: 20,
-      padding: 20,
-      marginBottom: 24,
-      borderWidth: 1,
-      overflow: 'hidden',
-    },
-    weatherHeader: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: 20,
-    },
-    location: {
-      fontSize: 22,
-      fontWeight: '700',
-      marginBottom: 4,
-    },
-    date: {
-      fontSize: 14,
-      opacity: 0.8,
-    },
-    weatherIconContainer: {
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
-      borderRadius: 50,
-      padding: 10,
-    },
-    currentWeather: {
-      alignItems: 'center',
-      marginBottom: 20,
-    },
-    temperature: {
-      fontSize: 48,
-      fontWeight: 'bold',
-      marginVertical: 10,
-    },
-    weatherDescription: {
-      fontSize: 18,
-      marginBottom: 10,
-      textTransform: 'capitalize',
-    },
-    weatherDetails: {
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      width: '100%',
-      marginTop: 20,
-    },
-    detailItem: {
-      alignItems: 'center',
-    },
-    detailValue: {
-      fontSize: 16,
-      fontWeight: '600',
-      marginTop: 4,
-    },
-    detailLabel: {
-      fontSize: 12,
-      opacity: 0.8,
-    },
-    forecastContainer: {
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-      borderRadius: 20,
-      padding: 20,
-    },
-    forecastTitle: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      marginBottom: 16,
-    },
-    forecastItem: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      paddingVertical: 12,
-      borderBottomWidth: 1,
-    },
-    forecastDay: {
-      fontSize: 16,
-      fontWeight: '500',
-      flex: 2,
-    },
-    forecastIcon: {
-      marginHorizontal: 10,
-    },
-    forecastTempContainer: {
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent: 'flex-end',
-    },
-    forecastTemp: {
-      fontSize: 16,
-      fontWeight: '600',
-    },
-    errorContainer: {
-      marginTop: 20,
-      alignItems: 'center',
-    },
-    errorText: {
-      textAlign: 'center',
-      marginBottom: 16,
-    },
-    retryButton: {
-      paddingHorizontal: 20,
-      paddingVertical: 10,
-      borderRadius: 8,
-    },
-    retryButtonText: {
-      color: 'white',
-      fontWeight: '600',
-    },
-  });
-
   // Gradient colors based on theme
   const gradientColors = isDark 
     ? [
@@ -587,10 +408,10 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
+const stylesFn = (colors) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.background,
   },
   scrollView: {
     flex: 1,

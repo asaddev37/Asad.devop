@@ -1,23 +1,21 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { useColorScheme } from 'react-native';
-import { UserContext } from './UserContext';
 
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const { user } = useContext(UserContext);
   const systemColorScheme = useColorScheme();
-  
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(systemColorScheme || 'light');
+  const [userThemePreference, setUserThemePreference] = useState(null);
 
   // Update theme when user preferences or system theme changes
   useEffect(() => {
-    if (user?.preferences?.theme === 'system') {
+    if (userThemePreference === 'system' || !userThemePreference) {
       setTheme(systemColorScheme || 'light');
-    } else if (user?.preferences?.theme) {
-      setTheme(user.preferences.theme);
+    } else {
+      setTheme(userThemePreference);
     }
-  }, [user?.preferences?.theme, systemColorScheme]);
+  }, [userThemePreference, systemColorScheme]);
 
   // Light theme colors
   const lightColors = {
@@ -113,19 +111,43 @@ export const ThemeProvider = ({ children }) => {
     },
   };
 
+  // Current theme colors
+  const currentColors = theme === 'dark' ? darkColors : lightColors;
+  
+  // For backward compatibility
+  const contextValue = {
+    // New structure
+    theme,
+    colors: currentColors,
+    isDark: theme === 'dark',
+    setThemePreference: setUserThemePreference,
+    
+    // Legacy structure (for backward compatibility)
+    styles: commonStyles,
+    toggleTheme: () => {
+      setUserThemePreference(theme === 'dark' ? 'light' : 'dark');
+    }
+  };
+
   return (
-    <ThemeContext.Provider value={{ colors, styles: commonStyles, theme }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );
 };
 
 export const useTheme = () => {
-  const context = useContext(ThemeContext);
+  const context = React.useContext(ThemeContext);
   if (context === undefined) {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
-  return context;
+  
+  // Return colors, theme, and the setter function
+  return {
+    colors: context.colors,
+    theme: context.theme,
+    setThemePreference: context.setUserThemePreference
+  };
 };
 
 export default ThemeContext;
