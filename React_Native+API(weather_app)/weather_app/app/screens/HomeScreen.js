@@ -22,9 +22,9 @@ import { getWeatherByCity } from '../../services/weatherService';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Location from 'expo-location';
-import { DrawerActions } from '@react-navigation/native';
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
   const { colors, isDark, toggleTheme } = useTheme();
   const { user } = useContext(UserContext);
   const [refreshing, setRefreshing] = useState(false);
@@ -33,9 +33,19 @@ const HomeScreen = ({ navigation }) => {
   const [location, setLocation] = useState('Loading...');
   const [error, setError] = useState('');
   const scrollY = useRef(new Animated.Value(0)).current;
+  const navigation = useNavigation();
   
   // Use the styles function with current theme colors
   const styles = useMemo(() => stylesFn(colors), [colors]);
+  
+  // Navigation functions
+  const navigateToSearch = () => {
+    navigation.navigate('search');
+  };
+  
+  const navigateToSettings = () => {
+    navigation.navigate('settings');
+  };
   
   // Header animation
   const headerTranslateY = scrollY.interpolate({
@@ -413,6 +423,39 @@ const HomeScreen = ({ navigation }) => {
           </View>
         ) : null}
       </ScrollView>
+      
+      {/* Footer Navigation */}
+      <View style={[styles.footer, { backgroundColor: colors.card, borderTopColor: colors.border }]}>
+        <TouchableOpacity 
+          style={[styles.footerButton, { borderTopWidth: 3, borderTopColor: colors.primary }]}
+          onPress={() => {}}
+        >
+          <View style={styles.footerIconContainer}>
+            <Ionicons name="home" size={24} color={colors.primary} />
+          </View>
+          <Text style={[styles.footerText, { color: colors.primary, fontWeight: '600' }]}>Home</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity 
+          style={styles.footerButton}
+          onPress={navigateToSearch}
+        >
+          <View style={styles.footerIconContainer}>
+            <Ionicons name="search" size={24} color={colors.text} />
+          </View>
+          <Text style={[styles.footerText, { color: colors.text }]}>Search</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity 
+          style={styles.footerButton}
+          onPress={navigateToSettings}
+        >
+          <View style={styles.footerIconContainer}>
+            <Ionicons name="settings-outline" size={24} color={colors.text} />
+          </View>
+          <Text style={[styles.footerText, { color: colors.text }]}>Settings</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
@@ -616,6 +659,50 @@ const stylesFn = (colors) => StyleSheet.create({
   retryButtonText: {
     color: '#fff',
     fontWeight: '600',
+  },
+  // Footer Styles
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    height: 75,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: colors.card,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    paddingBottom: Platform.OS === 'ios' ? 20 : 10,
+    paddingTop: 8,
+  },
+  footerButton: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 8,
+    borderRadius: 8,
+    marginHorizontal: 6,
+  },
+  footerIconContainer: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  footerText: {
+    fontSize: 12,
+    marginTop: 2,
+    textAlign: 'center',
+    fontWeight: '500',
   },
 });
 
