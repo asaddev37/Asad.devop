@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 // OpenWeatherMap API configuration
-const API_KEY = '93d094cb16d6f597f6194d391d476e12'; // This key appears to be invalid
+const API_KEY = 'abadeda8375c606d10bb61456aebb85c';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
-const USE_MOCK_DATA = true; // Set to false to try the real API
+const USE_MOCK_DATA = false; // Set to false to use the real API
 
 // Mock data for development
 const MOCK_WEATHER_DATA = {
@@ -28,76 +28,121 @@ const MOCK_WEATHER_DATA = {
 
 console.log('Weather Service: Using', USE_MOCK_DATA ? 'MOCK DATA' : 'REAL API');
 
-// Get current weather and forecast data
-const getWeatherData = async (lat, lon) => {
+// Get current weather and forecast data by city name
+const getWeatherData = async (cityName) => {
   // Return mock data if enabled
   if (USE_MOCK_DATA) {
     console.log('Using mock weather data');
     return MOCK_WEATHER_DATA;
   }
-
+  
   try {
-    console.log(`Fetching weather data for lat: ${lat}, lon: ${lon}`);
-    
-    // Get current weather
-    const currentWeatherUrl = `${BASE_URL}/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-    console.log('Current Weather URL:', currentWeatherUrl);
-    
-    const currentWeatherResponse = await axios.get(currentWeatherUrl);
-    
-    // Get forecast
-    const forecastUrl = `${BASE_URL}/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${API_KEY}&units=metric`;
-    console.log('Forecast URL:', forecastUrl);
-    
-    const forecastResponse = await axios.get(forecastUrl);
+    // Get current weather by city name
+    const currentResponse = await axios.get(
+      `${BASE_URL}/weather?q=${encodeURIComponent(cityName)}&appid=${API_KEY}&units=metric`
+    );
 
-    // Combine the data
-    const weatherData = {
+    // Get 5-day/3-hour forecast by city name
+    const forecastResponse = await axios.get(
+      `${BASE_URL}/forecast?q=${encodeURIComponent(cityName)}&appid=${API_KEY}&units=metric`
+    );
+
+    // Process forecast data to get daily forecast
+    const dailyForecast = processForecastData(forecastResponse.data.list);
+
+    return {
       current: {
-        ...currentWeatherResponse.data.main,
-        weather: currentWeatherResponse.data.weather,
-        wind_speed: currentWeatherResponse.data.wind.speed,
-        visibility: currentWeatherResponse.data.visibility,
-        sunrise: currentWeatherResponse.data.sys.sunrise,
-        sunset: currentWeatherResponse.data.sys.sunset,
-        name: currentWeatherResponse.data.name,
+        ...currentResponse.data.main,
+        weather: currentResponse.data.weather,
+        wind_speed: currentResponse.data.wind.speed,
+        visibility: currentResponse.data.visibility,
+        name: currentResponse.data.name,
+        dt: currentResponse.data.dt,
+        sys: currentResponse.data.sys,
       },
-      daily: forecastResponse.data.daily || []
+      daily: dailyForecast,
+      city: currentResponse.data.name,
+      country: currentResponse.data.sys?.country || ''
     };
-    
-    console.log('Weather data received:', JSON.stringify(weatherData, null, 2));
-    return weatherData;
   } catch (error) {
-    console.error('Error fetching weather data, falling back to mock data:', error);
-    // Return mock data if API fails
-    return MOCK_WEATHER_DATA;
+    console.error('Error fetching weather data:', error);
+    throw error;
   }
+};
+
+// Process 3-hour forecast data to get daily forecast
+const processForecastData = (forecastList) => {
+  const dailyData = [];
+  const days = {};
+  
+  // Group forecast by date
+  forecastList.forEach(item => {
+    const date = new Date(item.dt * 1000).toDateString();
+    if (!days[date]) {
+      days[date] = {
+        temp: { day: item.main.temp, night: item.main.temp },
+        weather: item.weather,
+        dt: item.dt,
+        humidity: item.main.humidity,
+        wind_speed: item.wind.speed,
+        temp_min: item.main.temp_min,
+        temp_max: item.main.temp_max,
+        count: 1
+      };
+    } else {
+      // Update min/max temperatures and average other values
+      const day = days[date];
+      day.temp.day = (day.temp.day * day.count + item.main.temp) / (day.count + 1);
+      day.temp.night = (day.temp.night * day.count + item.main.temp) / (day.count + 1);
+      day.temp_min = Math.min(day.temp_min, item.main.temp_min);
+      day.temp_max = Math.max(day.temp_max, item.main.temp_max);
+      day.humidity = (day.humidity * day.count + item.main.humidity) / (day.count + 1);
+      day.wind_speed = (day.wind_speed * day.count + item.wind.speed) / (day.count + 1);
+      day.count += 1;
+      
+      // Update weather condition to the most frequent one (simplified)
+      if (day.count % 3 === 0) {
+        day.weather = item.weather;
+      }
+    }
+  });
+  
+  // Convert to array and limit to 5 days
+  Object.values(days).slice(0, 5).forEach(day => {
+    dailyData.push({
+      ...day,
+      temp: {
+        day: day.temp.day,
+        night: day.temp.night,
+        min: day.temp_min,
+        max: day.temp_max
+      }
+    });
+  });
+  
+  return dailyData;
 };
 
 // Search for cities by name
 const searchCities = async (query) => {
   try {
     const response = await axios.get(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${API_KEY}`
+      `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(query)}&limit=5&appid=${API_KEY}`
     );
-    return response.data;
+    return response.data.map(city => ({
+      name: city.name,
+      country: city.country,
+      lat: city.lat,
+      lon: city.lon,
+      state: city.state
+    }));
   } catch (error) {
     console.error('Error searching cities:', error);
     throw error;
   }
 };
 
-// Get weather by city name
-const getWeatherByCity = async (cityName) => {
-  try {
-    const response = await axios.get(
-      `${BASE_URL}/weather?q=${cityName}&appid=${API_KEY}&units=metric`
-    );
-    return response.data;
-  } catch (error) {
-    console.error('Error getting weather by city:', error);
-    throw error;
-  }
-};
+// Get weather by city name (alias for getWeatherData for backward compatibility)
+const getWeatherByCity = getWeatherData;
 
 export { getWeatherData, searchCities, getWeatherByCity };
