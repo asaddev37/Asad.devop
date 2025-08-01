@@ -150,7 +150,7 @@ export default function ProfilePicture({
       <TouchableOpacity
         onPress={editable ? showImageOptions : undefined}
         activeOpacity={editable ? 0.8 : 1}
-        style={[styles.avatarContainer, containerStyle, { backgroundColor: colors.border }]}
+                 style={[styles.avatarContainer, containerStyle, { backgroundColor: colors.primary }]}
       >
         <ThemedText style={[styles.avatar, { fontSize: size * 0.5 }]}>
           {profileData.avatar}

@@ -36,8 +36,8 @@ export default function ProfileScreen() {
       <LinearGradient
         colors={
           colorScheme === 'dark'
-            ? [colors.gradientStart, colors.gradientEnd]
-            : [colors.gradientStart, colors.gradientEnd]
+            ? ['#1e40af', '#7c3aed', '#1e2937']
+            : ['#667eea', '#764ba2', '#f0f9ff']
         }
         style={styles.header}
       >

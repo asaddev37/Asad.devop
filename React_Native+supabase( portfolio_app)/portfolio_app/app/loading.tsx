@@ -68,8 +68,8 @@ export default function LoadingScreen() {
     <LinearGradient
       colors={
         colorScheme === 'dark'
-          ? [colors.gradientStart, colors.gradientEnd, '#0f3460']
-          : [colors.gradientStart, colors.gradientEnd, colors.accent]
+          ? ['#1e40af', '#7c3aed', '#1e2937'] // Dark blue to purple to dark gray
+          : ['#667eea', '#764ba2', '#f0f9ff'] // Light blue to purple to very light blue
       }
       style={styles.container}
     >
@@ -95,29 +95,29 @@ export default function LoadingScreen() {
         </Animated.View>
 
         {/* App Title */}
-        <ThemedText style={[styles.title, { color: colors.text }]}>
+        <ThemedText style={[styles.title, { color: '#ffffff' }]}>
           Portfolio App
         </ThemedText>
 
         {/* Subtitle */}
-        <ThemedText style={[styles.subtitle, { color: colors.text }]}>
+        <ThemedText style={[styles.subtitle, { color: '#ffffff' }]}>
           Professional Developer Portfolio
         </ThemedText>
 
         {/* Loading Text */}
-        <ThemedText style={[styles.loadingText, { color: colors.text }]}>
+        <ThemedText style={[styles.loadingText, { color: '#ffffff' }]}>
           Loading amazing content...
         </ThemedText>
 
         {/* Progress Bar */}
         <View style={styles.progressContainer}>
-          <View style={[styles.progressBar, { backgroundColor: colors.border }]}>
+          <View style={[styles.progressBar, { backgroundColor: 'rgba(255,255,255,0.3)' }]}>
             <Animated.View
               style={[
                 styles.progressFill,
                 {
                   width: progressWidth,
-                  backgroundColor: colors.tint,
+                  backgroundColor: '#ffffff',
                 },
               ]}
             />
@@ -126,9 +126,9 @@ export default function LoadingScreen() {
 
         {/* Loading Dots */}
         <View style={styles.dotsContainer}>
-          <ThemedText style={[styles.dot, { color: colors.text }]}>●</ThemedText>
-          <ThemedText style={[styles.dot, { color: colors.text }]}>●</ThemedText>
-          <ThemedText style={[styles.dot, { color: colors.text }]}>●</ThemedText>
+          <ThemedText style={[styles.dot, { color: '#ffffff' }]}>●</ThemedText>
+          <ThemedText style={[styles.dot, { color: '#ffffff' }]}>●</ThemedText>
+          <ThemedText style={[styles.dot, { color: '#ffffff' }]}>●</ThemedText>
         </View>
       </Animated.View>
     </LinearGradient>
@@ -161,12 +161,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 40,
     textAlign: 'center',
-    opacity: 0.8,
+    opacity: 0.9,
   },
   loadingText: {
     fontSize: 16,
     marginBottom: 30,
     textAlign: 'center',
+    opacity: 0.8,
   },
   progressContainer: {
     width: width * 0.7,
@@ -187,6 +188,6 @@ const styles = StyleSheet.create({
   },
   dot: {
     fontSize: 20,
-    opacity: 0.6,
+    opacity: 0.7,
   },
 }); 
