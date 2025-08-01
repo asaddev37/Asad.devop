@@ -191,15 +191,31 @@ App Navigator
 
 ---
 
-App Screenshots :
-loading screen:
-![IMG-20250801-WA0009](https://github.com/user-attachments/assets/6144c049-a436-4128-9c0b-191fc609f9d5)
-home screen:
-![IMG-20250801-WA0008](https://github.com/user-attachments/assets/eef39824-e101-4f13-ae98-97e2bb3c1727)
-portfolio screen;
-![IMG-20250801-WA0007](https://github.com/user-attachments/assets/16b63440-6a41-4086-be8e-6cfe2f3f913e)
-skills:
-![IMG-20250801-WA0006](https://github.com/user-attachments/assets/7635f017-857d-40b1-97e9-5928a54310d8)
+### 📱 App Screenshots
+
+<table>
+  <tr>
+    <th align="center">Loading Screen</th>
+    <th align="center">Home Screen</th>
+    <th align="center">Portfolio Screen</th>
+    <th align="center">Skills Screen</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/6144c049-a436-4128-9c0b-191fc609f9d5" alt="Loading Screen" width="150" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/eef39824-e101-4f13-ae98-97e2bb3c1727" alt="Home Screen" width="150" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/16b63440-6a41-4086-be8e-6cfe2f3f913e" alt="Portfolio Screen" width="150" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/7635f017-857d-40b1-97e9-5928a54310d8" alt="Skills Screen" width="150" />
+    </td>
+  </tr>
+</table>
+
 
 experties:
 
