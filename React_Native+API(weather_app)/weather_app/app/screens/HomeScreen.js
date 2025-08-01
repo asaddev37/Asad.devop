@@ -22,7 +22,7 @@ import { getWeatherByCity } from '../../services/weatherService';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Location from 'expo-location';
-import { DrawerActions, useNavigation } from '@react-navigation/native';
+import { DrawerActions, useNavigation, useNavigationState } from '@react-navigation/native';
 
 const HomeScreen = () => {
   const { colors, isDark, toggleTheme } = useTheme();
@@ -38,13 +38,26 @@ const HomeScreen = () => {
   // Use the styles function with current theme colors
   const styles = useMemo(() => stylesFn(colors), [colors]);
   
-  // Navigation functions
+  // Get the current route name
+  const currentRoute = useNavigationState(state => state?.routes[state.index]?.name);
+  
+  // Navigation functions using drawer navigation
   const navigateToSearch = () => {
-    navigation.navigate('search');
+    if (currentRoute !== 'search') {
+      navigation.dispatch(DrawerActions.jumpTo('search'));
+    }
   };
   
   const navigateToSettings = () => {
-    navigation.navigate('settings');
+    if (currentRoute !== 'settings') {
+      navigation.dispatch(DrawerActions.jumpTo('settings'));
+    }
+  };
+  
+  const navigateToHome = () => {
+    if (currentRoute !== 'home') {
+      navigation.dispatch(DrawerActions.jumpTo('home'));
+    }
   };
   
   // Header animation
@@ -428,7 +441,7 @@ const HomeScreen = () => {
       <View style={[styles.footer, { backgroundColor: colors.card, borderTopColor: colors.border }]}>
         <TouchableOpacity 
           style={[styles.footerButton, { borderTopWidth: 3, borderTopColor: colors.primary }]}
-          onPress={() => {}}
+          onPress={navigateToHome}
         >
           <View style={styles.footerIconContainer}>
             <Ionicons name="home" size={24} color={colors.primary} />

@@ -3,6 +3,7 @@ import axios from 'axios';
 // OpenWeatherMap API configuration
 const API_KEY = 'abadeda8375c606d10bb61456aebb85c';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
+const GEOCODING_URL = 'https://api.openweathermap.org/geo/1.0';
 const USE_MOCK_DATA = false; // Set to false to use the real API
 
 // Mock data for development
@@ -37,14 +38,25 @@ const getWeatherData = async (cityName) => {
   }
   
   try {
-    // Get current weather by city name
+    // First, get coordinates for the city
+    const geoResponse = await axios.get(
+      `${GEOCODING_URL}/direct?q=${encodeURIComponent(cityName)}&limit=1&appid=${API_KEY}`
+    );
+    
+    if (!geoResponse.data || geoResponse.data.length === 0) {
+      throw new Error('City not found');
+    }
+    
+    const { lat, lon } = geoResponse.data[0];
+    
+    // Get current weather by coordinates (more reliable)
     const currentResponse = await axios.get(
-      `${BASE_URL}/weather?q=${encodeURIComponent(cityName)}&appid=${API_KEY}&units=metric`
+      `${BASE_URL}/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
     );
 
-    // Get 5-day/3-hour forecast by city name
+    // Get 5-day/3-hour forecast by coordinates
     const forecastResponse = await axios.get(
-      `${BASE_URL}/forecast?q=${encodeURIComponent(cityName)}&appid=${API_KEY}&units=metric`
+      `${BASE_URL}/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
     );
 
     // Process forecast data to get daily forecast
@@ -126,15 +138,24 @@ const processForecastData = (forecastList) => {
 // Search for cities by name
 const searchCities = async (query) => {
   try {
+    if (!query || query.trim().length < 2) {
+      return [];
+    }
+    
     const response = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(query)}&limit=5&appid=${API_KEY}`
+      `${GEOCODING_URL}/direct?q=${encodeURIComponent(query)}&limit=5&appid=${API_KEY}`
     );
+    
+    if (!response.data || response.data.length === 0) {
+      return [];
+    }
+    
     return response.data.map(city => ({
       name: city.name,
       country: city.country,
       lat: city.lat,
       lon: city.lon,
-      state: city.state
+      state: city.state || ''
     }));
   } catch (error) {
     console.error('Error searching cities:', error);
