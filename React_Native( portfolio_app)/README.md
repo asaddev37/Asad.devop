@@ -214,14 +214,25 @@ App Navigator
       <img src="https://github.com/user-attachments/assets/7635f017-857d-40b1-97e9-5928a54310d8" alt="Skills Screen" width="150" />
     </td>
   </tr>
+  <tr>
+    <th align="center">Experience Screen</th>
+    <th align="center">Profile Screen</th>
+    <th align="center">Contact Screen</th>
+    <th align="center">—</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/0785c7ce-770e-4468-a0ca-f5a9d7a74f4c" alt="Experience Screen" width="150" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/4616b7cd-9e46-4369-80d0-fcebba2f7055" alt="Profile Screen" width="150" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/9596c14e-d908-4b03-9e3f-cf3fffe17d2a" alt="Contact Screen" width="150" />
+    </td>
+    <td align="center">—</td>
+  </tr>
 </table>
-
-
-experties:
-
-profile:
-
-contact:
 
 
 > *Built with React Native to help professionals and developers stand out with a modern, interactive portfolio app.*
