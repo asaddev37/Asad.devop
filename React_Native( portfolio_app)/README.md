@@ -189,4 +189,23 @@ App Navigator
 * ✅ Portfolio + skill showcase
 * ✅ Fully responsive & performant
 
+---
+
+App Screenshots :
+loading screen:
+![IMG-20250801-WA0009](https://github.com/user-attachments/assets/6144c049-a436-4128-9c0b-191fc609f9d5)
+home screen:
+![IMG-20250801-WA0008](https://github.com/user-attachments/assets/eef39824-e101-4f13-ae98-97e2bb3c1727)
+portfolio screen;
+![IMG-20250801-WA0007](https://github.com/user-attachments/assets/16b63440-6a41-4086-be8e-6cfe2f3f913e)
+
+skills:
+
+experties:
+
+profile:
+
+contact:
+
+
 > *Built with React Native to help professionals and developers stand out with a modern, interactive portfolio app.*
