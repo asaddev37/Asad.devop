@@ -198,8 +198,8 @@ home screen:
 ![IMG-20250801-WA0008](https://github.com/user-attachments/assets/eef39824-e101-4f13-ae98-97e2bb3c1727)
 portfolio screen;
 ![IMG-20250801-WA0007](https://github.com/user-attachments/assets/16b63440-6a41-4086-be8e-6cfe2f3f913e)
-
 skills:
+![IMG-20250801-WA0006](https://github.com/user-attachments/assets/7635f017-857d-40b1-97e9-5928a54310d8)
 
 experties:
 
