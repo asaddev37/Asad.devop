@@ -173,5 +173,20 @@ A modern, cross-platform Weather App built using **React Native**, offering real
 * Smartwatch app (Wear OS / Apple Watch)
 
 ---
+### 📱 App Screenshots
+| Loading Screen                                                                                           | Home Screen                                                                                              | 
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+ <img src="https://github.com/user-attachments/assets/e770e07e-f69f-4850-a9be-082bcc04d9a5" width="200"/> | <img src="https://github.com/user-attachments/assets/96cfe80f-47ad-4107-a3ff-9641a16a3109" width="200"/> 
+
+
+
+
+
+
+
+
+
+
+
 
 
