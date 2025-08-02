@@ -440,5 +440,41 @@ feedback: {
 *Made with ❤️ by AK~~37 | SmartBudgetAnalyzer v1.1*
 
 ---
+App Screenshots:
+loading screen:
+![IMG-20250802-WA0008](https://github.com/user-attachments/assets/f81db223-999e-442a-9046-69f56fc8e6e0)
 
-This comprehensive scope document provides a complete overview of the SmartBudgetAnalyzer project, highlighting the Firebase integration, technical architecture, and development roadmap. It's formatted for easy reading and can be directly used in your GitHub README file! 🚀
+home screen:
+![IMG-20250802-WA0007](https://github.com/user-attachments/assets/c309e55c-f1e2-4afa-9979-b05d5cf490ab)
+menu bar:
+![IMG-20250802-WA0006](https://github.com/user-attachments/assets/3f79acec-bf6a-4974-bc50-570999434912)
+
+signup screen:
+![IMG-20250802-WA0003](https://github.com/user-attachments/assets/777893cc-e8fd-47db-afa3-a0712be68ee1)
+
+login screen:
+![IMG-20250802-WA0004](https://github.com/user-attachments/assets/3ff08423-80c6-49c5-a4ac-1a80ad75b876)
+
+forgot password screen:
+![IMG-20250802-WA0005](https://github.com/user-attachments/assets/187f71d1-263d-4caa-be17-9b454b3c7174)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
