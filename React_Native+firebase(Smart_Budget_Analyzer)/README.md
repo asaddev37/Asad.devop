@@ -440,23 +440,42 @@ feedback: {
 *Made with ❤️ by AK~~37 | SmartBudgetAnalyzer v1.1*
 
 ---
-App Screenshots:
-loading screen:
-![IMG-20250802-WA0008](https://github.com/user-attachments/assets/f81db223-999e-442a-9046-69f56fc8e6e0)
+### 📱 App Screenshots
 
-home screen:
-![IMG-20250802-WA0007](https://github.com/user-attachments/assets/c309e55c-f1e2-4afa-9979-b05d5cf490ab)
-menu bar:
-![IMG-20250802-WA0006](https://github.com/user-attachments/assets/3f79acec-bf6a-4974-bc50-570999434912)
-
-signup screen:
-![IMG-20250802-WA0003](https://github.com/user-attachments/assets/777893cc-e8fd-47db-afa3-a0712be68ee1)
-
-login screen:
-![IMG-20250802-WA0004](https://github.com/user-attachments/assets/3ff08423-80c6-49c5-a4ac-1a80ad75b876)
-
-forgot password screen:
-![IMG-20250802-WA0005](https://github.com/user-attachments/assets/187f71d1-263d-4caa-be17-9b454b3c7174)
+<table>
+  <tr>
+    <th align="center">Loading Screen</th>
+    <th align="center">Home Screen</th>
+    <th align="center">Menu Bar</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/f81db223-999e-442a-9046-69f56fc8e6e0" alt="Loading Screen" width="180" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/c309e55c-f1e2-4afa-9979-b05d5cf490ab" alt="Home Screen" width="180" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/3f79acec-bf6a-4974-bc50-570999434912" alt="Menu Bar" width="180" />
+    </td>
+  </tr>
+  <tr>
+    <th align="center">Signup Screen</th>
+    <th align="center">Login Screen</th>
+    <th align="center">Forgot Password</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/777893cc-e8fd-47db-afa3-a0712be68ee1" alt="Signup Screen" width="180" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/3ff08423-80c6-49c5-a4ac-1a80ad75b876" alt="Login Screen" width="180" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/187f71d1-263d-4caa-be17-9b454b3c7174" alt="Forgot Password" width="180" />
+    </td>
+  </tr>
+</table>
 
 
 
