@@ -14,8 +14,10 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { useAuth } from '../../src/contexts/AuthContext';
 
 const LoginScreen = () => {
+  const { signIn } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -61,12 +63,15 @@ const LoginScreen = () => {
 
     setIsLoading(true);
     
-    // Simulate login process
-    setTimeout(() => {
-      setIsLoading(false);
-      // TODO: Implement Firebase authentication here
+    try {
+      // Use Firebase authentication
+      await signIn(email, password);
       router.replace('/dashboard');
-    }, 2000);
+    } catch (error: any) {
+      Alert.alert('Login Error', error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const navigateToSignup = () => {

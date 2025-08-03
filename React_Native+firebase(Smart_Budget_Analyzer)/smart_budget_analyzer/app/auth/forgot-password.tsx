@@ -14,8 +14,10 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { useAuth } from '../../src/contexts/AuthContext';
 
 const ForgotPasswordScreen = () => {
+  const { resetPassword } = useAuth();
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isEmailSent, setIsEmailSent] = useState(false);
@@ -57,12 +59,15 @@ const ForgotPasswordScreen = () => {
 
     setIsLoading(true);
     
-    // Simulate password reset process
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      // Use Firebase password reset
+      await resetPassword(email);
       setIsEmailSent(true);
-      // TODO: Implement Firebase password reset here
-    }, 2000);
+    } catch (error: any) {
+      Alert.alert('Reset Error', error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const goBack = () => {

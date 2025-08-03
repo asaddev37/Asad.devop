@@ -16,7 +16,9 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.akdev.smart_budget_analyzer",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "bundler": "metro",
