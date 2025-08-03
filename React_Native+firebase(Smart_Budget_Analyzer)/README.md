@@ -476,6 +476,10 @@ feedback: {
     </td>
   </tr>
 </table>
+local :
+![WhatsApp Image 2025-08-03 at 14 44 41_b67dac8e](https://github.com/user-attachments/assets/b22d6420-3b95-4300-801f-ed067f0b6372)
+transaction:
+![WhatsApp Image 2025-08-03 at 14 44 41_69222d2e](https://github.com/user-attachments/assets/95fb69b8-aa39-4af3-8c12-141df418ac1e)
 
 
 
