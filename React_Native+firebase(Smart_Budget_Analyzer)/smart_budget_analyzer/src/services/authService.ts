@@ -4,7 +4,8 @@ import {
   signOut, 
   sendPasswordResetEmail,
   User,
-  UserCredential 
+  UserCredential,
+  AuthError as FirebaseAuthError
 } from 'firebase/auth';
 import { auth } from '../config/firebase';
 
@@ -17,9 +18,9 @@ export class AuthService {
   // Sign up with email and password
   static async signUp(email: string, password: string): Promise<UserCredential> {
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      return userCredential;
+      return await createUserWithEmailAndPassword(auth, email, password);
     } catch (error: any) {
+      console.error('Error in signUp:', error);
       throw this.handleAuthError(error);
     }
   }
@@ -27,9 +28,9 @@ export class AuthService {
   // Sign in with email and password
   static async signIn(email: string, password: string): Promise<UserCredential> {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      return userCredential;
+      return await signInWithEmailAndPassword(auth, email, password);
     } catch (error: any) {
+      console.error('Error in signIn:', error);
       throw this.handleAuthError(error);
     }
   }
@@ -39,6 +40,7 @@ export class AuthService {
     try {
       await signOut(auth);
     } catch (error: any) {
+      console.error('Error in signOut:', error);
       throw this.handleAuthError(error);
     }
   }
@@ -48,6 +50,7 @@ export class AuthService {
     try {
       await sendPasswordResetEmail(auth, email);
     } catch (error: any) {
+      console.error('Error in resetPassword:', error);
       throw this.handleAuthError(error);
     }
   }
@@ -62,9 +65,9 @@ export class AuthService {
     return auth.onAuthStateChanged(callback);
   }
 
-  // Handle Firebase auth errors
-  private static handleAuthError(error: any): AuthError {
-    let message = 'An error occurred during authentication.';
+  // Handle authentication errors
+  private static handleAuthError(error: FirebaseAuthError): AuthError {
+    let message = 'An error occurred. Please try again.';
     
     switch (error.code) {
       case 'auth/email-already-in-use':
@@ -74,27 +77,22 @@ export class AuthService {
         message = 'Please enter a valid email address.';
         break;
       case 'auth/weak-password':
-        message = 'Password should be at least 6 characters long.';
+        message = 'Password should be at least 6 characters.';
         break;
       case 'auth/user-not-found':
-        message = 'No account found with this email address.';
-        break;
       case 'auth/wrong-password':
-        message = 'Incorrect password. Please try again.';
+        message = 'Invalid email or password.';
         break;
       case 'auth/too-many-requests':
-        message = 'Too many failed attempts. Please try again later.';
-        break;
-      case 'auth/network-request-failed':
-        message = 'Network error. Please check your internet connection.';
+        message = 'Too many attempts. Please try again later.';
         break;
       default:
-        message = error.message || message;
+        console.error('Auth error:', error);
     }
 
     return {
-      code: error.code || 'auth/unknown',
+      code: error.code,
       message
     };
   }
-} 
+}
