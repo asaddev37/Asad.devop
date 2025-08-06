@@ -1,4 +1,4 @@
-### 🚀 SmartBudgetAnalyzer v1.1 - Complete Project Scope
+![WhatsApp Image 2025-08-05 at 12 28 48_cd49ae3b](https://github.com/user-attachments/assets/5f445d5b-ad2b-488b-a9cc-5b765c1e9b68)### 🚀 SmartBudgetAnalyzer v1.1 - Complete Project Scope
 
 ## �� Project Overview
 
@@ -476,6 +476,12 @@ feedback: {
     </td>
   </tr>
 </table>
+local :
+![WhatsApp Image 2025-08-03 at 14 44 41_b67dac8e](https://github.com/user-attachments/assets/b22d6420-3b95-4300-801f-ed067f0b6372)
+transaction:
+![WhatsApp Image 2025-08-03 at 14 44 41_69222d2e](https://github.com/user-attachments/assets/95fb69b8-aa39-4af3-8c12-141df418ac1e)
+
+![WhatsApp Image 2025-08-05 at 12 28 54_4029237d](https://github.com/user-attachments/assets/d8140010-e09f-47bf-87f1-7282e6c04f34)
 
 
 
