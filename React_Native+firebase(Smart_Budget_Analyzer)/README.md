@@ -480,6 +480,7 @@ feedback: {
 dashboard screen:
 ![IMG-20250807-WA0002](https://github.com/user-attachments/assets/745f3178-9268-475a-9a3d-8c93975901ae)
 transactions screen;
+![IMG-20250807-WA0004](https://github.com/user-attachments/assets/d53b6d2c-442b-4786-89a5-6f6697fc3609)
 
 budget screen:
 
