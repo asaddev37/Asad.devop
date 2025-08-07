@@ -477,19 +477,7 @@ feedback: {
   </tr>
 </table>
 
-dashboard screen:
-![IMG-20250807-WA0005](https://github.com/user-attachments/assets/8449d3d3-f495-4f04-a65d-5357005cb6e8)
-
-transactions screen;
-![IMG-20250807-WA0004](https://github.com/user-attachments/assets/d53b6d2c-442b-4786-89a5-6f6697fc3609)
-
-budget screen:
-![IMG-20250807-WA0003](https://github.com/user-attachments/assets/7b1da8f9-de6f-44c3-b7fe-ae28a80a78f5)
-
-profile screen:
-![IMG-20250807-WA0002](https://github.com/user-attachments/assets/745f3178-9268-475a-9a3d-8c93975901ae)
-
-
+<div align="center"> <div> <h4>📊 Dashboard Screen</h4> <img src="https://github.com/user-attachments/assets/8449d3d3-f495-4f04-a65d-5357005cb6e8" alt="Dashboard" width="22%" /> </div> <div> <h4>💸 Transactions Screen</h4> <img src="https://github.com/user-attachments/assets/d53b6d2c-442b-4786-89a5-6f6697fc3609" alt="Transactions" width="22%" /> </div> <div> <h4>📅 Budget Screen</h4> <img src="https://github.com/user-attachments/assets/7b1da8f9-de6f-44c3-b7fe-ae28a80a78f5" alt="Budget" width="22%" /> </div> <div> <h4>👤 Profile Screen</h4> <img src="https://github.com/user-attachments/assets/745f3178-9268-475a-9a3d-8c93975901ae" alt="Profile" width="22%" /> </div> </div>
 
 
 
