@@ -100,10 +100,10 @@ const SignupScreen = () => {
   };
 
   return (
-    <LinearGradient
-      colors={['#1e90ff', '#32cd32']}
-      style={styles.container}
-    >
+          <LinearGradient
+        colors={['#4A90E2', '#357ABD']}
+        style={styles.container}
+      >
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
       
       <KeyboardAvoidingView
@@ -128,8 +128,9 @@ const SignupScreen = () => {
               <TouchableOpacity onPress={goBack} style={styles.backButton}>
                 <Ionicons name="arrow-back" size={24} color="white" />
               </TouchableOpacity>
-              <Text style={styles.title}>Create Account 🚀</Text>
-              <Text style={styles.subtitle}>Join thousands of users managing their finances</Text>
+              <Text style={styles.title}>Create Account</Text>
+              <Text style={styles.subtitle}>Join SmartBudget Analyzer</Text>
+              <Text style={styles.description}>Start your journey to financial freedom with AI-powered insights</Text>
             </View>
 
             {/* Form */}
@@ -297,10 +298,18 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   subtitle: {
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 18,
+    color: 'rgba(255, 255, 255, 0.9)',
     textAlign: 'center',
-    lineHeight: 22,
+    marginBottom: 10,
+    fontWeight: '600',
+  },
+  description: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.7)',
+    textAlign: 'center',
+    marginBottom: 40,
+    lineHeight: 20,
   },
   form: {
     marginBottom: 30,

@@ -9,6 +9,7 @@ import {
   Dimensions,
   StatusBar,
   Modal,
+  FlatList,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
@@ -22,25 +23,93 @@ const HomeScreen = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const flatListRef = useRef<FlatList>(null);
 
   const carouselData = [
     {
-      icon: '📊',
-      title: 'Smart Analytics',
-      description: 'Get AI-powered insights into your spending patterns.',
-      color: '#1e90ff',
+      id: '1',
+      icon: 'analytics',
+      title: 'AI-Powered Analytics',
+      description: 'Get intelligent insights into your spending patterns with machine learning algorithms that identify trends and provide personalized recommendations.',
+      color: '#4A90E2',
+      gradient: ['#4A90E2', '#357ABD'],
     },
     {
-      icon: '🎯',
-      title: 'Budget Goals',
-      description: 'Set personalized budgets and track your progress.',
-      color: '#32cd32',
+      id: '2',
+      icon: 'shield-checkmark',
+      title: 'Secure & Private',
+      description: 'Bank-level security with end-to-end encryption. Your financial data is protected with biometric authentication and secure cloud storage.',
+      color: '#50C878',
+      gradient: ['#50C878', '#3CB371'],
     },
     {
-      icon: '💰',
+      id: '3',
+      icon: 'trending-up',
+      title: 'Smart Budgeting',
+      description: 'Set personalized budgets with AI-driven suggestions. Track your progress in real-time and receive smart alerts when you approach limits.',
+      color: '#FF6B35',
+      gradient: ['#FF6B35', '#E55A2B'],
+    },
+    {
+      id: '4',
+      icon: 'sync',
+      title: 'Real-Time Sync',
+      description: 'Access your financial data anywhere, anytime. Automatic synchronization across all your devices with offline support.',
+      color: '#9C27B0',
+      gradient: ['#9C27B0', '#7B1FA2'],
+    },
+    {
+      id: '5',
+      icon: 'people',
+      title: 'Multi-User Support',
+      description: 'Perfect for families and roommates. Share budgets, track shared expenses, and manage household finances together.',
+      color: '#FF9800',
+      gradient: ['#FF9800', '#F57C00'],
+    },
+  ];
+
+  const flashCards = [
+    {
+      id: '1',
+      icon: 'calculator',
       title: 'Expense Tracking',
-      description: 'Easily log and categorize all your transactions.',
-      color: '#ff6b35',
+      description: 'Log transactions with smart categorization and detailed analytics',
+      color: '#2196F3',
+    },
+    {
+      id: '2',
+      icon: 'pie-chart',
+      title: 'Visual Reports',
+      description: 'Beautiful charts and graphs to understand your spending habits',
+      color: '#4CAF50',
+    },
+    {
+      id: '3',
+      icon: 'notifications',
+      title: 'Smart Alerts',
+      description: 'Get notified about budget limits, unusual spending, and savings opportunities',
+      color: '#FF5722',
+    },
+    {
+      id: '4',
+      icon: 'download',
+      title: 'Export Data',
+      description: 'Export your financial data in multiple formats for tax and analysis',
+      color: '#9C27B0',
+    },
+    {
+      id: '5',
+      icon: 'lock-closed',
+      title: 'Privacy Mode',
+      description: 'Hide sensitive financial information with a single tap',
+      color: '#607D8B',
+    },
+    {
+      id: '6',
+      icon: 'cloud-upload',
+      title: 'Cloud Backup',
+      description: 'Automatic backup to secure cloud storage with version history',
+      color: '#00BCD4',
     },
   ];
 
@@ -59,8 +128,15 @@ const HomeScreen = () => {
     ]).start();
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % carouselData.length);
-    }, 3000);
+      setCurrentSlide((prev) => {
+        const next = (prev + 1) % carouselData.length;
+        flatListRef.current?.scrollToIndex({
+          index: next,
+          animated: true,
+        });
+        return next;
+      });
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -76,6 +152,35 @@ const HomeScreen = () => {
     }
   };
 
+  const renderCarouselItem = ({ item, index }: { item: any; index: number }) => (
+    <View style={styles.carouselItemContainer}>
+      <LinearGradient
+        colors={item.gradient}
+        style={styles.carouselItem}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
+        <View style={styles.carouselIconContainer}>
+          <Ionicons name={item.icon as any} size={48} color="white" />
+        </View>
+        <Text style={styles.carouselTitle}>{item.title}</Text>
+        <Text style={styles.carouselDescription}>{item.description}</Text>
+      </LinearGradient>
+    </View>
+  );
+
+  const renderFlashCard = ({ item }: { item: any }) => (
+    <View style={[styles.flashCard, { borderLeftColor: item.color }]}>
+      <View style={[styles.flashCardIcon, { backgroundColor: item.color + '20' }]}>
+        <Ionicons name={item.icon as any} size={24} color={item.color} />
+      </View>
+      <View style={styles.flashCardContent}>
+        <Text style={styles.flashCardTitle}>{item.title}</Text>
+        <Text style={styles.flashCardDescription}>{item.description}</Text>
+      </View>
+    </View>
+  );
+
   return (
     <View style={[styles.container, isDarkMode && styles.darkContainer]}>
       <StatusBar 
@@ -86,7 +191,7 @@ const HomeScreen = () => {
       
       {/* App Bar */}
       <LinearGradient
-        colors={['#1e90ff', '#32cd32']}
+        colors={['#4A90E2', '#357ABD']}
         style={styles.appBar}
       >
         <TouchableOpacity onPress={openDrawer} style={styles.menuButton}>
@@ -118,69 +223,98 @@ const HomeScreen = () => {
           {/* Welcome Section */}
           <View style={styles.welcomeSection}>
             <Text style={[styles.welcomeTitle, isDarkMode && styles.darkText]}>
-              Welcome to SmartBudget! 🎉
+              Welcome to SmartBudget Analyzer
             </Text>
             <Text style={[styles.welcomeSubtitle, isDarkMode && styles.darkSubtext]}>
-              Your personal finance companion powered by AI
+              Your intelligent personal finance companion
             </Text>
           </View>
 
-          {/* Carousel Section */}
-          <View style={styles.carouselContainer}>
-            <View style={styles.carousel}>
-              {carouselData.map((item, index) => (
-                <Animated.View
-                  key={index}
-                  style={[
-                    styles.carouselItem,
-                    {
-                      backgroundColor: item.color,
-                      transform: [{ scale: currentSlide === index ? 1 : 0.9 }],
-                      opacity: currentSlide === index ? 1 : 0.7,
-                    },
-                  ]}
-                >
-                  <Text style={styles.carouselIcon}>{item.icon}</Text>
-                  <Text style={styles.carouselTitle}>{item.title}</Text>
-                  <Text style={styles.carouselDescription}>{item.description}</Text>
-                </Animated.View>
-              ))}
-            </View>
+          {/* Professional Carousel */}
+          <View style={styles.carouselSection}>
+            <Text style={[styles.sectionTitle, isDarkMode && styles.darkText]}>
+              Why Choose SmartBudget?
+            </Text>
             
-            <View style={styles.indicators}>
-              {carouselData.map((_, index) => (
-                <View
-                  key={index}
-                  style={[
-                    styles.indicator,
-                    currentSlide === index && styles.activeIndicator,
-                  ]}
-                />
+            <View style={styles.carouselContainer}>
+              <FlatList
+                ref={flatListRef}
+                data={carouselData}
+                renderItem={renderCarouselItem}
+                keyExtractor={(item) => item.id}
+                horizontal
+                pagingEnabled
+                showsHorizontalScrollIndicator={false}
+                onMomentumScrollEnd={(event) => {
+                  const index = Math.round(event.nativeEvent.contentOffset.x / width);
+                  setCurrentSlide(index);
+                }}
+                style={styles.carousel}
+              />
+              
+              <View style={styles.indicators}>
+                {carouselData.map((_, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    style={[
+                      styles.indicator,
+                      currentSlide === index && styles.activeIndicator,
+                    ]}
+                    onPress={() => {
+                      setCurrentSlide(index);
+                      flatListRef.current?.scrollToIndex({
+                        index,
+                        animated: true,
+                      });
+                    }}
+                  />
+                ))}
+              </View>
+            </View>
+          </View>
+
+          {/* Flash Cards Section */}
+          <View style={styles.flashCardsSection}>
+            <Text style={[styles.sectionTitle, isDarkMode && styles.darkText]}>
+              Powerful Features
+            </Text>
+            
+            <View style={styles.flashCardsGrid}>
+              {flashCards.map((card) => (
+                <View key={card.id} style={styles.flashCardWrapper}>
+                  {renderFlashCard({ item: card })}
+                </View>
               ))}
             </View>
           </View>
 
           {/* CTA Section */}
           <View style={styles.ctaSection}>
-            <Text style={[styles.ctaTitle, isDarkMode && styles.darkText]}>
-              Ready to take control? 🚀
-            </Text>
-            
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity
-                style={[styles.button, styles.signupButton]}
-                onPress={() => navigateToAuth('signup')}
-              >
-                <Text style={styles.buttonText}>Get Started</Text>
-                <Ionicons name="arrow-forward" size={20} color="white" />
-              </TouchableOpacity>
+            <View style={styles.ctaCard}>
+              <Ionicons name="rocket" size={48} color="#4A90E2" />
+              <Text style={[styles.ctaTitle, isDarkMode && styles.darkText]}>
+                Ready to Transform Your Finances?
+              </Text>
+              <Text style={[styles.ctaSubtitle, isDarkMode && styles.darkSubtext]}>
+                Join thousands of users who have taken control of their financial future
+              </Text>
               
-              <TouchableOpacity
-                style={[styles.button, styles.loginButton]}
-                onPress={() => navigateToAuth('login')}
-              >
-                <Text style={styles.loginButtonText}>I already have an account</Text>
-              </TouchableOpacity>
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                  style={[styles.button, styles.signupButton]}
+                  onPress={() => navigateToAuth('signup')}
+                >
+                  <Text style={styles.buttonText}>Get Started Free</Text>
+                  <Ionicons name="arrow-forward" size={20} color="white" />
+                </TouchableOpacity>
+                
+                <TouchableOpacity
+                  style={[styles.button, styles.loginButton]}
+                  onPress={() => navigateToAuth('login')}
+                >
+                  <Text style={styles.loginButtonText}>Sign In</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </Animated.View>
@@ -199,44 +333,64 @@ const HomeScreen = () => {
             onPress={closeDrawer}
             activeOpacity={1}
           />
-          <View style={[styles.drawer, isDarkMode && styles.darkDrawer]}>
-            <LinearGradient
-              colors={['#1e90ff', '#32cd32']}
-              style={styles.drawerHeader}
-            >
-              <Text style={styles.drawerTitle}>SmartBudget</Text>
-              <Text style={styles.drawerSubtitle}>Menu</Text>
-            </LinearGradient>
+          <Animated.View style={styles.drawer}>
+            <View style={styles.drawerHeader}>
+              <Text style={styles.drawerTitle}>Menu</Text>
+              <TouchableOpacity onPress={closeDrawer}>
+                <Ionicons name="close" size={24} color="#333" />
+              </TouchableOpacity>
+            </View>
             
             <View style={styles.drawerContent}>
-              <TouchableOpacity style={styles.drawerItem}>
-                <Ionicons name="information-circle" size={24} color="#1e90ff" />
-                <Text style={[styles.drawerItemText, isDarkMode && styles.darkText]}>
-                  About
-                </Text>
+              <TouchableOpacity 
+                style={styles.drawerItem}
+                onPress={() => {
+                  closeDrawer();
+                  router.push('/drawer/about');
+                }}
+              >
+                <Ionicons name="information-circle" size={20} color="#666" />
+                <Text style={styles.drawerItemText}>About</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={styles.drawerItem}>
-                <Ionicons name="shield-checkmark" size={24} color="#1e90ff" />
-                <Text style={[styles.drawerItemText, isDarkMode && styles.darkText]}>
-                  Privacy Policy
-                </Text>
+              <TouchableOpacity 
+                style={styles.drawerItem}
+                onPress={() => {
+                  closeDrawer();
+                  router.push('/drawer/privacy-policy');
+                }}
+              >
+                <Ionicons name="shield-checkmark" size={20} color="#666" />
+                <Text style={styles.drawerItemText}>Privacy Policy</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={styles.drawerItem}>
-                <Ionicons name="mail" size={24} color="#1e90ff" />
-                <Text style={[styles.drawerItemText, isDarkMode && styles.darkText]}>
-                  Contact
-                </Text>
+              <TouchableOpacity 
+                style={styles.drawerItem}
+                onPress={() => {
+                  closeDrawer();
+                  router.push('/drawer/contact');
+                }}
+              >
+                <Ionicons name="mail" size={20} color="#666" />
+                <Text style={styles.drawerItemText}>Contact</Text>
+              </TouchableOpacity>
+              
+              <TouchableOpacity 
+                style={styles.drawerItem}
+                onPress={() => {
+                  closeDrawer();
+                  router.push('/drawer/help');
+                }}
+              >
+                <Ionicons name="help-circle" size={20} color="#666" />
+                <Text style={styles.drawerItemText}>Help & Support</Text>
               </TouchableOpacity>
             </View>
             
             <View style={styles.drawerFooter}>
-              <Text style={[styles.footerText, isDarkMode && styles.darkSubtext]}>
-                Made with ❤️ by AK~~37
-              </Text>
+              <Text style={styles.drawerFooterText}>Made with ❤️ by AK~~37</Text>
             </View>
-          </View>
+          </Animated.View>
         </View>
       </Modal>
     </View>
@@ -246,23 +400,18 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#F8F9FA',
   },
   darkContainer: {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#1A1A1A',
   },
   appBar: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: 60,
+    paddingBottom: 20,
     paddingHorizontal: 20,
-    paddingTop: 50,
-    paddingBottom: 15,
-    elevation: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
   },
   menuButton: {
     padding: 8,
@@ -293,50 +442,63 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   darkText: {
-    color: '#fff',
+    color: '#FFFFFF',
   },
   welcomeSubtitle: {
     fontSize: 16,
     color: '#666',
     textAlign: 'center',
-    lineHeight: 22,
   },
   darkSubtext: {
-    color: '#ccc',
+    color: '#CCCCCC',
   },
-  carouselContainer: {
+  carouselSection: {
     marginBottom: 40,
   },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  carouselContainer: {
+    height: 280,
+  },
   carousel: {
-    height: 200,
-    position: 'relative',
+    flex: 1,
+  },
+  carouselItemContainer: {
+    width: width - 40,
+    paddingHorizontal: 10,
   },
   carouselItem: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    flex: 1,
     borderRadius: 20,
     padding: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 5,
+    elevation: 8,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
   },
-  carouselIcon: {
-    fontSize: 40,
-    marginBottom: 15,
+  carouselIconContainer: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
   },
   carouselTitle: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
     color: 'white',
-    marginBottom: 10,
     textAlign: 'center',
+    marginBottom: 15,
   },
   carouselDescription: {
     fontSize: 14,
@@ -353,23 +515,86 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#ddd',
+    backgroundColor: '#DDD',
     marginHorizontal: 4,
   },
   activeIndicator: {
-    backgroundColor: '#1e90ff',
-    width: 20,
+    backgroundColor: '#4A90E2',
+    width: 24,
+  },
+  flashCardsSection: {
+    marginBottom: 40,
+  },
+  flashCardsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  flashCardWrapper: {
+    width: '48%',
+    marginBottom: 15,
+  },
+  flashCard: {
+    backgroundColor: 'white',
+    borderRadius: 15,
+    padding: 20,
+    borderLeftWidth: 4,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  flashCardIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  flashCardContent: {
+    flex: 1,
+  },
+  flashCardTitle: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 6,
+  },
+  flashCardDescription: {
+    fontSize: 12,
+    color: '#666',
+    lineHeight: 16,
   },
   ctaSection: {
-    alignItems: 'center',
     marginBottom: 30,
   },
+  ctaCard: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 30,
+    alignItems: 'center',
+    elevation: 6,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+  },
   ctaTitle: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
+    marginTop: 15,
+    marginBottom: 10,
+  },
+  ctaSubtitle: {
+    fontSize: 16,
+    color: '#666',
+    textAlign: 'center',
     marginBottom: 25,
+    lineHeight: 22,
   },
   buttonContainer: {
     width: '100%',
@@ -380,21 +605,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 15,
     paddingHorizontal: 30,
-    borderRadius: 25,
-    marginBottom: 15,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    borderRadius: 12,
+    marginBottom: 12,
   },
   signupButton: {
-    backgroundColor: '#1e90ff',
-  },
-  loginButton: {
-    backgroundColor: 'transparent',
-    borderWidth: 2,
-    borderColor: '#1e90ff',
+    backgroundColor: '#4A90E2',
   },
   buttonText: {
     color: 'white',
@@ -402,10 +617,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginRight: 8,
   },
+  loginButton: {
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderColor: '#4A90E2',
+  },
   loginButtonText: {
-    color: '#1e90ff',
+    color: '#4A90E2',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
   drawerOverlay: {
     flex: 1,
@@ -416,46 +636,41 @@ const styles = StyleSheet.create({
   },
   drawer: {
     position: 'absolute',
-    left: 0,
     top: 0,
-    bottom: 0,
-    width: 280,
+    left: 0,
+    width: width * 0.8,
+    height: height,
     backgroundColor: 'white',
     elevation: 10,
     shadowColor: '#000',
     shadowOffset: { width: 2, height: 0 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-  },
-  darkDrawer: {
-    backgroundColor: '#2a2a2a',
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
   },
   drawerHeader: {
-    paddingTop: 50,
-    paddingBottom: 30,
-    paddingHorizontal: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 20,
+    paddingTop: 60,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F0F0F0',
   },
   drawerTitle: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: 'white',
-    marginBottom: 5,
-  },
-  drawerSubtitle: {
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: '#333',
   },
   drawerContent: {
     flex: 1,
-    paddingTop: 20,
+    padding: 20,
   },
   drawerItem: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 15,
-    paddingHorizontal: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+    borderBottomColor: '#F0F0F0',
   },
   drawerItemText: {
     fontSize: 16,
@@ -465,10 +680,10 @@ const styles = StyleSheet.create({
   drawerFooter: {
     padding: 20,
     borderTopWidth: 1,
-    borderTopColor: '#f0f0f0',
+    borderTopColor: '#F0F0F0',
   },
-  footerText: {
-    fontSize: 12,
+  drawerFooterText: {
+    fontSize: 14,
     color: '#666',
     textAlign: 'center',
   },

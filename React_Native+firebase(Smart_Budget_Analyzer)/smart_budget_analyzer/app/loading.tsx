@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('window');
 
@@ -17,13 +18,14 @@ const LoadingScreen = () => {
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
   const rotateAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(50)).current;
+  const tipAnim = useRef(new Animated.Value(0)).current;
 
   const tips = [
-    "💡 Track every penny to save more!",
-    "📊 Visualize your spending patterns",
-    "🎯 Set smart budget goals",
-    "🚀 AI-powered financial insights",
-    "📱 Sync across all your devices"
+    "Track every penny to save more with smart categorization",
+    "Visualize your spending patterns with beautiful charts",
+    "Set personalized budget goals with AI recommendations",
+    "Get intelligent financial insights powered by machine learning",
+    "Access your data anywhere with secure cloud synchronization"
   ];
 
   useEffect(() => {
@@ -50,9 +52,25 @@ const LoadingScreen = () => {
     Animated.loop(
       Animated.timing(rotateAnim, {
         toValue: 1,
-        duration: 2000,
+        duration: 3000,
         useNativeDriver: true,
       })
+    ).start();
+
+    // Tip animation
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(tipAnim, {
+          toValue: 1,
+          duration: 2000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(tipAnim, {
+          toValue: 0,
+          duration: 2000,
+          useNativeDriver: true,
+        }),
+      ])
     ).start();
 
     // Auto navigate after 5 seconds
@@ -70,7 +88,7 @@ const LoadingScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#1e90ff', '#32cd32']}
+      colors={['#4A90E2', '#357ABD']}
       style={styles.container}
     >
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
@@ -96,65 +114,44 @@ const LoadingScreen = () => {
             },
           ]}
         >
-          <Text style={styles.logo}>💰</Text>
+          <View style={styles.logoBackground}>
+            <Ionicons name="analytics" size={60} color="white" />
+          </View>
         </Animated.View>
 
         {/* App Title */}
-        <Text style={styles.title}>SmartBudget</Text>
-        <Text style={styles.subtitle}>Analyzer</Text>
+        <Text style={styles.appTitle}>SmartBudget Analyzer</Text>
+        <Text style={styles.appSubtitle}>Your Intelligent Finance Companion</Text>
 
         {/* Loading Indicator */}
         <View style={styles.loadingContainer}>
           <View style={styles.loadingDots}>
-            {[0, 1, 2].map((index) => (
-              <Animated.View
-                key={index}
-                style={[
-                  styles.dot,
-                  {
-                    opacity: fadeAnim,
-                    transform: [
-                      {
-                        scale: scaleAnim.interpolate({
-                          inputRange: [0.8, 1],
-                          outputRange: [0.5, 1],
-                        }),
-                      },
-                    ],
-                  },
-                ]}
-              />
-            ))}
+            <Animated.View style={[styles.dot, { opacity: tipAnim }]} />
+            <Animated.View style={[styles.dot, { opacity: tipAnim }]} />
+            <Animated.View style={[styles.dot, { opacity: tipAnim }]} />
           </View>
         </View>
 
         {/* Tips Section */}
         <View style={styles.tipsContainer}>
-          <Text style={styles.tipsTitle}>💡 Smart Tips</Text>
+          <Text style={styles.tipsTitle}>Did you know?</Text>
           <Animated.Text
             style={[
               styles.tipText,
               {
-                opacity: fadeAnim,
-                transform: [{ translateY: slideAnim }],
+                opacity: tipAnim,
               },
             ]}
           >
-            {tips[Math.floor(Math.random() * tips.length)]}
+            {tips[Math.floor((Date.now() / 2000) % tips.length)]}
           </Animated.Text>
         </View>
 
-        {/* Loading Text */}
-        <Animated.Text
-          style={[
-            styles.loadingText,
-            {
-              opacity: fadeAnim,
-            },
-          ]}
-        >
-          Preparing your financial journey...
-        </Animated.Text>
+        {/* Version Info */}
+        <View style={styles.versionContainer}>
+          <Text style={styles.versionText}>Version 1.1</Text>
+          <Text style={styles.copyrightText}>© 2024 SmartBudget Analyzer</Text>
+        </View>
       </Animated.View>
     </LinearGradient>
   );
@@ -171,22 +168,30 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
   },
   logoContainer: {
-    marginBottom: 20,
+    marginBottom: 30,
   },
-  logo: {
-    fontSize: 80,
-    textAlign: 'center',
+  logoBackground: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
   },
-  title: {
-    fontSize: 36,
+  appTitle: {
+    fontSize: 32,
     fontWeight: 'bold',
     color: 'white',
     textAlign: 'center',
-    marginBottom: 5,
+    marginBottom: 10,
   },
-  subtitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  appSubtitle: {
+    fontSize: 16,
     color: 'rgba(255, 255, 255, 0.9)',
     textAlign: 'center',
     marginBottom: 40,
@@ -197,22 +202,22 @@ const styles = StyleSheet.create({
   loadingDots: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
   },
   dot: {
     width: 12,
     height: 12,
     borderRadius: 6,
     backgroundColor: 'white',
-    marginHorizontal: 4,
+    marginHorizontal: 6,
   },
   tipsContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 20,
     padding: 20,
-    borderRadius: 15,
-    marginBottom: 30,
+    marginBottom: 40,
     alignItems: 'center',
-    minWidth: 280,
+    minHeight: 80,
+    justifyContent: 'center',
   },
   tipsTitle: {
     fontSize: 18,
@@ -221,15 +226,22 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   tipText: {
-    fontSize: 16,
-    color: 'white',
-    textAlign: 'center',
-    lineHeight: 22,
-  },
-  loadingText: {
     fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: 'rgba(255, 255, 255, 0.9)',
     textAlign: 'center',
+    lineHeight: 20,
+  },
+  versionContainer: {
+    alignItems: 'center',
+  },
+  versionText: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.7)',
+    marginBottom: 5,
+  },
+  copyrightText: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.6)',
   },
 });
 

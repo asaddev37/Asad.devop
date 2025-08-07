@@ -1,15 +1,19 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { User } from 'firebase/auth';
 import { AuthService } from '../services/authService';
-import { FirestoreService } from '../services/firestoreService';
+import { FirestoreService, User as FirestoreUser } from '../services/firestoreService';
 
 interface AuthContextType {
   user: User | null;
+  userProfile: FirestoreUser | null;
   loading: boolean;
   signUp: (email: string, password: string, fullName: string) => Promise<void>;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
   resetPassword: (email: string) => Promise<void>;
+  updateProfile: (updates: Partial<FirestoreUser>) => Promise<void>;
+  refreshUserProfile: () => Promise<void>;
+  togglePrivacyMode: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -28,7 +32,29 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [userProfile, setUserProfile] = useState<FirestoreUser | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Fetch user profile from Firestore
+  const fetchUserProfile = async (uid: string) => {
+    try {
+      const profile = await FirestoreService.getUser(uid);
+      setUserProfile(profile);
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+    }
+  };
+
+  // Real-time user profile listener
+  useEffect(() => {
+    if (!user?.uid) return;
+
+    const unsubscribe = FirestoreService.onUserChange(user.uid, (profile) => {
+      setUserProfile(profile);
+    });
+
+    return unsubscribe;
+  }, [user?.uid]);
 
   useEffect(() => {
     const unsubscribe = AuthService.onAuthStateChanged(async (user) => {
@@ -48,10 +74,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
               budgetPreferences: {},
               biometricEnabled: false
             });
+            
+            // Initialize default categories for new user
+            await FirestoreService.initializeDefaultCategories(user.uid);
           }
+          
+          // Fetch user profile
+          await fetchUserProfile(user.uid);
         } catch (error) {
           console.error('Error handling user state change:', error);
         }
+      } else {
+        setUserProfile(null);
       }
       
       setLoading(false);
@@ -74,6 +108,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           budgetPreferences: {},
           biometricEnabled: false
         });
+        
+        // Initialize default categories for new user
+        await FirestoreService.initializeDefaultCategories(userCredential.user.uid);
       }
     } catch (error) {
       console.error('Error in signUp:', error);
@@ -93,6 +130,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const signOut = async () => {
     try {
       await AuthService.signOut();
+      setUserProfile(null);
     } catch (error) {
       console.error('Error in signOut:', error);
       throw error;
@@ -108,13 +146,47 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  const value: AuthContextType = {
+  const updateProfile = async (updates: Partial<FirestoreUser>) => {
+    if (!user?.uid) throw new Error('No user logged in');
+    
+    try {
+      await FirestoreService.updateUser(user.uid, updates);
+      // Force refresh the user profile to ensure immediate updates
+      await fetchUserProfile(user.uid);
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      throw error;
+    }
+  };
+
+  const refreshUserProfile = async () => {
+    if (!user?.uid) return;
+    
+    try {
+      await fetchUserProfile(user.uid);
+    } catch (error) {
+      console.error('Error refreshing user profile:', error);
+    }
+  };
+
+  const togglePrivacyMode = async () => {
+    if (user?.uid && userProfile) {
+      const newPrivacyMode = !userProfile.privacyMode;
+      await updateProfile({ privacyMode: newPrivacyMode });
+    }
+  };
+
+  const value = {
     user,
+    userProfile,
     loading,
     signUp,
     signIn,
     signOut,
-    resetPassword
+    resetPassword,
+    updateProfile,
+    refreshUserProfile,
+    togglePrivacyMode,
   };
 
   return (

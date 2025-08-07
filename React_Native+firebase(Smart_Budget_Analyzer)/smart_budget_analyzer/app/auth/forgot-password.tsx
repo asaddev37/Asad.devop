@@ -81,7 +81,7 @@ const ForgotPasswordScreen = () => {
   if (isEmailSent) {
     return (
       <LinearGradient
-        colors={['#1e90ff', '#32cd32']}
+        colors={['#4A90E2', '#357ABD']}
         style={styles.container}
       >
         <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
@@ -127,7 +127,7 @@ const ForgotPasswordScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#1e90ff', '#32cd32']}
+      colors={['#4A90E2', '#357ABD']}
       style={styles.container}
     >
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
@@ -153,10 +153,9 @@ const ForgotPasswordScreen = () => {
             <TouchableOpacity onPress={goBack} style={styles.backButton}>
               <Ionicons name="arrow-back" size={24} color="white" />
             </TouchableOpacity>
-            <Text style={styles.title}>Reset Password 🔐</Text>
-            <Text style={styles.subtitle}>
-              Enter your email address and we'll send you a link to reset your password
-            </Text>
+            <Text style={styles.title}>Reset Password</Text>
+            <Text style={styles.subtitle}>Enter your email to receive reset instructions</Text>
+            <Text style={styles.description}>We'll send you a secure link to reset your password</Text>
           </View>
 
           {/* Form */}
@@ -248,10 +247,18 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   subtitle: {
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 18,
+    color: 'rgba(255, 255, 255, 0.9)',
     textAlign: 'center',
-    lineHeight: 22,
+    marginBottom: 10,
+    fontWeight: '600',
+  },
+  description: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.7)',
+    textAlign: 'center',
+    marginBottom: 40,
+    lineHeight: 20,
   },
   form: {
     marginBottom: 40,
