@@ -441,53 +441,8 @@ feedback: {
 
 ---
 ### 📱 App Screenshots
+<table> <tr> <th align="center">Loading Screen</th> <th align="center">Home Screen</th> <th align="center">Menu Bar</th> </tr> <tr> <td align="center"> <img src="https://github.com/user-attachments/assets/f81db223-999e-442a-9046-69f56fc8e6e0" alt="Loading Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/c309e55c-f1e2-4afa-9979-b05d5cf490ab" alt="Home Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/3f79acec-bf6a-4974-bc50-570999434912" alt="Menu Bar" width="180" /> </td> </tr> <tr> <th align="center">Signup Screen</th> <th align="center">Login Screen</th> <th align="center">Forgot Password</th> </tr> <tr> <td align="center"> <img src="https://github.com/user-attachments/assets/777893cc-e8fd-47db-afa3-a0712be68ee1" alt="Signup Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/3ff08423-80c6-49c5-a4ac-1a80ad75b876" alt="Login Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/187f71d1-263d-4caa-be17-9b454b3c7174" alt="Forgot Password" width="180" /> </td> </tr> <tr> <th align="center">Dashboard Screen</th> <th align="center">Transactions Screen</th> <th align="center">Budget Screen</th> <th align="center">Profile Screen</th> </tr> <tr> <td align="center"> <img src="https://github.com/user-attachments/assets/8449d3d3-f495-4f04-a65d-5357005cb6e8" alt="Dashboard Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/d53b6d2c-442b-4786-89a5-6f6697fc3609" alt="Transactions Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/7b1da8f9-de6f-44c3-b7fe-ae28a80a78f5" alt="Budget Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/745f3178-9268-475a-9a3d-8c93975901ae" alt="Profile Screen" width="180" /> </td> </tr> </table>
 
-<table>
-  <tr>
-    <th align="center">Loading Screen</th>
-    <th align="center">Home Screen</th>
-    <th align="center">Menu Bar</th>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://github.com/user-attachments/assets/f81db223-999e-442a-9046-69f56fc8e6e0" alt="Loading Screen" width="180" />
-    </td>
-    <td align="center">
-      <img src="https://github.com/user-attachments/assets/c309e55c-f1e2-4afa-9979-b05d5cf490ab" alt="Home Screen" width="180" />
-    </td>
-    <td align="center">
-      <img src="https://github.com/user-attachments/assets/3f79acec-bf6a-4974-bc50-570999434912" alt="Menu Bar" width="180" />
-    </td>
-  </tr>
-  <tr>
-    <th align="center">Signup Screen</th>
-    <th align="center">Login Screen</th>
-    <th align="center">Forgot Password</th>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://github.com/user-attachments/assets/777893cc-e8fd-47db-afa3-a0712be68ee1" alt="Signup Screen" width="180" />
-    </td>
-    <td align="center">
-      <img src="https://github.com/user-attachments/assets/3ff08423-80c6-49c5-a4ac-1a80ad75b876" alt="Login Screen" width="180" />
-    </td>
-    <td align="center">
-      <img src="https://github.com/user-attachments/assets/187f71d1-263d-4caa-be17-9b454b3c7174" alt="Forgot Password" width="180" />
-    </td>
-  </tr>
-</table>
-local :
-![WhatsApp Image 2025-08-03 at 14 44 41_b67dac8e](https://github.com/user-attachments/assets/b22d6420-3b95-4300-801f-ed067f0b6372)
-transaction:
-![WhatsApp Image 2025-08-03 at 14 44 41_69222d2e](https://github.com/user-attachments/assets/95fb69b8-aa39-4af3-8c12-141df418ac1e)
-
-![WhatsApp Image 2025-08-05 at 12 28 54_4029237d](https://github.com/user-attachments/assets/d8140010-e09f-47bf-87f1-7282e6c04f34)
-
-
-
-
-
-![WhatsApp Image 2025-08-01 at 22 10 06_079a6ba1](https://github.com/user-attachments/assets/210a8a7b-1db6-4514-9c95-ae94720392dc)
 
 
 
