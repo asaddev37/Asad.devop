@@ -1,4 +1,4 @@
-![WhatsApp Image 2025-08-05 at 12 28 48_cd49ae3b](https://github.com/user-attachments/assets/5f445d5b-ad2b-488b-a9cc-5b765c1e9b68)### 🚀 SmartBudgetAnalyzer v1.1 - Complete Project Scope
+### 🚀 SmartBudgetAnalyzer v1.1 - Complete Project Scope
 
 ## �� Project Overview
 
@@ -487,6 +487,7 @@ transaction:
 
 
 
+![WhatsApp Image 2025-08-01 at 22 10 06_079a6ba1](https://github.com/user-attachments/assets/210a8a7b-1db6-4514-9c95-ae94720392dc)
 
 
 
