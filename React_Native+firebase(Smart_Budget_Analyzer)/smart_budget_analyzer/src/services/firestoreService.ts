@@ -812,6 +812,112 @@ export class FirestoreService {
     }
   }
 
+  // Real-time dashboard stats listener
+  static onDashboardStatsChange(userId: string, callback: (stats: DashboardStats) => void) {
+    // Listen to both transactions and budgets changes
+    const transactionsQuery = query(
+      collection(db, 'transactions'),
+      where('userId', '==', userId),
+      where('isDeleted', '==', false)
+    );
+
+    const budgetsQuery = query(
+      collection(db, 'budgets'),
+      where('userId', '==', userId)
+    );
+
+    let transactions: Transaction[] = [];
+    let budgets: Budget[] = [];
+    let transactionsLoaded = false;
+    let budgetsLoaded = false;
+
+    const calculateAndCallback = () => {
+      // Only calculate stats when both transactions and budgets have been loaded
+      if (transactionsLoaded && budgetsLoaded) {
+        try {
+          const stats = FirestoreService.calculateDashboardStats(transactions, budgets);
+          callback(stats);
+        } catch (error) {
+          console.error('Error calculating dashboard stats:', error);
+        }
+      }
+    };
+
+    const unsubscribeTransactions = onSnapshot(transactionsQuery, (snapshot) => {
+      transactions = [];
+      snapshot.forEach((doc) => {
+        transactions.push({ id: doc.id, ...doc.data() } as Transaction);
+      });
+      transactionsLoaded = true;
+      calculateAndCallback();
+    }, (error) => {
+      console.error('Error listening to transactions:', error);
+      transactionsLoaded = true;
+      calculateAndCallback();
+    });
+
+    const unsubscribeBudgets = onSnapshot(budgetsQuery, (snapshot) => {
+      budgets = [];
+      snapshot.forEach((doc) => {
+        budgets.push({ id: doc.id, ...doc.data() } as Budget);
+      });
+      budgetsLoaded = true;
+      calculateAndCallback();
+    }, (error) => {
+      console.error('Error listening to budgets:', error);
+      budgetsLoaded = true;
+      calculateAndCallback();
+    });
+
+    return () => {
+      unsubscribeTransactions();
+      unsubscribeBudgets();
+    };
+  }
+
+  // Helper method to calculate dashboard stats from transactions and budgets
+  private static calculateDashboardStats(transactions: Transaction[], budgets: Budget[]): DashboardStats {
+    let totalIncome = 0;
+    let totalExpenses = 0;
+
+    transactions.forEach((transaction) => {
+      if (transaction.amount > 0) {
+        totalIncome += transaction.amount;
+      } else {
+        totalExpenses += Math.abs(transaction.amount);
+      }
+    });
+
+    // Calculate budget progress
+    const budgetProgress = budgets.map(budget => {
+      const categoryTransactions = transactions.filter(t => 
+        t.category === budget.category && t.amount < 0
+      );
+      const spent = categoryTransactions.reduce((sum, t) => sum + Math.abs(t.amount), 0);
+      const percentage = budget.amount > 0 ? (spent / budget.amount) * 100 : 0;
+      
+      return {
+        category: budget.category,
+        spent,
+        budget: budget.amount,
+        percentage: Math.min(percentage, 100)
+      };
+    });
+
+    const totalBalance = totalIncome - totalExpenses;
+    const recentTransactions = transactions
+      .sort((a, b) => b.date.toMillis() - a.date.toMillis())
+      .slice(0, 5);
+
+    return {
+      totalBalance,
+      totalIncome,
+      totalExpenses,
+      recentTransactions,
+      budgetProgress
+    };
+  }
+
   // Initialize default categories for a user
   static async initializeDefaultCategories(userId: string): Promise<void> {
     try {

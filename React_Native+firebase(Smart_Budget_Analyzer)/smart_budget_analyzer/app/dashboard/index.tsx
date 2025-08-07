@@ -50,10 +50,7 @@ export default function DashboardScreen() {
       // Load dashboard stats
       const stats = await FirestoreService.getDashboardStats(user.uid);
       setDashboardStats(stats);
-      
-      // Load recent transactions
-      const recentTransactions = await FirestoreService.getTransactions(user.uid, 5);
-      setTransactions(recentTransactions);
+      setTransactions(stats.recentTransactions);
       
       // Load budgets
       const userBudgets = await FirestoreService.getBudgets(user.uid);
@@ -71,10 +68,13 @@ export default function DashboardScreen() {
   useEffect(() => {
     if (!user?.uid) return;
 
-    const unsubscribeTransactions = FirestoreService.onTransactionsChange(user.uid, (newTransactions) => {
-      setTransactions(newTransactions.slice(0, 5));
+    // Use the new real-time dashboard stats listener
+    const unsubscribeDashboardStats = FirestoreService.onDashboardStatsChange(user.uid, (newStats) => {
+      setDashboardStats(newStats);
+      setTransactions(newStats.recentTransactions);
     });
 
+    // Load budgets separately for the budget progress section
     const unsubscribeBudgets = FirestoreService.onBudgetsChange(user.uid, (newBudgets) => {
       setBudgets(newBudgets);
     });
@@ -83,7 +83,7 @@ export default function DashboardScreen() {
     loadDashboardData();
 
     return () => {
-      unsubscribeTransactions();
+      unsubscribeDashboardStats();
       unsubscribeBudgets();
     };
   }, [user?.uid]);
@@ -285,7 +285,7 @@ export default function DashboardScreen() {
               <Text style={styles.balanceLabel}>Total Balance</Text>
               <TouchableOpacity onPress={handlePrivacyToggle} style={styles.privacyButton}>
                 <Ionicons 
-                  name={shouldShowFinancialInfo() ? "eye-off" : "eye"} 
+                  name={shouldShowFinancialInfo() ? "eye" : "eye-off"} 
                   size={20} 
                   color="rgba(255, 255, 255, 0.8)" 
                 />
