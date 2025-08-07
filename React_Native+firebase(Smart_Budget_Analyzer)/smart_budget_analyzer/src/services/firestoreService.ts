@@ -2,7 +2,8 @@ import {
   collection, 
   doc, 
   addDoc, 
-  updateDoc, 
+  setDoc,
+  updateDoc,
   deleteDoc, 
   getDoc, 
   getDocs, 
@@ -71,13 +72,17 @@ export class FirestoreService {
   static async createUser(userData: Omit<User, 'createdAt' | 'lastLogin'>): Promise<void> {
     try {
       const userRef = doc(db, 'users', userData.uid);
-      await updateDoc(userRef, {
-        ...userData,
-        createdAt: serverTimestamp(),
-        lastLogin: serverTimestamp()
-      });
+      await setDoc(
+        userRef,
+        {
+          ...userData,
+          createdAt: serverTimestamp(),
+          lastLogin: serverTimestamp()
+        },
+        { merge: true }
+      );
     } catch (error) {
-      console.error('Error creating user:', error);
+      console.error('Error creating/updating user:', error);
       throw error;
     }
   }

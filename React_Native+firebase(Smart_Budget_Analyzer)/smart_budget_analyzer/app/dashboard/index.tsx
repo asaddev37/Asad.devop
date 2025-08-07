@@ -11,28 +11,31 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
+import { useAuth } from '../../src/contexts/AuthContext';
+import * as SecureStore from 'expo-secure-store';
+import { router } from 'expo-router';
 
 const { width } = Dimensions.get('window');
 
+const BIOMETRIC_CREDENTIALS_KEY = 'biometric_credentials';
+const BIOMETRIC_ENABLED_KEY = 'biometric_enabled';
+
 const DashboardScreen = () => {
+  const { signOut } = useAuth();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(30)).current;
 
-  useEffect(() => {
-    Animated.parallel([
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 800,
-        useNativeDriver: true,
-      }),
-      Animated.timing(slideAnim, {
-        toValue: 0,
-        duration: 800,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  }, []);
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      await SecureStore.deleteItemAsync(BIOMETRIC_CREDENTIALS_KEY);
+      await SecureStore.deleteItemAsync(BIOMETRIC_ENABLED_KEY);
+      router.replace('/home');
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+  };
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -50,6 +53,21 @@ const DashboardScreen = () => {
     { id: 2, title: 'Salary', amount: 2500.00, category: 'Income', date: 'Yesterday' },
     { id: 3, title: 'Gas Station', amount: -35.00, category: 'Transport', date: '2 days ago' },
   ];
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 800,
+        useNativeDriver: true,
+      }),
+      Animated.timing(slideAnim, {
+        toValue: 0,
+        duration: 800,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, []);
 
   return (
     <View style={[styles.container, isDarkMode && styles.darkContainer]}>
@@ -69,13 +87,22 @@ const DashboardScreen = () => {
             <Text style={styles.greeting}>Good Morning! 👋</Text>
             <Text style={styles.userName}>John Doe</Text>
           </View>
-          <TouchableOpacity onPress={toggleTheme} style={styles.themeButton}>
-            <Ionicons 
-              name={isDarkMode ? "sunny" : "moon"} 
-              size={24} 
-              color="white" 
-            />
-          </TouchableOpacity>
+          <View style={styles.headerIcons}>
+            <TouchableOpacity onPress={toggleTheme} style={styles.iconButton}>
+              <Ionicons 
+                name={isDarkMode ? "sunny" : "moon"} 
+                size={24} 
+                color="white" 
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleLogout} style={styles.iconButton}>
+              <Ionicons 
+                name="log-out-outline" 
+                size={24} 
+                color="white" 
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </LinearGradient>
 
@@ -208,6 +235,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingTop: 50,
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+    width: '100%',
+  },
+  headerIcons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 15,
+  },
+  iconButton: {
+    padding: 5,
   },
   greeting: {
     fontSize: 16,

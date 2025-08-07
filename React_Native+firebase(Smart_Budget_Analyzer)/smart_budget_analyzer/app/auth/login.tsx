@@ -10,11 +10,19 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../src/contexts/AuthContext';
+import BiometricButton from '../../src/components/BiometricButton';
+import * as SecureStore from 'expo-secure-store';
+import * as LocalAuthentication from 'expo-local-authentication';
+
+// Storage key for biometric credentials
+const BIOMETRIC_CREDENTIALS_KEY = 'biometric_credentials';
+const BIOMETRIC_ENABLED_KEY = 'biometric_enabled';
 
 const LoginScreen = () => {
   const { signIn } = useAuth();
@@ -22,13 +30,135 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  
+  const [isBiometricAvailable, setIsBiometricAvailable] = useState(false);
+  const [isBiometricEnabled, setIsBiometricEnabled] = useState(false);
+  const [isBiometricLoading, setIsBiometricLoading] = useState(false);
+
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(50)).current;
   const scaleAnim = useRef(new Animated.Value(0.9)).current;
 
   const params = useLocalSearchParams();
   const type = params.type as string;
+
+  // Check biometric availability on mount
+  useEffect(() => {
+    const checkBiometricStatus = async () => {
+      try {
+        // Check if biometric hardware is available and enrolled
+        const compatible = await LocalAuthentication.hasHardwareAsync();
+        if (!compatible) return;
+
+        const enrolled = await LocalAuthentication.isEnrolledAsync();
+        if (!enrolled) return;
+
+        setIsBiometricAvailable(true);
+
+        // Check if biometric is enabled for the app
+        const enabled = await SecureStore.getItemAsync(BIOMETRIC_ENABLED_KEY);
+        setIsBiometricEnabled(enabled === 'true');
+
+        // If biometric is enabled, try to auto-login
+        if (enabled === 'true') {
+          handleBiometricLogin();
+        }
+      } catch (error) {
+        console.error('Error checking biometric status:', error);
+      }
+    };
+
+    checkBiometricStatus();
+  }, []);
+
+  // Handle biometric login
+  const handleBiometricLogin = async () => {
+    try {
+      setIsBiometricLoading(true);
+
+      // Get stored credentials
+      const credentialsJson = await SecureStore.getItemAsync(BIOMETRIC_CREDENTIALS_KEY);
+      if (!credentialsJson) {
+        setIsBiometricLoading(false);
+        return;
+      }
+
+      const credentials = JSON.parse(credentialsJson);
+
+      // Authenticate with biometrics
+      const result = await LocalAuthentication.authenticateAsync({
+        promptMessage: 'Authenticate to access your account',
+        fallbackLabel: 'Enter password instead',
+        disableDeviceFallback: false,
+      });
+
+      if (result.success) {
+        try {
+          // If biometric authentication is successful, sign in with stored credentials
+          await signIn(credentials.email, credentials.password);
+          // Navigate to dashboard after successful login
+          router.replace('/dashboard');
+        } catch (error) {
+          console.error('Error during sign in:', error);
+          Alert.alert('Error', 'Failed to sign in. Please try again.');
+        }
+      }
+    } catch (error) {
+      console.error('Biometric authentication error:', error);
+      Alert.alert('Error', 'Failed to authenticate with biometrics. Please try again.');
+    } finally {
+      setIsBiometricLoading(false);
+    }
+  };
+
+  // Handle regular email/password login
+  const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert('Error', 'Please enter both email and password');
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+      await signIn(email, password);
+      
+      // Navigate to dashboard after successful login
+      router.replace('/dashboard');
+
+      // If biometric is available but not enabled, ask to enable it
+      if (isBiometricAvailable && !isBiometricEnabled) {
+        Alert.alert(
+          'Enable Biometric Login',
+          'Would you like to enable biometric authentication for faster login?',
+          [
+            {
+              text: 'Not Now',
+              style: 'cancel',
+            },
+            {
+              text: 'Enable',
+              onPress: async () => {
+                try {
+                  // Store credentials securely for biometric login
+                  await SecureStore.setItemAsync(
+                    BIOMETRIC_CREDENTIALS_KEY,
+                    JSON.stringify({ email, password })
+                  );
+                  await SecureStore.setItemAsync(BIOMETRIC_ENABLED_KEY, 'true');
+                  setIsBiometricEnabled(true);
+                } catch (error) {
+                  console.error('Failed to enable biometric login:', error);
+                }
+              },
+            },
+          ]
+        );
+      }
+    } catch (error: any) {
+      Alert.alert('Error', error.message || 'Failed to sign in');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     Animated.parallel([
@@ -50,49 +180,13 @@ const LoginScreen = () => {
     ]).start();
   }, []);
 
-  const handleLogin = async () => {
-    if (!email || !password) {
-      Alert.alert('Error', 'Please fill in all fields');
-      return;
-    }
-
-    if (!email.includes('@')) {
-      Alert.alert('Error', 'Please enter a valid email address');
-      return;
-    }
-
-    setIsLoading(true);
-    
-    try {
-      // Use Firebase authentication
-      await signIn(email, password);
-      router.replace('/dashboard');
-    } catch (error: any) {
-      Alert.alert('Login Error', error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const navigateToSignup = () => {
-    router.push('/auth/signup');
-  };
-
-  const navigateToForgotPassword = () => {
-    router.push('/auth/forgot-password');
-  };
-
-  const goBack = () => {
-    router.back();
-  };
-
   return (
     <LinearGradient
       colors={['#1e90ff', '#32cd32']}
       style={styles.container}
     >
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
-      
+
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.keyboardView}
@@ -111,7 +205,7 @@ const LoginScreen = () => {
         >
           {/* Header */}
           <View style={styles.header}>
-            <TouchableOpacity onPress={goBack} style={styles.backButton}>
+            <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
               <Ionicons name="arrow-back" size={24} color="white" />
             </TouchableOpacity>
             <Text style={styles.title}>Welcome Back! 👋</Text>
@@ -157,24 +251,43 @@ const LoginScreen = () => {
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity onPress={navigateToForgotPassword} style={styles.forgotPassword}>
+            <TouchableOpacity onPress={() => router.push('/auth/forgot-password')} style={styles.forgotPassword}>
               <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={[styles.loginButton, isLoading && styles.loginButtonDisabled]}
+              style={styles.loginButton}
               onPress={handleLogin}
               disabled={isLoading}
             >
               {isLoading ? (
-                <Text style={styles.loginButtonText}>Signing In...</Text>
+                <ActivityIndicator color="#fff" />
               ) : (
-                <>
-                  <Text style={styles.loginButtonText}>Sign In</Text>
-                  <Ionicons name="arrow-forward" size={20} color="white" />
-                </>
+                <Text style={styles.loginButtonText}>Login</Text>
               )}
             </TouchableOpacity>
+
+            {isBiometricAvailable && (
+              <>
+                <View style={styles.dividerContainer}>
+                  <View style={styles.divider} />
+                  <Text style={styles.dividerText}>OR</Text>
+                  <View style={styles.divider} />
+                </View>
+
+                <BiometricButton
+                  onPress={handleBiometricLogin}
+                  isEnabled={isBiometricEnabled}
+                />
+
+                {isBiometricLoading && (
+                  <View style={styles.biometricLoading}>
+                    <ActivityIndicator size="small" color="#1e90ff" />
+                    <Text style={styles.biometricLoadingText}>Authenticating...</Text>
+                  </View>
+                )}
+              </>
+            )}
 
             {/* Divider */}
             <View style={styles.divider}>
@@ -193,7 +306,7 @@ const LoginScreen = () => {
           {/* Footer */}
           <View style={styles.footer}>
             <Text style={styles.footerText}>Don't have an account? </Text>
-            <TouchableOpacity onPress={navigateToSignup}>
+            <TouchableOpacity onPress={() => router.push('/auth/signup')}>
               <Text style={styles.signupLink}>Sign Up</Text>
             </TouchableOpacity>
           </View>
@@ -206,6 +319,32 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  dividerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  dividerHorizontal: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#e0e0e0',
+  },
+  dividerTextGray: {
+    marginHorizontal: 10,
+    color: '#666',
+    fontSize: 12,
+  },
+  biometricLoading: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
+  },
+  biometricLoadingText: {
+    marginLeft: 8,
+    color: '#666',
+    fontSize: 14,
   },
   keyboardView: {
     flex: 1,
