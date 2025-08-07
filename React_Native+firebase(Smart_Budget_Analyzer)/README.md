@@ -476,18 +476,18 @@ feedback: {
     </td>
   </tr>
 </table>
-local :
-![WhatsApp Image 2025-08-03 at 14 44 41_b67dac8e](https://github.com/user-attachments/assets/b22d6420-3b95-4300-801f-ed067f0b6372)
-transaction:
-![WhatsApp Image 2025-08-03 at 14 44 41_69222d2e](https://github.com/user-attachments/assets/95fb69b8-aa39-4af3-8c12-141df418ac1e)
 
-![WhatsApp Image 2025-08-05 at 12 28 54_4029237d](https://github.com/user-attachments/assets/d8140010-e09f-47bf-87f1-7282e6c04f34)
+dashboard screen:
+![IMG-20250807-WA0002](https://github.com/user-attachments/assets/745f3178-9268-475a-9a3d-8c93975901ae)
+transactions screen;
+
+budget screen:
+
+profile screen:
 
 
 
 
-
-![WhatsApp Image 2025-08-01 at 22 10 06_079a6ba1](https://github.com/user-attachments/assets/210a8a7b-1db6-4514-9c95-ae94720392dc)
 
 
 
