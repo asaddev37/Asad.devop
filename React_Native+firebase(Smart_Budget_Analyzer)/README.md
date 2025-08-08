@@ -442,8 +442,10 @@ feedback: {
 ---
 ### 📱 App Screenshots
 loading screen;
+![IMG-20250808-WA0014](https://github.com/user-attachments/assets/d97f498e-ca15-4290-8cd3-847790b0ac07)
 
 home screen:
+![IMG-20250808-WA0013](https://github.com/user-attachments/assets/b65f91de-e441-4af7-bddb-5cccfa2e41a5)
 
 menu bar: 
 ![IMG-20250808-WA0016](https://github.com/user-attachments/assets/a3793e36-b693-4c4e-8fe4-40cdaec43fea)
