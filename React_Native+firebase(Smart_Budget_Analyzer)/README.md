@@ -454,10 +454,13 @@ authentication:
 ![IMG-20250808-WA0015](https://github.com/user-attachments/assets/e35afce3-421c-4a0a-9652-70d6594bc5df)
 
 login screen:
+![IMG-20250808-WA0012](https://github.com/user-attachments/assets/12b6da68-b7a6-4347-82c0-cc830858570c)
 
 signup screen:
+![IMG-20250808-WA0010](https://github.com/user-attachments/assets/eb0d7362-9350-447b-9a01-7d16c56e6485)
 
 forgot password screen:
+![IMG-20250808-WA0011](https://github.com/user-attachments/assets/d4632ea8-3ba0-4ac4-92db-14af39f0c305)
 
 user dashboard:
 
