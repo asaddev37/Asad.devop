@@ -18,6 +18,8 @@ import { useAuth } from '../../src/contexts/AuthContext';
 import { FirestoreService, Budget, Category, Transaction } from '../../src/services/firestoreService';
 import { router } from 'expo-router';
 import { Timestamp } from 'firebase/firestore';
+import { LoadingOverlay } from '../../components/LoadingOverlay';
+import { LoadingAnimation } from '../../components/LoadingAnimation';
 
 interface BudgetFormData {
   category: string;
@@ -252,17 +254,17 @@ const BudgetsScreen = () => {
     ]).start();
   }, []);
 
-  if (loading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>Loading budgets...</Text>
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
+      
+      {/* Loading Overlay */}
+      <LoadingOverlay 
+        visible={loading && !refreshing} 
+        message="Loading your budgets..." 
+        transparent={true}
+        animationType="dots"
+      />
       
       {/* Header */}
       <LinearGradient colors={['#4A90E2', '#357ABD']} style={styles.header}>
@@ -862,4 +864,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BudgetsScreen; 
+export default BudgetsScreen;

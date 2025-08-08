@@ -20,6 +20,8 @@ import { FirestoreService, Transaction, Budget, DashboardStats } from '../../src
 import * as SecureStore from 'expo-secure-store';
 import { router } from 'expo-router';
 import { Timestamp } from 'firebase/firestore';
+import { DashboardCharts } from '../../components/charts/DashboardCharts';
+import { LoadingOverlay } from '../../components/LoadingOverlay';
 
 const { width } = Dimensions.get('window');
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
@@ -255,9 +257,17 @@ export default function DashboardScreen() {
         translucent 
       />
       
+      {/* Loading Overlay */}
+      <LoadingOverlay 
+        visible={loading && !refreshing} 
+        message="Loading your financial dashboard..." 
+        transparent={true}
+        animationType="dots"
+      />
+      
       {/* Header */}
       <LinearGradient
-        colors={['#4A90E2', '#357ABD']}
+        colors={isDarkMode ? ['#1a1a1a', '#2d2d2d'] : ['#4A90E2', '#357ABD']}
         style={styles.header}
       >
         <View style={styles.headerContent}>
@@ -476,6 +486,14 @@ export default function DashboardScreen() {
               ))}
             </View>
           )}
+
+          {/* Data Visualization Charts */}
+          <DashboardCharts 
+            transactions={transactions}
+            dashboardStats={dashboardStats}
+            isDarkMode={isDarkMode}
+            shouldShowFinancialInfo={shouldShowFinancialInfo()}
+          />
 
           {/* AI Features Coming Soon */}
           <View style={styles.section}>
@@ -880,4 +898,4 @@ const styles = StyleSheet.create({
     width: screenWidth,
     height: screenHeight * 0.8,
   },
-}); 
+});

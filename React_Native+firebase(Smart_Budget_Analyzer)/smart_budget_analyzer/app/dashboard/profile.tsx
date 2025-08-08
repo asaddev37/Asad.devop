@@ -20,6 +20,8 @@ import { router } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 import * as LocalAuthentication from 'expo-local-authentication';
 import * as ImagePicker from 'expo-image-picker';
+import { LoadingOverlay } from '../../components/LoadingOverlay';
+import { LoadingAnimation } from '../../components/LoadingAnimation';
 
 const BIOMETRIC_CREDENTIALS_KEY = 'biometric_credentials';
 const BIOMETRIC_ENABLED_KEY = 'biometric_enabled';
@@ -261,6 +263,14 @@ const ProfileScreen = () => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
+      
+      {/* Loading Overlay */}
+      <LoadingOverlay 
+        visible={loading || uploadingImage} 
+        message={uploadingImage ? "Uploading profile picture..." : "Updating profile..."} 
+        transparent={true}
+        animationType="circular"
+      />
       
       {/* Header */}
       <LinearGradient colors={['#4A90E2', '#357ABD']} style={styles.header}>
@@ -809,4 +819,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileScreen; 
+export default ProfileScreen;

@@ -20,6 +20,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../src/contexts/AuthContext';
 import * as SecureStore from 'expo-secure-store';
 import * as LocalAuthentication from 'expo-local-authentication';
+import { LoadingOverlay } from '../../components/LoadingOverlay';
+import { LoadingAnimation } from '../../components/LoadingAnimation';
 
 const { width, height } = Dimensions.get('window');
 
@@ -230,7 +232,7 @@ const LoginScreen = () => {
             </View>
             {isBiometricLoading && (
               <View style={styles.biometricLoadingContainer}>
-                <ActivityIndicator size="small" color="white" />
+                <LoadingAnimation size="small" type="circular" color="white" />
               </View>
             )}
           </View>
@@ -240,10 +242,23 @@ const LoginScreen = () => {
   };
 
   return (
-    <LinearGradient
-      colors={['#4A90E2', '#357ABD']}
-      style={styles.container}
-    >
+    <>
+      <LoadingOverlay 
+        visible={isLoading} 
+        message="Signing in..." 
+        transparent={false} 
+        animationType="circular" 
+      />
+      <LoadingOverlay 
+        visible={isBiometricLoading && !isLoading} 
+        message="Authenticating with biometrics..." 
+        transparent={true} 
+        animationType="dots" 
+      />
+      <LinearGradient
+        colors={['#4A90E2', '#357ABD']}
+        style={styles.container}
+      >
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
 
       <ScrollView 
@@ -349,12 +364,7 @@ const LoginScreen = () => {
               onPress={handleLogin}
               disabled={isLoading}
             >
-              {isLoading ? (
-                <View style={styles.loadingContainer}>
-                  <ActivityIndicator color="white" size="small" />
-                  <Text style={styles.loadingText}>Signing In...</Text>
-                </View>
-              ) : (
+              {!isLoading && (
                 <View style={styles.buttonContent}>
                   <Text style={styles.loginButtonText}>Sign In</Text>
                   <Ionicons name="arrow-forward" size={20} color="white" />
@@ -388,6 +398,7 @@ const LoginScreen = () => {
         </KeyboardAvoidingView>
       </ScrollView>
     </LinearGradient>
+    </>
   );
 };
 
@@ -620,4 +631,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen; 
+export default LoginScreen;

@@ -18,6 +18,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../src/contexts/AuthContext';
+import { LoadingOverlay } from '../../components/LoadingOverlay';
+import { LoadingAnimation } from '../../components/LoadingAnimation';
 
 const { width, height } = Dimensions.get('window');
 
@@ -97,10 +99,11 @@ const ForgotPasswordScreen = () => {
 
   if (isEmailSent) {
     return (
-      <LinearGradient
-        colors={['#4A90E2', '#357ABD']}
-        style={styles.container}
-      >
+      <>
+        <LinearGradient
+          colors={['#4A90E2', '#357ABD']}
+          style={styles.container}
+        >
         <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
         
         <Animated.View
@@ -152,15 +155,23 @@ const ForgotPasswordScreen = () => {
             </TouchableOpacity>
           </Animated.View>
         </Animated.View>
-      </LinearGradient>
+        </LinearGradient>
+      </>
     );
   }
 
   return (
-    <LinearGradient
-      colors={['#4A90E2', '#357ABD']}
-      style={styles.container}
-    >
+    <>
+      <LoadingOverlay 
+        visible={isLoading} 
+        message="Sending password reset link..." 
+        transparent={false} 
+        animationType="circular" 
+      />
+      <LinearGradient
+        colors={['#4A90E2', '#357ABD']}
+        style={styles.container}
+      >
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
       
       <ScrollView 
@@ -224,12 +235,7 @@ const ForgotPasswordScreen = () => {
               onPress={handleResetPassword}
               disabled={isLoading}
             >
-              {isLoading ? (
-                <View style={styles.loadingContainer}>
-                  <ActivityIndicator color="white" size="small" />
-                  <Text style={styles.loadingText}>Sending Reset Link...</Text>
-                </View>
-              ) : (
+              {!isLoading && (
                 <View style={styles.buttonContent}>
                   <Text style={styles.resetButtonText}>Send Reset Link</Text>
                   <Ionicons name="paper-plane" size={20} color="white" />
@@ -265,6 +271,7 @@ const ForgotPasswordScreen = () => {
         </KeyboardAvoidingView>
       </ScrollView>
     </LinearGradient>
+    </>
   );
 };
 
@@ -516,4 +523,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ForgotPasswordScreen; 
+export default ForgotPasswordScreen;

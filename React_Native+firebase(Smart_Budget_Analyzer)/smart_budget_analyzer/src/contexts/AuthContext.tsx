@@ -72,7 +72,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
               fullName: user.displayName || '',
               currency: 'USD',
               budgetPreferences: {},
-              biometricEnabled: false
+              biometricEnabled: false,
+              privacyMode: false
             });
             
             // Initialize default categories for new user
@@ -106,7 +107,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           fullName: fullName,
           currency: 'USD',
           budgetPreferences: {},
-          biometricEnabled: false
+          biometricEnabled: false,
+          privacyMode: false
         });
         
         // Initialize default categories for new user
@@ -194,4 +196,4 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-}; 
+};

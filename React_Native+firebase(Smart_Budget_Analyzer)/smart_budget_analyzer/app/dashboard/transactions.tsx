@@ -19,6 +19,8 @@ import { useAuth } from '../../src/contexts/AuthContext';
 import { FirestoreService, Transaction, Category } from '../../src/services/firestoreService';
 import { router } from 'expo-router';
 import { Timestamp } from 'firebase/firestore';
+import { LoadingOverlay } from '../../components/LoadingOverlay';
+import { LoadingAnimation } from '../../components/LoadingAnimation';
 
 interface TransactionFormData {
   description: string;
@@ -236,17 +238,17 @@ const TransactionsScreen = () => {
     ]).start();
   }, []);
 
-  if (loading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>Loading transactions...</Text>
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
+      
+      {/* Loading Overlay */}
+      <LoadingOverlay 
+        visible={loading && !refreshing} 
+        message="Loading your transactions..." 
+        transparent={true}
+        animationType="circular"
+      />
       
       {/* Header */}
       <LinearGradient colors={['#4A90E2', '#357ABD']} style={styles.header}>
@@ -807,4 +809,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TransactionsScreen; 
+export default TransactionsScreen;

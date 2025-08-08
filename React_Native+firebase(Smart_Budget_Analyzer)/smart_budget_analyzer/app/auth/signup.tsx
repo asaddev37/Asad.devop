@@ -18,6 +18,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../src/contexts/AuthContext';
+import { LoadingOverlay } from '../../components/LoadingOverlay';
+import { LoadingAnimation } from '../../components/LoadingAnimation';
 
 const { width, height } = Dimensions.get('window');
 
@@ -104,10 +106,17 @@ const SignupScreen = () => {
   };
 
   return (
-    <LinearGradient
-      colors={['#4A90E2', '#357ABD']}
-      style={styles.container}
-    >
+    <>
+      <LoadingOverlay 
+        visible={isLoading} 
+        message="Creating your account..." 
+        transparent={false} 
+        animationType="dots" 
+      />
+      <LinearGradient
+        colors={['#4A90E2', '#357ABD']}
+        style={styles.container}
+      >
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
       
       <KeyboardAvoidingView
@@ -249,12 +258,7 @@ const SignupScreen = () => {
                 onPress={handleSignup}
                 disabled={isLoading}
               >
-                {isLoading ? (
-                  <View style={styles.loadingContainer}>
-                    <ActivityIndicator color="white" size="small" />
-                    <Text style={styles.loadingText}>Creating Account...</Text>
-                  </View>
-                ) : (
+                {!isLoading && (
                   <View style={styles.buttonContent}>
                     <Text style={styles.signupButtonText}>Create Account</Text>
                     <Ionicons name="arrow-forward" size={20} color="white" />
@@ -287,6 +291,7 @@ const SignupScreen = () => {
         </ScrollView>
       </KeyboardAvoidingView>
     </LinearGradient>
+    </>
   );
 };
 
@@ -496,4 +501,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignupScreen; 
+export default SignupScreen;
