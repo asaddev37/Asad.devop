@@ -11,11 +11,15 @@ import {
   Platform,
   Alert,
   ScrollView,
+  ActivityIndicator,
+  Dimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../src/contexts/AuthContext';
+
+const { width, height } = Dimensions.get('window');
 
 const SignupScreen = () => {
   const { signUp } = useAuth();
@@ -36,17 +40,17 @@ const SignupScreen = () => {
     Animated.parallel([
       Animated.timing(fadeAnim, {
         toValue: 1,
-        duration: 800,
+        duration: 1000,
         useNativeDriver: true,
       }),
       Animated.timing(slideAnim, {
         toValue: 0,
-        duration: 800,
+        duration: 1000,
         useNativeDriver: true,
       }),
       Animated.timing(scaleAnim, {
         toValue: 1,
-        duration: 800,
+        duration: 1000,
         useNativeDriver: true,
       }),
     ]).start();
@@ -100,10 +104,10 @@ const SignupScreen = () => {
   };
 
   return (
-          <LinearGradient
-        colors={['#4A90E2', '#357ABD']}
-        style={styles.container}
-      >
+    <LinearGradient
+      colors={['#4A90E2', '#357ABD']}
+      style={styles.container}
+    >
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
       
       <KeyboardAvoidingView
@@ -128,6 +132,13 @@ const SignupScreen = () => {
               <TouchableOpacity onPress={goBack} style={styles.backButton}>
                 <Ionicons name="arrow-back" size={24} color="white" />
               </TouchableOpacity>
+              
+              <View style={styles.logoContainer}>
+                <View style={styles.logoCircle}>
+                  <Ionicons name="person-add" size={40} color="white" />
+                </View>
+              </View>
+              
               <Text style={styles.title}>Create Account</Text>
               <Text style={styles.subtitle}>Join SmartBudget Analyzer</Text>
               <Text style={styles.description}>Start your journey to financial freedom with AI-powered insights</Text>
@@ -136,7 +147,9 @@ const SignupScreen = () => {
             {/* Form */}
             <View style={styles.form}>
               <View style={styles.inputContainer}>
-                <Ionicons name="person" size={20} color="rgba(255, 255, 255, 0.7)" style={styles.inputIcon} />
+                <View style={styles.inputIconContainer}>
+                  <Ionicons name="person" size={20} color="rgba(255, 255, 255, 0.7)" />
+                </View>
                 <TextInput
                   style={styles.input}
                   placeholder="Full Name"
@@ -148,7 +161,9 @@ const SignupScreen = () => {
               </View>
 
               <View style={styles.inputContainer}>
-                <Ionicons name="mail" size={20} color="rgba(255, 255, 255, 0.7)" style={styles.inputIcon} />
+                <View style={styles.inputIconContainer}>
+                  <Ionicons name="mail" size={20} color="rgba(255, 255, 255, 0.7)" />
+                </View>
                 <TextInput
                   style={styles.input}
                   placeholder="Email address"
@@ -162,7 +177,9 @@ const SignupScreen = () => {
               </View>
 
               <View style={styles.inputContainer}>
-                <Ionicons name="lock-closed" size={20} color="rgba(255, 255, 255, 0.7)" style={styles.inputIcon} />
+                <View style={styles.inputIconContainer}>
+                  <Ionicons name="lock-closed" size={20} color="rgba(255, 255, 255, 0.7)" />
+                </View>
                 <TextInput
                   style={styles.input}
                   placeholder="Password"
@@ -185,7 +202,9 @@ const SignupScreen = () => {
               </View>
 
               <View style={styles.inputContainer}>
-                <Ionicons name="lock-closed" size={20} color="rgba(255, 255, 255, 0.7)" style={styles.inputIcon} />
+                <View style={styles.inputIconContainer}>
+                  <Ionicons name="lock-closed" size={20} color="rgba(255, 255, 255, 0.7)" />
+                </View>
                 <TextInput
                   style={styles.input}
                   placeholder="Confirm Password"
@@ -231,12 +250,15 @@ const SignupScreen = () => {
                 disabled={isLoading}
               >
                 {isLoading ? (
-                  <Text style={styles.signupButtonText}>Creating Account...</Text>
+                  <View style={styles.loadingContainer}>
+                    <ActivityIndicator color="white" size="small" />
+                    <Text style={styles.loadingText}>Creating Account...</Text>
+                  </View>
                 ) : (
-                  <>
+                  <View style={styles.buttonContent}>
                     <Text style={styles.signupButtonText}>Create Account</Text>
                     <Ionicons name="arrow-forward" size={20} color="white" />
-                  </>
+                  </View>
                 )}
               </TouchableOpacity>
 
@@ -289,6 +311,20 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     padding: 10,
+    zIndex: 1,
+  },
+  logoContainer: {
+    marginBottom: 20,
+  },
+  logoCircle: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
   },
   title: {
     fontSize: 32,
@@ -308,7 +344,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'rgba(255, 255, 255, 0.7)',
     textAlign: 'center',
-    marginBottom: 40,
     lineHeight: 20,
   },
   form: {
@@ -317,14 +352,22 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 15,
     marginBottom: 20,
     paddingHorizontal: 15,
     paddingVertical: 5,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
   },
-  inputIcon: {
-    marginRight: 10,
+  inputIconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 15,
   },
   input: {
     flex: 1,
@@ -333,23 +376,29 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   eyeButton: {
-    padding: 5,
+    padding: 10,
   },
   termsContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: 30,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 15,
+    padding: 15,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
   },
   checkbox: {
-    width: 20,
-    height: 20,
-    borderRadius: 4,
+    width: 22,
+    height: 22,
+    borderRadius: 6,
     borderWidth: 2,
     borderColor: 'rgba(255, 255, 255, 0.7)',
-    marginRight: 10,
+    marginRight: 12,
     marginTop: 2,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
   },
   checkboxChecked: {
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
@@ -369,15 +418,28 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     borderRadius: 15,
     paddingVertical: 18,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
     marginBottom: 20,
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.3)',
   },
   signupButtonDisabled: {
     opacity: 0.7,
+  },
+  loadingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  loadingText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginLeft: 10,
+  },
+  buttonContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   signupButtonText: {
     color: 'white',
@@ -399,6 +461,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.8)',
     marginHorizontal: 15,
     fontSize: 14,
+    fontWeight: '500',
   },
   googleButton: {
     backgroundColor: 'white',
@@ -408,6 +471,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
   },
   googleButtonText: {
     color: '#333',

@@ -11,14 +11,17 @@ import {
   Platform,
   Alert,
   ActivityIndicator,
+  Dimensions,
+  ScrollView,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../src/contexts/AuthContext';
-import BiometricButton from '../../src/components/BiometricButton';
 import * as SecureStore from 'expo-secure-store';
 import * as LocalAuthentication from 'expo-local-authentication';
+
+const { width, height } = Dimensions.get('window');
 
 // Storage key for biometric credentials
 const BIOMETRIC_CREDENTIALS_KEY = 'biometric_credentials';
@@ -37,6 +40,7 @@ const LoginScreen = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(50)).current;
   const scaleAnim = useRef(new Animated.Value(0.9)).current;
+  const pulseAnim = useRef(new Animated.Value(1)).current;
 
   const params = useLocalSearchParams();
   const type = params.type as string;
@@ -164,59 +168,141 @@ const LoginScreen = () => {
     Animated.parallel([
       Animated.timing(fadeAnim, {
         toValue: 1,
-        duration: 800,
+        duration: 1000,
         useNativeDriver: true,
       }),
       Animated.timing(slideAnim, {
         toValue: 0,
-        duration: 800,
+        duration: 1000,
         useNativeDriver: true,
       }),
       Animated.timing(scaleAnim, {
         toValue: 1,
-        duration: 800,
+        duration: 1000,
         useNativeDriver: true,
       }),
     ]).start();
-  }, []);
+
+    // Start pulse animation for biometric button
+    if (isBiometricAvailable && isBiometricEnabled) {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(pulseAnim, {
+            toValue: 1.05,
+            duration: 1500,
+            useNativeDriver: true,
+          }),
+          Animated.timing(pulseAnim, {
+            toValue: 1,
+            duration: 1500,
+            useNativeDriver: true,
+          }),
+        ])
+      ).start();
+    }
+  }, [isBiometricAvailable, isBiometricEnabled]);
+
+  const renderBiometricButton = () => {
+    if (!isBiometricAvailable) return null;
+
+    return (
+      <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
+        <TouchableOpacity
+          style={styles.biometricButton}
+          onPress={handleBiometricLogin}
+          disabled={isBiometricLoading}
+        >
+          <View style={styles.biometricButtonContent}>
+            <View style={styles.biometricIconContainer}>
+              <Ionicons 
+                name="finger-print" 
+                size={28} 
+                color="white" 
+              />
+            </View>
+            <View style={styles.biometricTextContainer}>
+              <Text style={styles.biometricTitle}>
+                {isBiometricLoading ? 'Authenticating...' : 'Quick Login'}
+              </Text>
+              <Text style={styles.biometricSubtitle}>
+                Use your fingerprint or face ID
+              </Text>
+            </View>
+            {isBiometricLoading && (
+              <View style={styles.biometricLoadingContainer}>
+                <ActivityIndicator size="small" color="white" />
+              </View>
+            )}
+          </View>
+        </TouchableOpacity>
+      </Animated.View>
+    );
+  };
 
   return (
-          <LinearGradient
-        colors={['#4A90E2', '#357ABD']}
-        style={styles.container}
-      >
+    <LinearGradient
+      colors={['#4A90E2', '#357ABD']}
+      style={styles.container}
+    >
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
 
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.keyboardView}
+      <ScrollView 
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
       >
-        <Animated.View
-          style={[
-            styles.content,
-            {
-              opacity: fadeAnim,
-              transform: [
-                { translateY: slideAnim },
-                { scale: scaleAnim },
-              ],
-            },
-          ]}
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={styles.keyboardView}
         >
+          <Animated.View
+            style={[
+              styles.content,
+              {
+                opacity: fadeAnim,
+                transform: [
+                  { translateY: slideAnim },
+                  { scale: scaleAnim },
+                ],
+              },
+            ]}
+          >
           {/* Header */}
           <View style={styles.header}>
             <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
               <Ionicons name="arrow-back" size={24} color="white" />
             </TouchableOpacity>
+            
+            <View style={styles.logoContainer}>
+              <View style={styles.logoCircle}>
+                <Ionicons name="analytics" size={40} color="white" />
+              </View>
+            </View>
+            
             <Text style={styles.title}>Welcome Back</Text>
             <Text style={styles.subtitle}>Sign in to SmartBudget Analyzer</Text>
             <Text style={styles.description}>Continue your journey to financial success</Text>
           </View>
 
+          {/* Biometric Login Section */}
+          {isBiometricAvailable && isBiometricEnabled && (
+            <View style={styles.biometricSection}>
+              {renderBiometricButton()}
+              
+              <View style={styles.dividerContainer}>
+                <View style={styles.dividerLine} />
+                <Text style={styles.dividerText}>or continue with email</Text>
+                <View style={styles.dividerLine} />
+              </View>
+            </View>
+          )}
+
           {/* Form */}
           <View style={styles.form}>
             <View style={styles.inputContainer}>
-              <Ionicons name="mail" size={20} color="rgba(255, 255, 255, 0.7)" style={styles.inputIcon} />
+              <View style={styles.inputIconContainer}>
+                <Ionicons name="mail" size={20} color="rgba(255, 255, 255, 0.7)" />
+              </View>
               <TextInput
                 style={styles.input}
                 placeholder="Email address"
@@ -230,7 +316,9 @@ const LoginScreen = () => {
             </View>
 
             <View style={styles.inputContainer}>
-              <Ionicons name="lock-closed" size={20} color="rgba(255, 255, 255, 0.7)" style={styles.inputIcon} />
+              <View style={styles.inputIconContainer}>
+                <Ionicons name="lock-closed" size={20} color="rgba(255, 255, 255, 0.7)" />
+              </View>
               <TextInput
                 style={styles.input}
                 placeholder="Password"
@@ -257,51 +345,36 @@ const LoginScreen = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={styles.loginButton}
+              style={[styles.loginButton, isLoading && styles.loginButtonDisabled]}
               onPress={handleLogin}
               disabled={isLoading}
             >
               {isLoading ? (
-                <ActivityIndicator color="#fff" />
+                <View style={styles.loadingContainer}>
+                  <ActivityIndicator color="white" size="small" />
+                  <Text style={styles.loadingText}>Signing In...</Text>
+                </View>
               ) : (
-                <Text style={styles.loginButtonText}>Login</Text>
+                <View style={styles.buttonContent}>
+                  <Text style={styles.loginButtonText}>Sign In</Text>
+                  <Ionicons name="arrow-forward" size={20} color="white" />
+                </View>
               )}
             </TouchableOpacity>
 
-            {isBiometricAvailable && (
-              <>
-                <View style={styles.dividerContainer}>
-                  <View style={styles.divider} />
-                  <Text style={styles.dividerText}>OR</Text>
-                  <View style={styles.divider} />
-                </View>
-
-                <BiometricButton
-                  onPress={handleBiometricLogin}
-                  isEnabled={isBiometricEnabled}
-                />
-
-                {isBiometricLoading && (
-                  <View style={styles.biometricLoading}>
-                    <ActivityIndicator size="small" color="#1e90ff" />
-                    <Text style={styles.biometricLoadingText}>Authenticating...</Text>
-                  </View>
-                )}
-              </>
-            )}
-
-            {/* Divider */}
-            <View style={styles.divider}>
-              <View style={styles.dividerLine} />
-              <Text style={styles.dividerText}>or</Text>
-              <View style={styles.dividerLine} />
-            </View>
-
             {/* Social Login */}
-            <TouchableOpacity style={styles.googleButton}>
-              <Ionicons name="logo-google" size={20} color="#333" />
-              <Text style={styles.googleButtonText}>Continue with Google</Text>
-            </TouchableOpacity>
+            <View style={styles.socialSection}>
+              <View style={styles.dividerContainer}>
+                <View style={styles.dividerLine} />
+                <Text style={styles.dividerText}>or</Text>
+                <View style={styles.dividerLine} />
+              </View>
+
+              <TouchableOpacity style={styles.googleButton}>
+                <Ionicons name="logo-google" size={20} color="#333" />
+                <Text style={styles.googleButtonText}>Continue with Google</Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
           {/* Footer */}
@@ -312,7 +385,8 @@ const LoginScreen = () => {
             </TouchableOpacity>
           </View>
         </Animated.View>
-      </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
+      </ScrollView>
     </LinearGradient>
   );
 };
@@ -321,31 +395,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  dividerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 20,
-  },
-  dividerHorizontal: {
+  scrollView: {
     flex: 1,
-    height: 1,
-    backgroundColor: '#e0e0e0',
   },
-  dividerTextGray: {
-    marginHorizontal: 10,
-    color: '#666',
-    fontSize: 12,
-  },
-  biometricLoading: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10,
-  },
-  biometricLoadingText: {
-    marginLeft: 8,
-    color: '#666',
-    fontSize: 14,
+  scrollContent: {
+    flexGrow: 1,
   },
   keyboardView: {
     flex: 1,
@@ -365,6 +419,20 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     padding: 10,
+    zIndex: 1,
+  },
+  logoContainer: {
+    marginBottom: 20,
+  },
+  logoCircle: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
   },
   title: {
     fontSize: 32,
@@ -384,8 +452,47 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'rgba(255, 255, 255, 0.7)',
     textAlign: 'center',
-    marginBottom: 40,
     lineHeight: 20,
+  },
+  biometricSection: {
+    marginBottom: 30,
+  },
+  biometricButton: {
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    borderRadius: 20,
+    padding: 20,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+  },
+  biometricButtonContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  biometricIconContainer: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 15,
+  },
+  biometricTextContainer: {
+    flex: 1,
+  },
+  biometricTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'white',
+    marginBottom: 2,
+  },
+  biometricSubtitle: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.7)',
+  },
+  biometricLoadingContainer: {
+    marginLeft: 10,
   },
   form: {
     flex: 1,
@@ -393,14 +500,22 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 15,
     marginBottom: 20,
     paddingHorizontal: 15,
     paddingVertical: 5,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
   },
-  inputIcon: {
-    marginRight: 10,
+  inputIconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 15,
   },
   input: {
     flex: 1,
@@ -409,7 +524,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   eyeButton: {
-    padding: 5,
+    padding: 10,
   },
   forgotPassword: {
     alignSelf: 'flex-end',
@@ -418,14 +533,12 @@ const styles = StyleSheet.create({
   forgotPasswordText: {
     color: 'rgba(255, 255, 255, 0.8)',
     fontSize: 14,
+    fontWeight: '500',
   },
   loginButton: {
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     borderRadius: 15,
     paddingVertical: 18,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
     marginBottom: 20,
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.3)',
@@ -433,13 +546,32 @@ const styles = StyleSheet.create({
   loginButtonDisabled: {
     opacity: 0.7,
   },
+  loadingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  loadingText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginLeft: 10,
+  },
+  buttonContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   loginButtonText: {
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
     marginRight: 10,
   },
-  divider: {
+  socialSection: {
+    marginTop: 20,
+  },
+  dividerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 20,
@@ -453,6 +585,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.8)',
     marginHorizontal: 15,
     fontSize: 14,
+    fontWeight: '500',
   },
   googleButton: {
     backgroundColor: 'white',
@@ -461,7 +594,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
   },
   googleButtonText: {
     color: '#333',
@@ -473,6 +607,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 20,
   },
   footerText: {
     color: 'rgba(255, 255, 255, 0.8)',

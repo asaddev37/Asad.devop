@@ -3,26 +3,38 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   TouchableOpacity,
   Animated,
-  Dimensions,
   StatusBar,
-  Modal,
+  Dimensions,
+  ScrollView,
   FlatList,
+  Modal,
+  Alert,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import * as SecureStore from 'expo-secure-store';
+import * as LocalAuthentication from 'expo-local-authentication';
 
 const { width, height } = Dimensions.get('window');
+
+// Storage key for biometric credentials
+const BIOMETRIC_CREDENTIALS_KEY = 'biometric_credentials';
+const BIOMETRIC_ENABLED_KEY = 'biometric_enabled';
 
 const HomeScreen = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slideAnim = useRef(new Animated.Value(0)).current;
+  const [isBiometricAvailable, setIsBiometricAvailable] = useState(false);
+  const [isBiometricEnabled, setIsBiometricEnabled] = useState(false);
+  const [isBiometricLoading, setIsBiometricLoading] = useState(false);
+
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const slideAnim = useRef(new Animated.Value(30)).current;
+  const pulseAnim = useRef(new Animated.Value(1)).current;
   const flatListRef = useRef<FlatList>(null);
 
   const carouselData = [
@@ -112,6 +124,99 @@ const HomeScreen = () => {
       color: '#00BCD4',
     },
   ];
+
+  // Check biometric availability on mount
+  useEffect(() => {
+    const checkBiometricStatus = async () => {
+      try {
+        // Check if biometric hardware is available and enrolled
+        const compatible = await LocalAuthentication.hasHardwareAsync();
+        if (!compatible) return;
+
+        const enrolled = await LocalAuthentication.isEnrolledAsync();
+        if (!enrolled) return;
+
+        setIsBiometricAvailable(true);
+
+        // Check if biometric is enabled for the app
+        const enabled = await SecureStore.getItemAsync(BIOMETRIC_ENABLED_KEY);
+        setIsBiometricEnabled(enabled === 'true');
+
+        // Start pulse animation for biometric button if enabled
+        if (enabled === 'true') {
+          Animated.loop(
+            Animated.sequence([
+              Animated.timing(pulseAnim, {
+                toValue: 1.05,
+                duration: 1500,
+                useNativeDriver: true,
+              }),
+              Animated.timing(pulseAnim, {
+                toValue: 1,
+                duration: 1500,
+                useNativeDriver: true,
+              }),
+            ])
+          ).start();
+        }
+      } catch (error) {
+        console.error('Error checking biometric status:', error);
+      }
+    };
+
+    checkBiometricStatus();
+  }, []);
+
+  // Handle biometric login
+  const handleBiometricLogin = async () => {
+    try {
+      setIsBiometricLoading(true);
+
+      // Get stored credentials
+      const credentialsJson = await SecureStore.getItemAsync(BIOMETRIC_CREDENTIALS_KEY);
+      if (!credentialsJson) {
+        Alert.alert('No Saved Credentials', 'Please sign in with email first to enable biometric login.');
+        setIsBiometricLoading(false);
+        return;
+      }
+
+      const credentials = JSON.parse(credentialsJson);
+
+      // Authenticate with biometrics
+      const result = await LocalAuthentication.authenticateAsync({
+        promptMessage: 'Authenticate to access your account',
+        fallbackLabel: 'Enter password instead',
+        disableDeviceFallback: false,
+      });
+
+      if (result.success) {
+        try {
+          // Sign in with the stored email and password
+          const { email, password } = credentials;
+          // Import the auth service directly instead of using the hook
+          const { AuthService } = await import('../src/services/authService');
+          await AuthService.signIn(email, password);
+          
+          // Navigate to dashboard after successful sign in
+          router.replace('/dashboard');
+        } catch (error) {
+          console.error('Sign in error:', error);
+          Alert.alert('Sign In Failed', 'Could not sign in with saved credentials. Please sign in with email and password.');
+          // Clear invalid credentials
+          await SecureStore.deleteItemAsync(BIOMETRIC_CREDENTIALS_KEY);
+          await SecureStore.deleteItemAsync(BIOMETRIC_ENABLED_KEY);
+          setIsBiometricEnabled(false);
+        }
+      } else {
+        Alert.alert('Authentication Failed', 'Please try again or use email login.');
+      }
+    } catch (error) {
+      console.error('Biometric authentication error:', error);
+      Alert.alert('Error', 'Failed to authenticate with biometrics. Please try again.');
+    } finally {
+      setIsBiometricLoading(false);
+    }
+  };
 
   useEffect(() => {
     Animated.parallel([
@@ -299,21 +404,35 @@ const HomeScreen = () => {
                 Join thousands of users who have taken control of their financial future
               </Text>
               
-              <View style={styles.buttonContainer}>
+              <View style={styles.iconContainer}>
                 <TouchableOpacity
-                  style={[styles.button, styles.signupButton]}
-                  onPress={() => navigateToAuth('signup')}
-                >
-                  <Text style={styles.buttonText}>Get Started Free</Text>
-                  <Ionicons name="arrow-forward" size={20} color="white" />
-                </TouchableOpacity>
-                
-                <TouchableOpacity
-                  style={[styles.button, styles.loginButton]}
+                  style={styles.iconButton}
                   onPress={() => navigateToAuth('login')}
                 >
-                  <Text style={styles.loginButtonText}>Sign In</Text>
+                  <View style={styles.iconCircle}>
+                    <Ionicons name="log-in" size={32} color="white" />
+                  </View>
+                  <Text style={styles.iconLabel}>Sign In</Text>
                 </TouchableOpacity>
+                
+                {isBiometricAvailable && isBiometricEnabled && (
+                  <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
+                    <TouchableOpacity
+                      style={styles.iconButton}
+                      onPress={handleBiometricLogin}
+                      disabled={isBiometricLoading}
+                    >
+                      <View style={[styles.iconCircle, styles.biometricCircle]}>
+                        {isBiometricLoading ? (
+                          <Ionicons name="finger-print" size={32} color="white" />
+                        ) : (
+                          <Ionicons name="finger-print" size={32} color="white" />
+                        )}
+                      </View>
+                      <Text style={styles.iconLabel}>Touch ID</Text>
+                    </TouchableOpacity>
+                  </Animated.View>
+                )}
               </View>
             </View>
           </View>
@@ -595,6 +714,39 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 25,
     lineHeight: 22,
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 30,
+    marginTop: 20,
+  },
+  iconButton: {
+    alignItems: 'center',
+  },
+  iconCircle: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    backgroundColor: '#4A90E2',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
+  biometricCircle: {
+    backgroundColor: '#32cd32',
+  },
+  iconLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#333',
+    textAlign: 'center',
   },
   buttonContainer: {
     width: '100%',

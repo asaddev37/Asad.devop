@@ -42,49 +42,90 @@ export default function DashboardScreen() {
 
   // Load dashboard data
   const loadDashboardData = async () => {
-    if (!user?.uid) return;
+    if (!user?.uid) {
+      setLoading(false);
+      return;
+    }
     
     try {
       setLoading(true);
+      setRefreshing(true);
       
       // Load dashboard stats
       const stats = await FirestoreService.getDashboardStats(user.uid);
-      setDashboardStats(stats);
-      setTransactions(stats.recentTransactions);
+      if (stats) {
+        setDashboardStats(stats);
+        setTransactions(stats.recentTransactions || []);
+      } else {
+        console.log('No dashboard stats found');
+        setDashboardStats(null);
+        setTransactions([]);
+      }
       
       // Load budgets
       const userBudgets = await FirestoreService.getBudgets(user.uid);
-      setBudgets(userBudgets);
+      setBudgets(userBudgets || []);
       
     } catch (error) {
       console.error('Error loading dashboard data:', error);
-      Alert.alert('Error', 'Failed to load dashboard data');
+      Alert.alert('Error', 'Failed to load dashboard data. Please try again.');
+      setDashboardStats(null);
+      setTransactions([]);
+      setBudgets([]);
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
   };
 
   // Real-time listeners
   useEffect(() => {
-    if (!user?.uid) return;
+    let isMounted = true;
+    
+    const setupListeners = async () => {
+      if (!user?.uid) {
+        setLoading(false);
+        return;
+      }
 
-    // Use the new real-time dashboard stats listener
-    const unsubscribeDashboardStats = FirestoreService.onDashboardStatsChange(user.uid, (newStats) => {
-      setDashboardStats(newStats);
-      setTransactions(newStats.recentTransactions);
-    });
+      try {
+        // Set up real-time dashboard stats listener
+        const unsubscribeDashboardStats = FirestoreService.onDashboardStatsChange(user.uid, (newStats) => {
+          if (isMounted) {
+            setDashboardStats(newStats);
+            setTransactions(newStats?.recentTransactions || []);
+          }
+        });
 
-    // Load budgets separately for the budget progress section
-    const unsubscribeBudgets = FirestoreService.onBudgetsChange(user.uid, (newBudgets) => {
-      setBudgets(newBudgets);
-    });
+        // Set up real-time budgets listener
+        const unsubscribeBudgets = FirestoreService.onBudgetsChange(user.uid, (newBudgets) => {
+          if (isMounted) {
+            setBudgets(newBudgets || []);
+          }
+        });
 
-    // Initial load
-    loadDashboardData();
+        // Initial data load
+        await loadDashboardData();
+
+        // Return cleanup function
+        return () => {
+          isMounted = false;
+          unsubscribeDashboardStats();
+          unsubscribeBudgets();
+        };
+      } catch (error) {
+        console.error('Error setting up listeners:', error);
+        if (isMounted) {
+          setLoading(false);
+          setRefreshing(false);
+        }
+      }
+    };
+
+    setupListeners();
 
     return () => {
-      unsubscribeDashboardStats();
-      unsubscribeBudgets();
+      isMounted = false;
     };
   }, [user?.uid]);
 
