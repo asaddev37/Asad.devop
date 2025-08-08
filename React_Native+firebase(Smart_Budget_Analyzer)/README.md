@@ -472,12 +472,16 @@ graphs:
 ![IMG-20250808-WA0008](https://github.com/user-attachments/assets/0e91b825-293c-43ff-9ed2-9023dc021ac9)
 
 transactionas;
+![IMG-20250808-WA0004](https://github.com/user-attachments/assets/94ce970c-5f58-4ce0-9493-502916e7e323)
 
 budgets:
+![IMG-20250808-WA0005](https://github.com/user-attachments/assets/8111c7da-6906-4ae8-b7e1-f79aaa139f50)
 
 profile:
+![IMG-20250808-WA0001](https://github.com/user-attachments/assets/2d85bbc3-acb0-45be-948a-9fe5c0b11c5f)
 
 app settings:
+![IMG-20250808-WA0007](https://github.com/user-attachments/assets/e35c3268-fc6a-41ef-ba55-4760cda80317)
 
 
 
