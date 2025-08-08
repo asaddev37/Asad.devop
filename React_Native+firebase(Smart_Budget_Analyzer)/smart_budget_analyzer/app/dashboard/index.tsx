@@ -22,6 +22,12 @@ import { router } from 'expo-router';
 import { Timestamp } from 'firebase/firestore';
 import { DashboardCharts } from '../../components/charts/DashboardCharts';
 import { LoadingOverlay } from '../../components/LoadingOverlay';
+import { LoadingAnimation } from '../../components/LoadingAnimation';
+import LottieView from 'lottie-react-native';
+import { ExportService } from '../../src/services/exportService';
+
+// Import loading animation
+const loadingAnimation = require('../../assets/animations/loading-blue-green.json');
 
 const { width } = Dimensions.get('window');
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
@@ -36,8 +42,10 @@ export default function DashboardScreen() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [budgets, setBudgets] = useState<Budget[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
+  const lottieRef = useRef<LottieView>(null);
   
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(30)).current;
@@ -46,6 +54,7 @@ export default function DashboardScreen() {
   const loadDashboardData = async () => {
     if (!user?.uid) {
       setLoading(false);
+      setIsInitialLoad(false);
       return;
     }
     
@@ -77,8 +86,21 @@ export default function DashboardScreen() {
     } finally {
       setLoading(false);
       setRefreshing(false);
+      setIsInitialLoad(false);
     }
   };
+
+  // Set initial load state when component mounts
+  useEffect(() => {
+    setIsInitialLoad(true);
+    
+    return () => {
+      // Cleanup function if needed
+    };
+  }, []);
+  
+  // Calculate loading state
+  const isLoading = loading || isInitialLoad || refreshing;
 
   // Real-time listeners
   useEffect(() => {
@@ -188,7 +210,7 @@ export default function DashboardScreen() {
       title: 'Settings', 
       color: '#9c27b0',
       onPress: () => router.push('/dashboard/profile')
-    },
+    }
   ];
 
   const formatCurrency = (amount: number) => {
@@ -241,10 +263,14 @@ export default function DashboardScreen() {
     setShowProfileModal(false);
   };
 
-  if (loading) {
+  if (isLoading) {
     return (
-      <View style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>Loading dashboard...</Text>
+      <View style={styles.dashboardLoadingContainer}>
+        <LoadingAnimation
+          type="dots"
+          size="large"
+          style={styles.loadingAnimation}
+        />
       </View>
     );
   }
@@ -547,12 +573,20 @@ export default function DashboardScreen() {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8f9fa',
+  dashboardLoadingContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
   },
-  darkContainer: {
-    backgroundColor: '#1a1a1a',
+  dashboardLoadingText: {
+    marginTop: 10,
+    fontSize: 16,
+    color: '#666',
   },
   loadingContainer: {
     flex: 1,
@@ -560,9 +594,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f8f9fa',
   },
+  loadingAnimation: {
+    width: 200,
+    height: 200,
+  },
   loadingText: {
+    marginTop: 20,
     fontSize: 16,
     color: '#666',
+    fontWeight: '500',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#f8f9fa',
+  },
+  darkContainer: {
+    backgroundColor: '#1a1a1a',
   },
   header: {
     paddingTop: 60,

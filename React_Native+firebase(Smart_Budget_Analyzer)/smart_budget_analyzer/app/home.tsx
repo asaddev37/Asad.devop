@@ -12,6 +12,7 @@ import {
   Modal,
   Alert,
 } from 'react-native';
+import { LoadingAnimation } from '../components/LoadingAnimation';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
@@ -25,6 +26,20 @@ const BIOMETRIC_CREDENTIALS_KEY = 'biometric_credentials';
 const BIOMETRIC_ENABLED_KEY = 'biometric_enabled';
 
 const HomeScreen = () => {
+  // Add loading overlay component
+  const renderLoadingOverlay = () => {
+    if (!isBiometricLoading) return null;
+    
+    return (
+      <View style={styles.loadingOverlay}>
+        <LoadingAnimation
+          type="dots"
+          size="large"
+          style={styles.loadingAnimation}
+        />
+      </View>
+    );
+  };
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -191,6 +206,9 @@ const HomeScreen = () => {
 
       if (result.success) {
         try {
+          // Show loading animation
+          setIsBiometricLoading(true);
+          
           // Sign in with the stored email and password
           const { email, password } = credentials;
           // Import the auth service directly instead of using the hook
@@ -288,8 +306,9 @@ const HomeScreen = () => {
 
   return (
     <View style={[styles.container, isDarkMode && styles.darkContainer]}>
+      {renderLoadingOverlay()}
       <StatusBar 
-        barStyle={isDarkMode ? "light-content" : "dark-content"} 
+        barStyle={isDarkMode ? "light-content" : "dark-content"}
         backgroundColor="transparent" 
         translucent 
       />
@@ -517,6 +536,21 @@ const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  loadingOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000,
+  },
+  loadingAnimation: {
+    width: 150,
+    height: 150,
+  },
   container: {
     flex: 1,
     backgroundColor: '#F8F9FA',
@@ -841,4 +875,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen; 
+export default HomeScreen;

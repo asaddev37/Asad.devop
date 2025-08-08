@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Text, ViewStyle, TextStyle } from 'react-native';
+import { View, StyleSheet, Text, ViewStyle, TextStyle, useColorScheme } from 'react-native';
 import LottieView from 'lottie-react-native';
-import { useColorScheme } from '../hooks/useColorScheme';
 
 interface LoadingAnimationProps {
   style?: ViewStyle;
@@ -12,6 +11,8 @@ interface LoadingAnimationProps {
   color?: string;
   autoPlay?: boolean;
   loop?: boolean;
+  fullScreen?: boolean;
+  visible?: boolean;
 }
 
 /**
@@ -26,8 +27,11 @@ export function LoadingAnimation({
   color,
   autoPlay = true,
   loop = true,
+  fullScreen = false,
+  visible = true,
 }: LoadingAnimationProps) {
-  const colorScheme = useColorScheme();
+  // Safely get color scheme with a default value
+  const colorScheme = useColorScheme?.() || 'light';
   const isDarkMode = colorScheme === 'dark';
 
   // Determine animation size based on prop
@@ -43,23 +47,44 @@ export function LoadingAnimation({
     }
   };
 
+  // Import animations directly from the assets folder
+  const dotsLoading = require('../assets/animations/dots-loading.json');
+  const loadingBlueGreen = require('../assets/animations/loading-blue-green.json');
+
   // Determine which animation to use
   const getAnimationSource = () => {
     if (type === 'dots') {
-      return require('../assets/animations/dots-loading.json');
+      return dotsLoading;
     }
-    return require('../assets/animations/loading-blue-green.json');
+    return loadingBlueGreen;
   };
 
+  const containerStyle = [
+    styles.container,
+    fullScreen && styles.fullScreenContainer,
+    style
+  ];
+
+  if (!visible) return null;
+
   return (
-    <View style={[styles.container, style]}>
+    <View style={containerStyle}>
       <LottieView
         source={getAnimationSource()}
         style={[styles.animation, { width: getAnimationSize(), height: getAnimationSize() }]}
         autoPlay={autoPlay}
         loop={loop}
       />
-      {message ? <Text style={[styles.text, isDarkMode && styles.textDark, textStyle]}>{message}</Text> : null}
+      {message ? (
+        <Text style={[
+          styles.text, 
+          isDarkMode && styles.textDark,
+          fullScreen && styles.fullScreenText,
+          textStyle
+        ]}>
+          {message}
+        </Text>
+      ) : null}
     </View>
   );
 }
@@ -69,6 +94,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,
+  },
+  fullScreenContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  fullScreenText: {
+    fontSize: 18,
+    marginTop: 20,
+    fontWeight: '500',
   },
   animation: {
     alignSelf: 'center',

@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { ExportService } from '../../src/services/exportService';
+import { FirestoreService } from '../../src/services/firestoreService';
 import {
   View,
   Text,
@@ -267,9 +269,16 @@ const ProfileScreen = () => {
       {/* Loading Overlay */}
       <LoadingOverlay 
         visible={loading || uploadingImage} 
-        message={uploadingImage ? "Uploading profile picture..." : "Updating profile..."} 
+        message={uploadingImage ? "Uploading profile picture..." : loading ? "Processing..." : "Updating profile..."} 
         transparent={true}
         animationType="circular"
+      />
+      <LoadingAnimation
+        visible={loading}
+        type="circular"
+        size="large"
+        message={uploadingImage ? "Uploading profile picture..." : "Processing..."}
+        style={styles.loadingAnimation}
       />
       
       {/* Header */}
@@ -381,11 +390,29 @@ const ProfileScreen = () => {
                   <Text style={styles.settingLabel}>Notifications</Text>
                   <Ionicons name="chevron-forward" size={20} color="#666" />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.settingRow}>
+                <TouchableOpacity 
+                  style={styles.settingRow}
+                  onPress={async () => {
+                    try {
+                      setLoading(true);
+                      const transactions = await FirestoreService.getTransactions(user?.uid || '');
+                      await ExportService.exportTransactionsToCSV(transactions);
+                      Alert.alert('Success', 'Transactions exported successfully');
+                    } catch (error) {
+                      console.error('Error exporting transactions:', error);
+                      Alert.alert('Error', 'Failed to export transactions');
+                    } finally {
+                      setLoading(false);
+                    }
+                  }}
+                >
                   <Text style={styles.settingLabel}>Data Export</Text>
-                  <Ionicons name="chevron-forward" size={20} color="#666" />
+                  <Ionicons name="download-outline" size={20} color="#666" />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.settingRow}>
+                <TouchableOpacity 
+                  style={styles.settingRow}
+                  onPress={() => router.push('/drawer/privacy-policy')}
+                >
                   <Text style={styles.settingLabel}>Privacy Policy</Text>
                   <Ionicons name="chevron-forward" size={20} color="#666" />
                 </TouchableOpacity>
@@ -522,6 +549,21 @@ const ProfileScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  loadingAnimation: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: [{ translateX: -50 }, { translateY: -50 }],
+    zIndex: 1000,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderRadius: 15,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
   container: {
     flex: 1,
     backgroundColor: '#f8f9fa',
