@@ -443,76 +443,14 @@ feedback: {
 
 ### 📱 App Screenshots
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between;">
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/d97f498e-ca15-4290-8cd3-847790b0ac07" alt="Loading Screen" style="width: 100%; max-width: 200px;">
-    <p>Loading Screen</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/b65f91de-e441-4af7-bddb-5cccfa2e41a5" alt="Home Screen" style="width: 100%; max-width: 200px;">
-    <p>Home Screen</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/a3793e36-b693-4c4e-8fe4-40cdaec43fea" alt="Menu Bar" style="width: 100%; max-width: 200px;">
-    <p>Menu Bar</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/e35afce3-421c-4a0a-9652-70d6594bc5df" alt="Authentication" style="width: 100%; max-width: 200px;">
-    <p>Authentication</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/12b6da68-b7a6-4347-82c0-cc830858570c" alt="Login Screen" style="width: 100%; max-width: 200px;">
-    <p>Login Screen</p>
-  </div>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; margin-top: 20px;">
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/eb0d7362-9350-447b-9a01-7d16c56e6485" alt="Signup Screen" style="width: 100%; max-width: 200px;">
-    <p>Signup Screen</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/d4632ea8-3ba0-4ac4-92db-14af39f0c305" alt="Forgot Password Screen" style="width: 100%; max-width: 200px;">
-    <p>Forgot Password Screen</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/42a8e0f4-d3b4-435b-8bf4-45a2e0a5b94f" alt="User Dashboard" style="width: 100%; max-width: 200px;">
-    <p>User Dashboard</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/9d511023-de14-49b1-bca1-fc7013fb3873" alt="Transactions Progress" style="width: 100%; max-width: 200px;">
-    <p>Transactions Progress</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/0e91b825-293c-43ff-9ed2-9023dc021ac9" alt="Graphs" style="width: 100%; max-width: 200px;">
-    <p>Graphs</p>
-  </div>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; margin-top: 20px;">
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/94ce970c-5f58-4ce0-9493-502916e7e323" alt="Transactions" style="width: 100%; max-width: 200px;">
-    <p>Transactions</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/8111c7da-6906-4ae8-b7e1-f79aaa139f50" alt="Budgets" style="width: 100%; max-width: 200px;">
-    <p>Budgets</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/2d85bbc3-acb0-45be-948a-9fe5c0b11c5f" alt="Profile" style="width: 100%; max-width: 200px;">
-    <p>Profile</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/e35c3268-fc6a-41ef-ba55-4760cda80317" alt="App Settings" style="width: 100%; max-width: 200px;">
-    <p>App Settings</p>
-  </div>
-  <div style="flex: 1 1 18%; text-align: center;">
-    <p>(No screenshot)</p>
-  </div>
-</div>
-
-
-
+| | | | | |
+|-|-|-|-|-|
+| **Loading Screen** | **Home Screen** | **Menu Bar** | **Authentication** | **Login Screen** |
+| ![IMG-20250808-WA0014](https://github.com/user-attachments/assets/d97f498e-ca15-4290-8cd3-847790b0ac07) | ![IMG-20250808-WA0013](https://github.com/user-attachments/assets/b65f91de-e441-4af7-bddb-5cccfa2e41a5) | ![IMG-20250808-WA0016](https://github.com/user-attachments/assets/a3793e36-b693-4c4e-8fe4-40cdaec43fea) | ![IMG-20250808-WA0015](https://github.com/user-attachments/assets/e35afce3-421c-4a0a-9652-70d6594bc5df) | ![IMG-20250808-WA0012](https://github.com/user-attachments/assets/12b6da68-b7a6-4347-82c0-cc830858570c) |
+| **Signup Screen** | **Forgot Password** | **User Dashboard** | **Transactions Progress** | **Graphs** |
+| ![IMG-20250808-WA0010](https://github.com/user-attachments/assets/eb0d7362-9350-447b-9a01-7d16c56e6485) | ![IMG-20250808-WA0011](https://github.com/user-attachments/assets/d4632ea8-3ba0-4ac4-92db-14af39f0c305) | ![IMG-20250808-WA0006](https://github.com/user-attachments/assets/42a8e0f4-d3b4-435b-8bf4-45a2e0a5b94f) | ![IMG-20250808-WA0009](https://github.com/user-attachments/assets/9d511023-de14-49b1-bca1-fc7013fb3873) | ![IMG-20250808-WA0008](https://github.com/user-attachments/assets/0e91b825-293c-43ff-9ed2-9023dc021ac9) |
+| **Transactions** | **Budgets** | **Profile** | **App Settings** | |
+| ![IMG-20250808-WA0004](https://github.com/user-attachments/assets/94ce970c-5f58-4ce0-9493-502916e7e323) | ![IMG-20250808-WA0005](https://github.com/user-attachments/assets/8111c7da-6906-4ae8-b7e1-f79aaa139f50) | ![IMG-20250808-WA0001](https://github.com/user-attachments/assets/2d85bbc3-acb0-45be-948a-9fe5c0b11c5f) | ![IMG-20250808-WA0007](https://github.com/user-attachments/assets/e35c3268-fc6a-41ef-ba55-4760cda80317) | |
 
 
 
