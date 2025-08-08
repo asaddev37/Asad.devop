@@ -463,8 +463,13 @@ forgot password screen:
 ![IMG-20250808-WA0011](https://github.com/user-attachments/assets/d4632ea8-3ba0-4ac4-92db-14af39f0c305)
 
 user dashboard:
+![IMG-20250808-WA0006](https://github.com/user-attachments/assets/42a8e0f4-d3b4-435b-8bf4-45a2e0a5b94f)
+
+transactions progress:
+![IMG-20250808-WA0009](https://github.com/user-attachments/assets/9d511023-de14-49b1-bca1-fc7013fb3873)
 
 graphs:
+![IMG-20250808-WA0008](https://github.com/user-attachments/assets/0e91b825-293c-43ff-9ed2-9023dc021ac9)
 
 transactionas;
 
