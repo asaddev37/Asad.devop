@@ -449,6 +449,7 @@ menu bar:
 ![IMG-20250808-WA0016](https://github.com/user-attachments/assets/a3793e36-b693-4c4e-8fe4-40cdaec43fea)
 
 authentication:
+![IMG-20250808-WA0015](https://github.com/user-attachments/assets/e35afce3-421c-4a0a-9652-70d6594bc5df)
 
 login screen:
 
