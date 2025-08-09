@@ -496,10 +496,9 @@ edit transaction:
 add budget:
 
 edit budget:
-![WhatsApp Image 2025-08-09 at 21 24 24_9a2f3376](https://github.com/user-attachments/assets/55d86cbe-ef02-4d87-8c2c-f8114dab9bf6)
-
+![WhatsApp Image 2025-08-09 at 21 29 54_1d781b90](https://github.com/user-attachments/assets/cf7c7ca9-c20f-40d5-a6e5-ee6b0a8ca5a0)
 create category:
-
+![WhatsApp Image 2025-08-09 at 21 24 24_9a2f3376](https://github.com/user-attachments/assets/55d86cbe-ef02-4d87-8c2c-f8114dab9bf6)
 
 
 
