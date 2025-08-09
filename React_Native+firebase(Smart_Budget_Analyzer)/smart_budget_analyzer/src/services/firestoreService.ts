@@ -232,7 +232,7 @@ export class FirestoreService {
         name: 'Food & Dining',
         isDefault: true,
         parentCategory: 'Expenses',
-        keywords: ['food', 'restaurant', 'grocery', 'dining', 'meal'],
+        keywords: ['food', 'restaurant', 'grocery', 'grocery', 'dining', 'meal'],
         color: '#FF6B6B',
         icon: 'restaurant',
         createdAt: Timestamp.now()
@@ -430,8 +430,12 @@ export class FirestoreService {
           } as Transaction);
         });
         
-        // Sort in memory
-        transactions.sort((a, b) => b.date.toMillis() - a.date.toMillis());
+        // Sort in memory, handling null dates
+        transactions.sort((a, b) => {
+          const aTime = a.date ? a.date.toMillis() : 0;
+          const bTime = b.date ? b.date.toMillis() : 0;
+          return bTime - aTime;
+        });
         
         return transactions;
       }
@@ -482,8 +486,12 @@ export class FirestoreService {
               } as Transaction);
             });
             
-            // Sort in memory
-            transactions.sort((a, b) => b.date.toMillis() - a.date.toMillis());
+            // Sort in memory, handling null dates
+            transactions.sort((a, b) => {
+              const aTime = a.date ? a.date.toMillis() : 0;
+              const bTime = b.date ? b.date.toMillis() : 0;
+              return bTime - aTime;
+            });
             callback(transactions);
           });
         }
@@ -510,8 +518,12 @@ export class FirestoreService {
           } as Transaction);
         });
         
-        // Sort in memory
-        transactions.sort((a, b) => b.date.toMillis() - a.date.toMillis());
+        // Sort in memory, handling null dates
+        transactions.sort((a, b) => {
+          const aTime = a.date ? a.date.toMillis() : 0;
+          const bTime = b.date ? b.date.toMillis() : 0;
+          return bTime - aTime;
+        });
         callback(transactions);
       });
     }
@@ -598,8 +610,12 @@ export class FirestoreService {
           } as Budget);
         });
         
-        // Sort in memory
-        budgets.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis());
+        // Sort in memory, handling null createdAt
+        budgets.sort((a, b) => {
+          const aTime = a.createdAt ? a.createdAt.toMillis() : 0;
+          const bTime = b.createdAt ? b.createdAt.toMillis() : 0;
+          return bTime - aTime;
+        });
         
         return budgets;
       }
@@ -646,8 +662,12 @@ export class FirestoreService {
               } as Budget);
             });
             
-            // Sort in memory
-            budgets.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis());
+            // Sort in memory, handling null createdAt
+            budgets.sort((a, b) => {
+              const aTime = a.createdAt ? a.createdAt.toMillis() : 0;
+              const bTime = b.createdAt ? b.createdAt.toMillis() : 0;
+              return bTime - aTime;
+            });
             callback(budgets);
           });
         }
@@ -672,8 +692,12 @@ export class FirestoreService {
           } as Budget);
         });
         
-        // Sort in memory
-        budgets.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis());
+        // Sort in memory, handling null createdAt
+        budgets.sort((a, b) => {
+          const aTime = a.createdAt ? a.createdAt.toMillis() : 0;
+          const bTime = b.createdAt ? b.createdAt.toMillis() : 0;
+          return bTime - aTime;
+        });
         callback(budgets);
       });
     }
@@ -755,7 +779,11 @@ export class FirestoreService {
 
       const totalBalance = totalIncome - totalExpenses;
       const recentTransactions = transactions
-        .sort((a, b) => b.date.toMillis() - a.date.toMillis())
+        .sort((a, b) => {
+          const aTime = a.date ? a.date.toMillis() : 0;
+          const bTime = b.date ? b.date.toMillis() : 0;
+          return bTime - aTime;
+        })
         .slice(0, 5);
 
       return {
@@ -794,8 +822,23 @@ export class FirestoreService {
         });
 
         const totalBalance = totalIncome - totalExpenses;
-        const recentTransactions = transactions
-          .sort((a, b) => b.date.toMillis() - a.date.toMillis())
+        
+        // Filter out transactions with invalid or missing dates before sorting
+        const validTransactions = transactions.filter(t => 
+          t && t.date && typeof t.date.toMillis === 'function'
+        );
+        
+        const recentTransactions = validTransactions
+          .sort((a, b) => {
+            try {
+              const aTime = a.date?.toMillis?.() || 0;
+              const bTime = b.date?.toMillis?.() || 0;
+              return bTime - aTime;
+            } catch (error) {
+              console.warn('Error sorting transactions by date:', error);
+              return 0;
+            }
+          })
           .slice(0, 5);
 
         return {
@@ -889,10 +932,13 @@ export class FirestoreService {
     });
 
     // Calculate budget progress
-    const budgetProgress = budgets.map(budget => {
+    const budgetProgress = budgets.filter(budget => 
+      budget && budget.category && typeof budget.amount === 'number'
+    ).map(budget => {
       const categoryTransactions = transactions.filter(t => 
-        t.category === budget.category && t.amount < 0
+        t && t.category === budget.category && t.amount < 0 && t.date
       );
+      
       const spent = categoryTransactions.reduce((sum, t) => sum + Math.abs(t.amount), 0);
       const percentage = budget.amount > 0 ? (spent / budget.amount) * 100 : 0;
       
@@ -905,8 +951,23 @@ export class FirestoreService {
     });
 
     const totalBalance = totalIncome - totalExpenses;
-    const recentTransactions = transactions
-      .sort((a, b) => b.date.toMillis() - a.date.toMillis())
+    
+    // Filter out transactions with invalid or missing dates before sorting
+    const validTransactions = transactions.filter(t => 
+      t && t.date && typeof t.date.toMillis === 'function'
+    );
+    
+    const recentTransactions = validTransactions
+      .sort((a, b) => {
+        try {
+          const aTime = a.date?.toMillis?.() || 0;
+          const bTime = b.date?.toMillis?.() || 0;
+          return bTime - aTime;
+        } catch (error) {
+          console.warn('Error sorting transactions by date:', error);
+          return 0;
+        }
+      })
       .slice(0, 5);
 
     return {
@@ -933,7 +994,7 @@ export class FirestoreService {
           name: 'Food & Dining',
           isDefault: true,
           parentCategory: 'Expenses',
-          keywords: ['food', 'restaurant', 'grocery', 'dining', 'meal'],
+          keywords: ['food', 'restaurant', 'grocery', 'grocery', 'dining', 'meal'],
           color: '#FF6B6B',
           icon: 'restaurant'
         },
@@ -997,4 +1058,4 @@ export class FirestoreService {
       throw error;
     }
   }
-} 
+}

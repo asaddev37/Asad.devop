@@ -487,20 +487,22 @@ export default function DashboardScreen() {
                 Budget Progress
               </Text>
               {dashboardStats.budgetProgress.map((budget, index) => (
-                <View key={index} style={styles.budgetCard}>
+                <View key={index} style={[styles.budgetCard, isDarkMode && styles.darkBudgetCard]}>
                   <View style={styles.budgetHeader}>
                     <Text style={[styles.budgetTitle, isDarkMode && styles.darkText]}>{budget.category}</Text>
                     <Text style={[styles.budgetAmount, isDarkMode && styles.darkText]}>
                       {formatCurrency(budget.spent)} / {formatCurrency(budget.budget)}
                     </Text>
                   </View>
-                  <View style={styles.progressBar}>
+                  <View style={[styles.progressBar, isDarkMode && { backgroundColor: '#444' }]}>
                     <View 
                       style={[
                         styles.progressFill, 
                         { 
                           width: `${Math.min(budget.percentage, 100)}%`,
-                          backgroundColor: budget.percentage > 80 ? '#ff6b35' : '#32cd32'
+                          backgroundColor: budget.percentage > 90 ? '#ff6b35' : 
+                                          budget.percentage > 75 ? '#ffa726' : 
+                                          budget.percentage > 50 ? '#4A90E2' : '#32cd32'
                         }
                       ]} 
                     />
@@ -526,7 +528,7 @@ export default function DashboardScreen() {
             <Text style={[styles.sectionTitle, isDarkMode && styles.darkText]}>
               AI-Powered Insights
             </Text>
-            <View style={styles.aiCard}>
+            <View style={[styles.aiCard, isDarkMode && styles.darkAiCard]}>
               <Ionicons name="sparkles" size={32} color="#1e90ff" />
               <Text style={[styles.aiTitle, isDarkMode && styles.darkText]}>
                 Smart Analytics Coming Soon
@@ -859,6 +861,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 3.84,
   },
+  darkBudgetCard: {
+    backgroundColor: '#2a2a2a',
+    shadowColor: '#000',
+    shadowOpacity: 0.3,
+    borderColor: '#444',
+    borderWidth: 1,
+  },
   budgetHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -899,6 +908,13 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 3.84,
+  },
+  darkAiCard: {
+    backgroundColor: '#2a2a2a',
+    borderColor: '#444',
+    borderWidth: 1,
+    shadowColor: '#000',
+    shadowOpacity: 0.3,
   },
   aiTitle: {
     fontSize: 18,

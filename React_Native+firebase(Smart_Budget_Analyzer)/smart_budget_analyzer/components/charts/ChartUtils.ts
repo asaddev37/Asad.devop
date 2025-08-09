@@ -125,6 +125,20 @@ export const getBudgetProgressData = (budgetProgress: any[]): { labels: string[]
     colors: [] as string[],
   };
   
+  // Define category to color mapping
+  const categoryColors: {[key: string]: string} = {
+    'Food & Dining': '#4A90E2', // Blue
+    'Transportation': '#E57373', // Red
+    'Education': '#81C784', // Green
+    'Clothes': '#FFD54F', // Yellow
+    'Healthcare': '#7986CB', // Indigo
+    'Entertainment': '#FF8A65', // Orange
+    'Housing': '#9575CD', // Purple
+    'Utilities': '#4DB6AC', // Teal
+    'Shopping': '#F06292', // Pink
+    'Other': '#A1887F', // Brown
+  };
+  
   budgetProgress.forEach((budget, index) => {
     // Calculate progress (as a decimal between 0-1)
     const progress = budget.percentage / 100;
@@ -132,7 +146,10 @@ export const getBudgetProgressData = (budgetProgress: any[]): { labels: string[]
     // Add to result
     result.labels.push(budget.category);
     result.data.push(progress);
-    result.colors.push(CHART_COLORS[index % CHART_COLORS.length]);
+    
+    // Use category-specific color if available, otherwise use the default color from CHART_COLORS
+    const color = categoryColors[budget.category] || CHART_COLORS[index % CHART_COLORS.length];
+    result.colors.push(color);
   });
   
   return result;

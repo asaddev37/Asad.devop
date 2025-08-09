@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -11,7 +11,10 @@ import {
   TextInput,
   Modal,
   RefreshControl,
+  FlatList,
+  Platform,
 } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../src/contexts/AuthContext';
@@ -20,6 +23,8 @@ import { router } from 'expo-router';
 import { Timestamp } from 'firebase/firestore';
 import { LoadingOverlay } from '../../components/LoadingOverlay';
 import { LoadingAnimation } from '../../components/LoadingAnimation';
+import CategorySelector from '../../components/CategorySelector';
+import DateRangePicker from '../../components/DateRangePicker';
 
 interface BudgetFormData {
   category: string;
@@ -27,6 +32,20 @@ interface BudgetFormData {
   startDate: Date;
   endDate: Date;
   alertThreshold: string;
+}
+
+interface CategoryFormData {
+  name: string;
+  color: string;
+  icon: string;
+  parentCategory: string;
+  keywords: string[];
+}
+
+interface BudgetProgress {
+  spent: number;
+  percentage: number;
+  remaining: number;
 }
 
 const BudgetsScreen = () => {
@@ -37,7 +56,14 @@ const BudgetsScreen = () => {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [editingBudget, setEditingBudget] = useState<Budget | null>(null);
+  const [showStartDatePicker, setShowStartDatePicker] = useState(false);
+  const [showEndDatePicker, setShowEndDatePicker] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const slideAnim = useRef(new Animated.Value(50)).current;
   
   const [formData, setFormData] = useState<BudgetFormData>({
     category: '',
@@ -46,32 +72,70 @@ const BudgetsScreen = () => {
     endDate: new Date(new Date().setMonth(new Date().getMonth() + 1)),
     alertThreshold: '80',
   });
+  
+  const [categoryFormData, setCategoryFormData] = useState<CategoryFormData>({
+    name: '',
+    color: '#4CAF50',
+    icon: 'restaurant',
+    parentCategory: 'Expenses',
+    keywords: [],
+  });
+  
+  const [keywordInput, setKeywordInput] = useState('');
+  
+  const handleAddKeyword = () => {
+    if (keywordInput.trim() && !categoryFormData.keywords.includes(keywordInput.trim())) {
+      setCategoryFormData({
+        ...categoryFormData,
+        keywords: [...categoryFormData.keywords, keywordInput.trim()]
+      });
+      setKeywordInput('');
+    }
+  };
 
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const slideAnim = useRef(new Animated.Value(50)).current;
+  const handleRemoveKeyword = (keywordToRemove: string) => {
+    setCategoryFormData({
+      ...categoryFormData,
+      keywords: categoryFormData.keywords.filter(keyword => keyword !== keywordToRemove)
+    });
+  };
+  const [availableIcons, setAvailableIcons] = useState<string[]>([
+    'restaurant', 'flash', 'car', 'school', 'medical', 'trending-up', 'game-controller',
+    'bag', 'home', 'shield-checkmark', 'gift', 'airplane', 'cut', 'briefcase', 'cart',
+    'cash', 'card', 'wallet', 'pricetag', 'fitness', 'book', 'film', 'musical-notes',
+    'beer', 'wine', 'cafe', 'pizza', 'basketball', 'football', 'bicycle', 'bus',
+    'train', 'boat', 'paw', 'heart', 'flower', 'leaf', 'planet', 'cloud', 'snow',
+    'umbrella', 'hammer', 'construct', 'desktop', 'phone-portrait', 'tablet-portrait',
+    'camera', 'videocam', 'headset', 'tv', 'radio', 'bluetooth', 'wifi', 'battery-full',
+    'git-branch', 'code', 'terminal', 'server', 'globe', 'earth', 'language', 'mail',
+    'chatbubbles', 'people', 'person', 'body', 'fitness', 'barbell', 'medkit', 'pulse',
+    'bandage', 'thermometer', 'flask', 'beaker', 'egg', 'nutrition', 'ice-cream',
+    'pizza', 'beer', 'wine', 'cafe', 'fast-food', 'fish', 'bonfire', 'sunny', 'moon',
+    'star', 'cloudy', 'rainy', 'thunderstorm', 'snow', 'flame', 'bonfire', 'bulb',
+  ]);
+  
+  const AVAILABLE_COLORS = [
+    '#4CAF50', '#2196F3', '#FFC107', '#F44336', '#9C27B0', 
+    '#00BCD4', '#FF9800', '#795548', '#607D8B', '#E91E63'
+  ];
 
-  // Load budgets, categories, and transactions
   const loadData = async () => {
     if (!user?.uid) return;
     
     try {
       setLoading(true);
       
-      // Load budgets
       const userBudgets = await FirestoreService.getBudgets(user.uid);
       setBudgets(userBudgets);
       
-      // Load categories with fallback
       try {
         const userCategories = await FirestoreService.getCategories(user.uid);
         setCategories(userCategories);
       } catch (categoryError) {
         console.warn('Error loading categories, using defaults:', categoryError);
-        // Use default categories as fallback
         setCategories(FirestoreService.getDefaultCategories());
       }
       
-      // Load transactions for budget calculations
       const userTransactions = await FirestoreService.getTransactions(user.uid, 1000);
       setTransactions(userTransactions);
       
@@ -83,7 +147,6 @@ const BudgetsScreen = () => {
     }
   };
 
-  // Real-time listeners
   useEffect(() => {
     if (!user?.uid) return;
 
@@ -95,7 +158,6 @@ const BudgetsScreen = () => {
       setTransactions(newTransactions);
     });
 
-    // Initial load
     loadData();
 
     return () => {
@@ -130,13 +192,18 @@ const BudgetsScreen = () => {
         return;
       }
 
+      const startDate = formData.startDate instanceof Date ? formData.startDate : new Date();
+      const endDate = formData.endDate instanceof Date ? formData.endDate : new Date(new Date().setMonth(new Date().getMonth() + 1));
+
       const budgetData = {
         userId: user.uid,
         category: formData.category,
         amount: amount,
-        startDate: Timestamp.fromDate(formData.startDate),
-        endDate: Timestamp.fromDate(formData.endDate),
+        startDate: Timestamp.fromDate(startDate),
+        endDate: Timestamp.fromDate(endDate),
         alertThreshold: alertThreshold,
+        spent: 0,
+        createdAt: Timestamp.now()
       };
 
       if (editingBudget) {
@@ -150,6 +217,53 @@ const BudgetsScreen = () => {
     } catch (error) {
       console.error('Error saving budget:', error);
       Alert.alert('Error', 'Failed to save budget');
+    }
+  };
+
+  const handleCreateCategory = async () => {
+    if (!user?.uid || !categoryFormData.name || !categoryFormData.color || !categoryFormData.icon) {
+      Alert.alert('Error', 'Please fill in all required fields for the category');
+      return;
+    }
+
+    try {
+      const existingCategory = categories.find(
+        cat => cat.name.toLowerCase() === categoryFormData.name.toLowerCase()
+      );
+      
+      if (existingCategory) {
+        Alert.alert('Error', 'A category with this name already exists');
+        return;
+      }
+
+      const categoryData = {
+        userId: user.uid,
+        name: categoryFormData.name,
+        isDefault: false,
+        parentCategory: categoryFormData.parentCategory,
+        keywords: categoryFormData.keywords,
+        color: categoryFormData.color,
+        icon: categoryFormData.icon,
+        createdAt: new Date(),
+      };
+
+      await FirestoreService.createCategory(categoryData);
+
+      setCategoryFormData({
+        name: '',
+        color: '#4CAF50',
+        icon: 'restaurant',
+        parentCategory: 'Expenses',
+        keywords: [],
+      });
+      setKeywordInput('');
+      setShowCategoryModal(false);
+      
+      const updatedCategories = await FirestoreService.getCategories(user.uid);
+      setCategories(updatedCategories);
+    } catch (error) {
+      console.error('Error creating category:', error);
+      Alert.alert('Error', 'Failed to create category');
     }
   };
 
@@ -177,11 +291,26 @@ const BudgetsScreen = () => {
 
   const handleEditBudget = (budget: Budget) => {
     setEditingBudget(budget);
+    
+    let startDate = new Date();
+    let endDate = new Date(new Date().setMonth(new Date().getMonth() + 1));
+    
+    try {
+      if (budget.startDate && typeof budget.startDate.toDate === 'function') {
+        startDate = budget.startDate.toDate();
+      }
+      if (budget.endDate && typeof budget.endDate.toDate === 'function') {
+        endDate = budget.endDate.toDate();
+      }
+    } catch (error) {
+      console.error('Error converting budget dates:', error);
+    }
+    
     setFormData({
       category: budget.category,
       amount: budget.amount.toString(),
-      startDate: budget.startDate.toDate(),
-      endDate: budget.endDate.toDate(),
+      startDate: startDate,
+      endDate: endDate,
       alertThreshold: budget.alertThreshold.toString(),
     });
     setShowAddModal(true);
@@ -204,28 +333,97 @@ const BudgetsScreen = () => {
     return `${symbol}${Math.abs(amount).toFixed(2)}`;
   };
 
-  const formatDate = (timestamp: Timestamp) => {
-    const date = timestamp.toDate();
-    return date.toLocaleDateString();
+  const formatDate = (timestamp: Timestamp | null | undefined) => {
+    if (!timestamp || typeof timestamp.toDate !== 'function') {
+      return 'Invalid Date';
+    }
+    
+    try {
+      const date = timestamp.toDate();
+      return date.toLocaleDateString();
+    } catch (error) {
+      console.error('Error formatting date:', error);
+      return 'Invalid Date';
+    }
   };
 
-  const calculateBudgetProgress = (budget: Budget) => {
-    const budgetTransactions = transactions.filter(t => 
-      t.category === budget.category && 
-      t.amount < 0 && 
-      t.date >= budget.startDate && 
-      t.date <= budget.endDate
-    );
-    
-    const spent = budgetTransactions.reduce((sum, t) => sum + Math.abs(t.amount), 0);
-    const percentage = budget.amount > 0 ? (spent / budget.amount) * 100 : 0;
-    
-    return {
-      spent,
-      percentage: Math.min(percentage, 100),
-      remaining: Math.max(budget.amount - spent, 0),
-    };
-  };
+  useEffect(() => {
+    const progressMap = new Map<string, BudgetProgress>();
+
+    budgets.forEach((budget) => {
+      if (!budget.id) {
+        console.warn('Budget missing id', budget);
+        return;
+      }
+
+      try {
+        console.log(`Calculating progress for budget: ${budget.id} - ${budget.category}`);
+
+        if (!budget.startDate) {
+          console.warn('Budget missing startDate', budget);
+          throw new Error('Missing startDate');
+        }
+
+        if (!budget.endDate) {
+          console.warn('Budget missing endDate', budget);
+          throw new Error('Missing endDate');
+        }
+
+        if (typeof budget.startDate.toMillis !== 'function' || typeof budget.endDate.toMillis !== 'function') {
+          console.warn('Budget dates not Timestamps', budget);
+          throw new Error('Invalid date format');
+        }
+
+        const startTime = budget.startDate.toMillis();
+        const endTime = budget.endDate.toMillis();
+
+        console.log(`Budget period: ${startTime} to ${endTime}`);
+
+        const budgetTransactions = transactions.filter((t) => {
+          if (!t.date) {
+            console.warn('Transaction missing date', t);
+            return false;
+          }
+
+          if (typeof t.date.toMillis !== 'function') {
+            console.warn('Transaction date not Timestamp', t);
+            return false;
+          }
+
+          try {
+            const transactionTime = t.date.toMillis();
+            return (
+              t.category === budget.category &&
+              t.amount < 0 &&
+              transactionTime >= startTime &&
+              transactionTime <= endTime
+            );
+          } catch (err) {
+            console.error('Error in transaction date toMillis', err, t);
+            return false;
+          }
+        });
+
+        const spent = budgetTransactions.reduce((sum, t) => sum + Math.abs(t.amount), 0);
+        const percentage = budget.amount > 0 ? (spent / budget.amount) * 100 : 0;
+
+        progressMap.set(budget.id, {
+          spent,
+          percentage: Math.min(percentage, 100),
+          remaining: Math.max(budget.amount - spent, 0),
+        });
+      } catch (error) {
+        console.error('Error in calculateBudgetProgress for budget ' + budget.id, error);
+        setErrorMsg('An error occurred while calculating budget progress. Please check your console logs for details.');
+        setShowErrorModal(true);
+        progressMap.set(budget.id, { spent: 0, percentage: 0, remaining: budget.amount });
+      }
+    });
+
+    setBudgetsProgress(progressMap);
+  }, [budgets, transactions]);
+
+  const [budgetsProgress, setBudgetsProgress] = useState<Map<string, BudgetProgress>>(new Map());
 
   const getProgressColor = (percentage: number, alertThreshold: number) => {
     if (percentage >= alertThreshold) return '#ff6b35';
@@ -234,10 +432,7 @@ const BudgetsScreen = () => {
   };
 
   const totalBudgeted = budgets.reduce((sum, budget) => sum + budget.amount, 0);
-  const totalSpent = budgets.reduce((sum, budget) => {
-    const progress = calculateBudgetProgress(budget);
-    return sum + progress.spent;
-  }, 0);
+  const totalSpent = Array.from(budgetsProgress.values()).reduce((sum, p) => sum + p.spent, 0);
 
   useEffect(() => {
     Animated.parallel([
@@ -258,7 +453,6 @@ const BudgetsScreen = () => {
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
       
-      {/* Loading Overlay */}
       <LoadingOverlay 
         visible={loading && !refreshing} 
         message="Loading your budgets..." 
@@ -266,7 +460,6 @@ const BudgetsScreen = () => {
         animationType="dots"
       />
       
-      {/* Header */}
       <LinearGradient colors={['#4A90E2', '#357ABD']} style={styles.header}>
         <View style={styles.headerContent}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
@@ -294,7 +487,6 @@ const BudgetsScreen = () => {
             },
           ]}
         >
-          {/* Summary Cards */}
           <View style={styles.summaryContainer}>
             <View style={styles.summaryCard}>
               <Text style={styles.summaryLabel}>Total Budgeted</Text>
@@ -310,13 +502,13 @@ const BudgetsScreen = () => {
             </View>
           </View>
 
-          {/* Budgets List */}
           <View style={styles.budgetsContainer}>
             <Text style={styles.sectionTitle}>Your Budgets</Text>
             
             {budgets.length > 0 ? (
               budgets.map((budget) => {
-                const progress = calculateBudgetProgress(budget);
+                if (!budget.id) return null;
+                const progress = budgetsProgress.get(budget.id) || { spent: 0, percentage: 0, remaining: budget.amount };
                 const progressColor = getProgressColor(progress.percentage, budget.alertThreshold);
                 
                 return (
@@ -416,7 +608,6 @@ const BudgetsScreen = () => {
             )}
           </View>
 
-          {/* AI Features Coming Soon */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Smart Budgeting</Text>
             <View style={styles.aiCard}>
@@ -432,7 +623,6 @@ const BudgetsScreen = () => {
         </Animated.View>
       </ScrollView>
 
-      {/* Add/Edit Budget Modal */}
       <Modal
         visible={showAddModal}
         animationType="slide"
@@ -452,47 +642,14 @@ const BudgetsScreen = () => {
           </View>
 
           <ScrollView style={styles.modalContent}>
-            {/* Category */}
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Category *</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                <View style={styles.categoryContainer}>
-                  {categories.map((category) => (
-                    <TouchableOpacity
-                      key={category.id}
-                      style={[
-                        styles.categoryButton,
-                        formData.category === category.name && styles.activeCategoryButton,
-                      ]}
-                      onPress={() => setFormData({ ...formData, category: category.name })}
-                    >
-                      <View style={styles.categoryContent}>
-                        <View style={[
-                          styles.categoryIconContainer,
-                          { backgroundColor: category.color + '20' }
-                        ]}>
-                          <Ionicons 
-                            name={category.icon as any} 
-                            size={20} 
-                            color={category.color} 
-                          />
-                        </View>
-                        <Text
-                          style={[
-                            styles.categoryText,
-                            formData.category === category.name && styles.activeCategoryText,
-                          ]}
-                        >
-                          {category.name}
-                        </Text>
-                      </View>
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              </ScrollView>
+              <CategorySelector
+                selectedCategory={formData.category}
+                onSelectCategory={(categoryName) => setFormData({ ...formData, category: categoryName })}
+              />
             </View>
 
-            {/* Amount */}
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Budget Amount *</Text>
               <TextInput
@@ -504,7 +661,6 @@ const BudgetsScreen = () => {
               />
             </View>
 
-            {/* Alert Threshold */}
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Alert Threshold (%)</Text>
               <TextInput
@@ -519,25 +675,197 @@ const BudgetsScreen = () => {
               </Text>
             </View>
 
-            {/* Date Range */}
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Budget Period</Text>
               <View style={styles.dateContainer}>
-                <View style={styles.dateInput}>
+                <TouchableOpacity 
+                  style={styles.dateInput}
+                  onPress={() => setShowStartDatePicker(true)}
+                >
                   <Text style={styles.dateLabel}>Start Date</Text>
                   <Text style={styles.dateValue}>
                     {formData.startDate.toLocaleDateString()}
                   </Text>
-                </View>
-                <View style={styles.dateInput}>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                  style={styles.dateInput}
+                  onPress={() => setShowEndDatePicker(true)}
+                >
                   <Text style={styles.dateLabel}>End Date</Text>
                   <Text style={styles.dateValue}>
                     {formData.endDate.toLocaleDateString()}
                   </Text>
-                </View>
+                </TouchableOpacity>
               </View>
+              
+              {showStartDatePicker && (
+                <DateTimePicker
+                  value={formData.startDate}
+                  mode="date"
+                  display="default"
+                  onChange={(event: any, selectedDate?: Date) => {
+                    setShowStartDatePicker(Platform.OS === 'ios');
+                    if (selectedDate) {
+                      setFormData({ ...formData, startDate: selectedDate });
+                    }
+                  }}
+                />
+              )}
+              
+              {showEndDatePicker && (
+                <DateTimePicker
+                  value={formData.endDate}
+                  mode="date"
+                  display="default"
+                  onChange={(event: any, selectedDate?: Date) => {
+                    setShowEndDatePicker(Platform.OS === 'ios');
+                    if (selectedDate) {
+                      setFormData({ ...formData, endDate: selectedDate });
+                    }
+                  }}
+                />
+              )}
             </View>
           </ScrollView>
+        </View>
+      </Modal>
+      
+      <Modal
+        visible={showCategoryModal}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => setShowCategoryModal(false)}
+      >
+        <View style={styles.categoryModalOverlay}>
+          <View style={styles.categoryModalContainer}>
+            <View style={styles.categoryModalHeader}>
+              <Text style={styles.categoryModalTitle}>Create New Category</Text>
+              <TouchableOpacity onPress={() => setShowCategoryModal(false)}>
+                <Ionicons name="close" size={24} color="#666" />
+              </TouchableOpacity>
+            </View>
+
+            <ScrollView style={styles.categoryModalContent}>
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Category Name *</Text>
+                <TextInput
+                  style={styles.textInput}
+                  value={categoryFormData.name}
+                  onChangeText={(text) => setCategoryFormData({...categoryFormData, name: text})}
+                  placeholder="Enter category name"
+                  maxLength={20}
+                />
+              </View>
+
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Select Icon *</Text>
+                <FlatList
+                  data={availableIcons}
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  keyExtractor={(item) => item}
+                  renderItem={({ item }) => (
+                    <TouchableOpacity
+                      style={[
+                        styles.iconButton,
+                        categoryFormData.icon === item && styles.selectedIconButton,
+                      ]}
+                      onPress={() => setCategoryFormData({...categoryFormData, icon: item})}
+                    >
+                      <Ionicons
+                        name={item as any}
+                        size={24}
+                        color={categoryFormData.icon === item ? 'white' : '#666'}
+                      />
+                    </TouchableOpacity>
+                  )}
+                  style={styles.iconList}
+                />
+              </View>
+
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Select Color *</Text>
+                <FlatList
+                  data={AVAILABLE_COLORS}
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  keyExtractor={(item) => item}
+                  renderItem={({ item }) => (
+                    <TouchableOpacity
+                      style={[
+                        styles.colorButton,
+                        { backgroundColor: item },
+                        categoryFormData.color === item && styles.selectedColorButton,
+                      ]}
+                      onPress={() => setCategoryFormData({...categoryFormData, color: item})}
+                    />
+                  )}
+                  style={styles.colorList}
+                />
+              </View>
+
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Keywords (Optional)</Text>
+                <View style={styles.keywordInputContainer}>
+                  <TextInput
+                    style={styles.keywordInput}
+                    value={keywordInput}
+                    onChangeText={setKeywordInput}
+                    placeholder="Add keywords for auto-categorization"
+                  />
+                  <TouchableOpacity 
+                    style={styles.addKeywordButton}
+                    onPress={handleAddKeyword}
+                  >
+                    <Ionicons name="add" size={24} color="white" />
+                  </TouchableOpacity>
+                </View>
+                
+                {categoryFormData.keywords.length > 0 && (
+                  <View style={styles.keywordsList}>
+                    {categoryFormData.keywords.map((keyword, index) => (
+                      <View key={index} style={styles.keywordChip}>
+                        <Text style={styles.keywordText}>{keyword}</Text>
+                        <TouchableOpacity
+                          onPress={() => handleRemoveKeyword(keyword)}
+                          style={styles.removeKeywordButton}
+                        >
+                          <Ionicons name="close-circle" size={16} color="#666" />
+                        </TouchableOpacity>
+                      </View>
+                    ))}
+                  </View>
+                )}
+              </View>
+
+              <TouchableOpacity
+                style={styles.createButton}
+                onPress={handleCreateCategory}
+              >
+                <Text style={styles.createButtonText}>Create Category</Text>
+              </TouchableOpacity>
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
+
+      <Modal
+        visible={showErrorModal}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setShowErrorModal(false)}
+      >
+        <View style={styles.errorOverlay}>
+          <View style={styles.errorContainer}>
+            <Ionicons name="warning" size={32} color="#ff6b35" />
+            <Text style={styles.errorText}>{errorMsg}</Text>
+            <TouchableOpacity 
+              style={styles.errorButton}
+              onPress={() => setShowErrorModal(false)}
+            >
+              <Text style={styles.errorButtonText}>OK</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </Modal>
     </View>
@@ -861,6 +1189,174 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#333',
     fontWeight: '500',
+  },
+  categoryModalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  categoryModalContainer: {
+    backgroundColor: 'white',
+    borderRadius: 15,
+    width: '100%',
+    maxHeight: '80%',
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  categoryModalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+    paddingBottom: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  categoryModalTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#333',
+  },
+  categoryModalContent: {
+    flex: 1,
+  },
+  iconList: {
+    marginBottom: 10,
+  },
+  iconButton: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10,
+    backgroundColor: '#f0f0f0',
+  },
+  selectedIconButton: {
+    backgroundColor: '#4A90E2',
+  },
+  colorList: {
+    marginBottom: 10,
+  },
+  colorButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    marginRight: 10,
+    borderWidth: 1,
+    borderColor: '#ddd',
+  },
+  selectedColorButton: {
+    borderWidth: 2,
+    borderColor: '#333',
+  },
+  keywordInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  keywordInput: {
+    flex: 1,
+    backgroundColor: 'white',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    fontSize: 16,
+    marginRight: 8,
+  },
+  addKeywordButton: {
+    backgroundColor: '#4A90E2',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  keywordsList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 10,
+  },
+  keywordChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f0f0f0',
+    borderRadius: 16,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    marginRight: 8,
+    marginBottom: 8,
+  },
+  keywordText: {
+    fontSize: 14,
+    color: '#333',
+    marginRight: 4,
+  },
+  removeKeywordButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addCategoryButton: {
+    marginTop: 10,
+    borderWidth: 1,
+    borderColor: '#4A90E2',
+    borderStyle: 'dashed',
+    borderRadius: 10,
+    padding: 12,
+  },
+  addCategoryText: {
+    color: '#4A90E2',
+    fontWeight: '500',
+    fontSize: 14,
+  },
+  createButton: {
+    backgroundColor: '#4A90E2',
+    borderRadius: 10,
+    padding: 15,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  createButtonText: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16,
+  },
+  errorOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  errorContainer: {
+    backgroundColor: 'white',
+    borderRadius: 15,
+    padding: 20,
+    alignItems: 'center',
+    width: '80%',
+  },
+  errorText: {
+    fontSize: 16,
+    color: '#333',
+    textAlign: 'center',
+    marginVertical: 20,
+  },
+  errorButton: {
+    backgroundColor: '#4A90E2',
+    borderRadius: 10,
+    padding: 10,
+    paddingHorizontal: 20,
+  },
+  errorButtonText: {
+    color: 'white',
+    fontWeight: '600',
   },
 });
 
