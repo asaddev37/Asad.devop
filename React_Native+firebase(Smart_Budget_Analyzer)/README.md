@@ -440,14 +440,53 @@ feedback: {
 *Made with ❤️ by AK~~37 | SmartBudgetAnalyzer v1.1*
 
 ---
-### 📱 App Screenshots
-<table> <tr> <th align="center">Loading Screen</th> <th align="center">Home Screen</th> <th align="center">Menu Bar</th> </tr> <tr> <td align="center"> <img src="https://github.com/user-attachments/assets/f81db223-999e-442a-9046-69f56fc8e6e0" alt="Loading Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/c309e55c-f1e2-4afa-9979-b05d5cf490ab" alt="Home Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/3f79acec-bf6a-4974-bc50-570999434912" alt="Menu Bar" width="180" /> </td> </tr> <tr> <th align="center">Signup Screen</th> <th align="center">Login Screen</th> <th align="center">Forgot Password</th> </tr> <tr> <td align="center"> <img src="https://github.com/user-attachments/assets/777893cc-e8fd-47db-afa3-a0712be68ee1" alt="Signup Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/3ff08423-80c6-49c5-a4ac-1a80ad75b876" alt="Login Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/187f71d1-263d-4caa-be17-9b454b3c7174" alt="Forgot Password" width="180" /> </td> </tr> <tr> <th align="center">Dashboard Screen</th> <th align="center">Transactions Screen</th> <th align="center">Budget Screen</th> <th align="center">Profile Screen</th> </tr> <tr> <td align="center"> <img src="https://github.com/user-attachments/assets/8449d3d3-f495-4f04-a65d-5357005cb6e8" alt="Dashboard Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/d53b6d2c-442b-4786-89a5-6f6697fc3609" alt="Transactions Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/7b1da8f9-de6f-44c3-b7fe-ae28a80a78f5" alt="Budget Screen" width="180" /> </td> <td align="center"> <img src="https://github.com/user-attachments/assets/745f3178-9268-475a-9a3d-8c93975901ae" alt="Profile Screen" width="180" /> </td> </tr> </table>
 
+### 📱 App Screenshots  
 
-
-
-
-
+<table>
+  <tr>
+    <td align="center"><b>Loading Screen</b></td>
+    <td align="center"><b>Home Screen</b></td>
+    <td align="center"><b>Authentication</b></td>
+    <td align="center"><b>Menu Bar</b></td>
+    <td align="center"><b>Login Screen</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/d97f498e-ca15-4290-8cd3-847790b0ac07" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/b65f91de-e441-4af7-bddb-5cccfa2e41a5" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/e35afce3-421c-4a0a-9652-70d6594bc5df" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/a3793e36-b693-4c4e-8fe4-40cdaec43fea" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/12b6da68-b7a6-4347-82c0-cc830858570c" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Signup Screen</b></td>
+    <td align="center"><b>Forgot Password</b></td>
+    <td align="center"><b>User Dashboard</b></td>
+    <td align="center"><b>Transactions Progress</b></td>
+    <td align="center"><b>Graphs</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/eb0d7362-9350-447b-9a01-7d16c56e6485" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/d4632ea8-3ba0-4ac4-92db-14af39f0c305" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/42a8e0f4-d3b4-435b-8bf4-45a2e0a5b94f" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/9d511023-de14-49b1-bca1-fc7013fb3873" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/0e91b825-293c-43ff-9ed2-9023dc021ac9" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Transactions</b></td>
+    <td align="center"><b>Budgets</b></td>
+    <td align="center"><b>Profile</b></td>
+    <td align="center"><b>App Settings</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/94ce970c-5f58-4ce0-9493-502916e7e323" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/8111c7da-6906-4ae8-b7e1-f79aaa139f50" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/2d85bbc3-acb0-45be-948a-9fe5c0b11c5f" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/e35c3268-fc6a-41ef-ba55-4760cda80317" width="200"></td>
+    <td></td>
+  </tr>
+</table>
 
 
 
