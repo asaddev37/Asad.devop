@@ -494,6 +494,7 @@ edit transaction:
 ![WhatsApp Image 2025-08-09 at 21 29 55_ea1dfeab](https://github.com/user-attachments/assets/6737a735-29f6-48ea-a2cf-d12f1ce58665)
 
 add budget:
+![WhatsApp Image 2025-08-09 at 21 24 25_c86eb8a0](https://github.com/user-attachments/assets/31c57721-9234-4e54-a7da-c597b45d0593)
 
 edit budget:
 ![WhatsApp Image 2025-08-09 at 21 29 54_1d781b90](https://github.com/user-attachments/assets/cf7c7ca9-c20f-40d5-a6e5-ee6b0a8ca5a0)
