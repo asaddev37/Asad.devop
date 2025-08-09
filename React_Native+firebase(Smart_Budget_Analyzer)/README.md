@@ -444,6 +444,7 @@ feedback: {
 ### 📱 App Screenshots  
 
 <table>
+  <!-- Row 1: Core Screens -->
   <tr>
     <td align="center"><b>Loading Screen</b></td>
     <td align="center"><b>Home Screen</b></td>
@@ -458,6 +459,8 @@ feedback: {
     <td><img src="https://github.com/user-attachments/assets/a3793e36-b693-4c4e-8fe4-40cdaec43fea" width="200"></td>
     <td><img src="https://github.com/user-attachments/assets/12b6da68-b7a6-4347-82c0-cc830858570c" width="200"></td>
   </tr>
+
+  <!-- Row 2: Auth & Dashboard -->
   <tr>
     <td align="center"><b>Signup Screen</b></td>
     <td align="center"><b>Forgot Password</b></td>
@@ -472,36 +475,39 @@ feedback: {
     <td><img src="https://github.com/user-attachments/assets/9d511023-de14-49b1-bca1-fc7013fb3873" width="200"></td>
     <td><img src="https://github.com/user-attachments/assets/0e91b825-293c-43ff-9ed2-9023dc021ac9" width="200"></td>
   </tr>
+
+  <!-- Row 3: Transactions -->
   <tr>
     <td align="center"><b>Transactions</b></td>
+    <td align="center"><b>Add Transaction</b></td>
+    <td align="center"><b>Edit Transaction</b></td>
     <td align="center"><b>Budgets</b></td>
+    <td align="center"><b>Add Budget</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/94ce970c-5f58-4ce0-9493-502916e7e323" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/df9c2fc4-666c-4936-adad-04d09a318451" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/6737a735-29f6-48ea-a2cf-d12f1ce58665" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/8111c7da-6906-4ae8-b7e1-f79aaa139f50" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/31c57721-9234-4e54-a7da-c597b45d0593" width="200"></td>
+  </tr>
+
+  <!-- Row 4: Budgets & Settings -->
+  <tr>
+    <td align="center"><b>Edit Budget</b></td>
+    <td align="center"><b>Create Category</b></td>
     <td align="center"><b>Profile</b></td>
     <td align="center"><b>App Settings</b></td>
     <td></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/94ce970c-5f58-4ce0-9493-502916e7e323" width="200"></td>
-    <td><img src="https://github.com/user-attachments/assets/8111c7da-6906-4ae8-b7e1-f79aaa139f50" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/cf7c7ca9-c20f-40d5-a6e5-ee6b0a8ca5a0" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/55d86cbe-ef02-4d87-8c2c-f8114dab9bf6" width="200"></td>
     <td><img src="https://github.com/user-attachments/assets/2d85bbc3-acb0-45be-948a-9fe5c0b11c5f" width="200"></td>
     <td><img src="https://github.com/user-attachments/assets/e35c3268-fc6a-41ef-ba55-4760cda80317" width="200"></td>
     <td></td>
   </tr>
 </table>
-
-add tranasaction:
-![WhatsApp Image 2025-08-09 at 21 24 25_2a7377a3](https://github.com/user-attachments/assets/df9c2fc4-666c-4936-adad-04d09a318451)
-
-edit transaction:
-![WhatsApp Image 2025-08-09 at 21 29 55_ea1dfeab](https://github.com/user-attachments/assets/6737a735-29f6-48ea-a2cf-d12f1ce58665)
-
-add budget:
-![WhatsApp Image 2025-08-09 at 21 24 25_c86eb8a0](https://github.com/user-attachments/assets/31c57721-9234-4e54-a7da-c597b45d0593)
-
-edit budget:
-![WhatsApp Image 2025-08-09 at 21 29 54_1d781b90](https://github.com/user-attachments/assets/cf7c7ca9-c20f-40d5-a6e5-ee6b0a8ca5a0)
-create category:
-![WhatsApp Image 2025-08-09 at 21 24 24_9a2f3376](https://github.com/user-attachments/assets/55d86cbe-ef02-4d87-8c2c-f8114dab9bf6)
-
 
 
 
