@@ -489,6 +489,7 @@ feedback: {
 </table>
 
 add tranasaction:
+![WhatsApp Image 2025-08-09 at 21 24 25_2a7377a3](https://github.com/user-attachments/assets/df9c2fc4-666c-4936-adad-04d09a318451)
 
 edit transaction:
 ![WhatsApp Image 2025-08-09 at 21 29 55_ea1dfeab](https://github.com/user-attachments/assets/6737a735-29f6-48ea-a2cf-d12f1ce58665)
