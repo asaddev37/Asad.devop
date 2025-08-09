@@ -488,7 +488,16 @@ feedback: {
   </tr>
 </table>
 
+add tranasaction:
 
+edit transaction:
+![WhatsApp Image 2025-08-09 at 21 29 55_ea1dfeab](https://github.com/user-attachments/assets/6737a735-29f6-48ea-a2cf-d12f1ce58665)
+
+add budget:
+
+edit budget:
+
+create category:
 
 
 
