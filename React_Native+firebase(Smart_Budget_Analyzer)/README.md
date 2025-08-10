@@ -513,6 +513,7 @@ about:
 ![IMG-20250810-WA0008](https://github.com/user-attachments/assets/30ae08aa-aae6-4d42-aa25-c2b4694b004d)
 
 privacy policy:
+![IMG-20250810-WA0005](https://github.com/user-attachments/assets/4961d1f8-c752-4c86-865e-a4b030c4772c)
 
 contact:
 ![IMG-20250810-WA0006](https://github.com/user-attachments/assets/4c3712ee-9830-482f-a171-b60b78208512)
