@@ -476,6 +476,21 @@ feedback: {
     <td><img src="https://github.com/user-attachments/assets/0e91b825-293c-43ff-9ed2-9023dc021ac9" width="200"></td>
   </tr>
 
+<!-- Row 3: Transactions -->
+  <tr>
+    <td align="center"><b>Transactions</b></td>
+    <td align="center"><b>Add Transaction</b></td>
+    <td align="center"><b>Edit Transaction</b></td>
+    <td align="center"><b>Budgets</b></td>
+    <td align="center"><b>Add Budget</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/94ce970c-5f58-4ce0-9493-502916e7e323" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/df9c2fc4-666c-4936-adad-04d09a318451" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/6737a735-29f6-48ea-a2cf-d12f1ce58665" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/8111c7da-6906-4ae8-b7e1-f79aaa139f50" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/31c57721-9234-4e54-a7da-c597b45d0593" width="200"></td>
+  </tr>
 
 
 
