@@ -510,6 +510,7 @@ feedback: {
 </table>
 
 about:
+![IMG-20250810-WA0008](https://github.com/user-attachments/assets/30ae08aa-aae6-4d42-aa25-c2b4694b004d)
 
 privacy policy:
 
