@@ -519,6 +519,7 @@ contact:
 ![IMG-20250810-WA0006](https://github.com/user-attachments/assets/4c3712ee-9830-482f-a171-b60b78208512)
 
 help and support:
+![IMG-20250810-WA0007](https://github.com/user-attachments/assets/6745ef3c-cc20-4a5c-97d8-aeb647c25365)
 
 
 
