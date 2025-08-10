@@ -508,7 +508,22 @@ feedback: {
     <td><img src="https://github.com/user-attachments/assets/30ae08aa-aae6-4d42-aa25-c2b4694b004d" width="200"></td>
   </tr>
 
-
+<!-- Row 5: Legal & Support -->
+  <tr>
+    <td align="center"><b>Privacy Policy</b></td>
+    <td align="center"><b>Contact</b></td>
+    <td align="center"><b>Help & Support</b></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/4961d1f8-c752-4c86-865e-a4b030c4772c" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/4c3712ee-9830-482f-a171-b60b78208512" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/6745ef3c-cc20-4a5c-97d8-aeb647c25365" width="200"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
 
 
 
