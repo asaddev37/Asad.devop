@@ -492,7 +492,21 @@ feedback: {
     <td><img src="https://github.com/user-attachments/assets/31c57721-9234-4e54-a7da-c597b45d0593" width="200"></td>
   </tr>
 
-
+<!-- Row 4: Budgets & Settings -->
+  <tr>
+    <td align="center"><b>Edit Budget</b></td>
+    <td align="center"><b>Create Category</b></td>
+    <td align="center"><b>Profile</b></td>
+    <td align="center"><b>App Settings</b></td>
+    <td align="center"><b>About</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/cf7c7ca9-c20f-40d5-a6e5-ee6b0a8ca5a0" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/55d86cbe-ef02-4d87-8c2c-f8114dab9bf6" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/2d85bbc3-acb0-45be-948a-9fe5c0b11c5f" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/e35c3268-fc6a-41ef-ba55-4760cda80317" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/30ae08aa-aae6-4d42-aa25-c2b4694b004d" width="200"></td>
+  </tr>
 
 
 
