@@ -509,6 +509,15 @@ feedback: {
   </tr>
 </table>
 
+about:
+
+privacy policy:
+
+contact:
+
+help and support:
+
+
 
 
 
