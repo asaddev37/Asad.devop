@@ -525,6 +525,9 @@ feedback: {
   </tr>
 </table>
 
+si features- insights:
+![IMG-20250812-WA0007](https://github.com/user-attachments/assets/b6fd011f-eeda-494e-abe6-124c2a0302f3)
+
 ai featues- prediction:
 ![IMG-20250812-WA0009](https://github.com/user-attachments/assets/39d38457-0a95-412a-90b5-9966a2bac4b5)
 
