@@ -534,16 +534,20 @@ ai featues- prediction:
  ai feature - savings:
 ![IMG-20250812-WA0005](https://github.com/user-attachments/assets/d2b2514b-7563-495d-91c2-4557987bc8f2)
 
-
-
-
-
 smart budgeting:
 ![IMG-20250812-WA0008](https://github.com/user-attachments/assets/34359813-664f-4da4-a435-16f39850aba6)
 
 budgets optimization tips:
 ![IMG-20250812-WA0006](https://github.com/user-attachments/assets/43052369-9c5d-47e6-b591-613c1984060d)
 
+analytics - charts:
+![IMG-20250812-WA0004](https://github.com/user-attachments/assets/c271e4bb-3103-4fed-a410-e5dd0bb3add4)
+
+
+
+
+anlyztics - insights:
+![IMG-20250812-WA0003](https://github.com/user-attachments/assets/517fad98-b305-4a1f-84dc-99d2dbad48e0)
 
 
 
