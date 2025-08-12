@@ -531,6 +531,9 @@ si features- insights:
 ai featues- prediction:
 ![IMG-20250812-WA0009](https://github.com/user-attachments/assets/39d38457-0a95-412a-90b5-9966a2bac4b5)
 
+ ai feature - savings:
+![IMG-20250812-WA0005](https://github.com/user-attachments/assets/d2b2514b-7563-495d-91c2-4557987bc8f2)
+
 
 
 
