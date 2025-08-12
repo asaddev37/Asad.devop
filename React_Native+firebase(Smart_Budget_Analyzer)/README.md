@@ -525,6 +525,7 @@ feedback: {
   </tr>
 </table>
 
-![WhatsApp Image 2025-08-11 at 23 54 26_77a92ed6](https://github.com/user-attachments/assets/eecb7438-4911-4881-aa2f-2431b738d8d1)
+ai featues- prediction:
+![IMG-20250812-WA0009](https://github.com/user-attachments/assets/39d38457-0a95-412a-90b5-9966a2bac4b5)
 
 
