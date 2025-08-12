@@ -460,7 +460,7 @@ feedback: {
     <td><img src="https://github.com/user-attachments/assets/12b6da68-b7a6-4347-82c0-cc830858570c" width="200"></td>
   </tr>
 
-<!-- Row 2: Auth & Dashboard -->
+  <!-- Row 2: Auth & Dashboard -->
   <tr>
     <td align="center"><b>Signup Screen</b></td>
     <td align="center"><b>Forgot Password</b></td>
@@ -476,7 +476,7 @@ feedback: {
     <td><img src="https://github.com/user-attachments/assets/0e91b825-293c-43ff-9ed2-9023dc021ac9" width="200"></td>
   </tr>
 
-<!-- Row 3: Transactions -->
+  <!-- Row 3: Transactions & Budgets -->
   <tr>
     <td align="center"><b>Transactions</b></td>
     <td align="center"><b>Add Transaction</b></td>
