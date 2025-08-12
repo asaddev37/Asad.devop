@@ -491,69 +491,34 @@ feedback: {
     <td><img src="https://github.com/user-attachments/assets/8111c7da-6906-4ae8-b7e1-f79aaa139f50" width="200"></td>
     <td><img src="https://github.com/user-attachments/assets/31c57721-9234-4e54-a7da-c597b45d0593" width="200"></td>
   </tr>
-
-<!-- Row 4: Budgets & Settings -->
+<!-- Row 4: Budget Tools -->
   <tr>
     <td align="center"><b>Edit Budget</b></td>
+    <td align="center"><b>Smart Budgeting</b></td>
+    <td align="center"><b>Budget Tips</b></td>
     <td align="center"><b>Create Category</b></td>
-    <td align="center"><b>Profile</b></td>
     <td align="center"><b>App Settings</b></td>
-    <td align="center"><b>About</b></td>
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/cf7c7ca9-c20f-40d5-a6e5-ee6b0a8ca5a0" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/34359813-664f-4da4-a435-16f39850aba6" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/43052369-9c5d-47e6-b591-613c1984060d" width="200"></td>
     <td><img src="https://github.com/user-attachments/assets/55d86cbe-ef02-4d87-8c2c-f8114dab9bf6" width="200"></td>
-    <td><img src="https://github.com/user-attachments/assets/2d85bbc3-acb0-45be-948a-9fe5c0b11c5f" width="200"></td>
     <td><img src="https://github.com/user-attachments/assets/e35c3268-fc6a-41ef-ba55-4760cda80317" width="200"></td>
-    <td><img src="https://github.com/user-attachments/assets/30ae08aa-aae6-4d42-aa25-c2b4694b004d" width="200"></td>
   </tr>
 
-<!-- Row 5: Legal & Support -->
+  <!-- Row 5: Analytics -->
   <tr>
-    <td align="center"><b>Privacy Policy</b></td>
-    <td align="center"><b>Contact</b></td>
-    <td align="center"><b>Help & Support</b></td>
-    <td></td>
-    <td></td>
+    <td align="center"><b>Charts</b></td>
+    <td align="center"><b>Monthly Spending</b></td>
+    <td align="center"><b>AI Insights</b></td>
+    <td align="center"><b>AI Predictions</b></td>
+    <td align="center"><b>AI Savings</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/4961d1f8-c752-4c86-865e-a4b030c4772c" width="200"></td>
-    <td><img src="https://github.com/user-attachments/assets/4c3712ee-9830-482f-a171-b60b78208512" width="200"></td>
-    <td><img src="https://github.com/user-attachments/assets/6745ef3c-cc20-4a5c-97d8-aeb647c25365" width="200"></td>
-    <td></td>
-    <td></td>
+    <td><img src="https://github.com/user-attachments/assets/c271e4bb-3103-4fed-a410-e5dd0bb3add4" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/88097e75-7a19-4a80-a456-bdf7b1892b66" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/ceda6abc-d230-4efe-bd48-4bb007baa166" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/517fad98-b305-4a1f-84dc-99d2dbad48e0" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/d2b2514b-7563-495d-91c2-4557987bc8f2" width="200"></td>
   </tr>
-</table>
-
-si features- insights:
-![IMG-20250812-WA0007](https://github.com/user-attachments/assets/b6fd011f-eeda-494e-abe6-124c2a0302f3)
-
-ai featues- prediction:
-![IMG-20250812-WA0009](https://github.com/user-attachments/assets/39d38457-0a95-412a-90b5-9966a2bac4b5)
-
- ai feature - savings:
-![IMG-20250812-WA0005](https://github.com/user-attachments/assets/d2b2514b-7563-495d-91c2-4557987bc8f2)
-
-smart budgeting:
-![IMG-20250812-WA0008](https://github.com/user-attachments/assets/34359813-664f-4da4-a435-16f39850aba6)
-
-budgets optimization tips:
-![IMG-20250812-WA0006](https://github.com/user-attachments/assets/43052369-9c5d-47e6-b591-613c1984060d)
-
-analytics - charts:
-![IMG-20250812-WA0004](https://github.com/user-attachments/assets/c271e4bb-3103-4fed-a410-e5dd0bb3add4)
-
-analytics - charts - monthly spending :
-![IMG-20250812-WA0001](https://github.com/user-attachments/assets/88097e75-7a19-4a80-a456-bdf7b1892b66)
-
-
-analytics -ai - insignts - insights:
-![IMG-20250812-WA0002](https://github.com/user-attachments/assets/ceda6abc-d230-4efe-bd48-4bb007baa166)
-
-
-anlyztics -ai - insights - predictions:
-![IMG-20250812-WA0003](https://github.com/user-attachments/assets/517fad98-b305-4a1f-84dc-99d2dbad48e0)
-
-
-
-
