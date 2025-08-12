@@ -543,10 +543,15 @@ budgets optimization tips:
 analytics - charts:
 ![IMG-20250812-WA0004](https://github.com/user-attachments/assets/c271e4bb-3103-4fed-a410-e5dd0bb3add4)
 
+analytics - charts - monthly spending :
+![IMG-20250812-WA0001](https://github.com/user-attachments/assets/88097e75-7a19-4a80-a456-bdf7b1892b66)
 
 
+analytics -ai - insignts - insights:
+![IMG-20250812-WA0002](https://github.com/user-attachments/assets/ceda6abc-d230-4efe-bd48-4bb007baa166)
 
-anlyztics - insights:
+
+anlyztics -ai - insights - predictions:
 ![IMG-20250812-WA0003](https://github.com/user-attachments/assets/517fad98-b305-4a1f-84dc-99d2dbad48e0)
 
 
