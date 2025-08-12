@@ -538,6 +538,8 @@ ai featues- prediction:
 smart budgeting:
 ![IMG-20250812-WA0008](https://github.com/user-attachments/assets/34359813-664f-4da4-a435-16f39850aba6)
 
+budgets optimization tips:
+![IMG-20250812-WA0006](https://github.com/user-attachments/assets/43052369-9c5d-47e6-b591-613c1984060d)
 
 
 
