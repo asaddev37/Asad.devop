@@ -492,6 +492,37 @@ feedback: {
     <td><img src="https://github.com/user-attachments/assets/31c57721-9234-4e54-a7da-c597b45d0593" width="200"></td>
   </tr>
 
+  <!-- Row 4: Budget Tools -->
+  <tr>
+    <td align="center"><b>Edit Budget</b></td>
+    <td align="center"><b>Smart Budgeting</b></td>
+    <td align="center"><b>Budget Tips</b></td>
+    <td align="center"><b>Create Category</b></td>
+    <td align="center"><b>App Settings</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/cf7c7ca9-c20f-40d5-a6e5-ee6b0a8ca5a0" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/34359813-664f-4da4-a435-16f39850aba6" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/43052369-9c5d-47e6-b591-613c1984060d" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/55d86cbe-ef02-4d87-8c2c-f8114dab9bf6" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/e35c3268-fc6a-41ef-ba55-4760cda80317" width="200"></td>
+  </tr>
+
+  <!-- Row 5: Analytics -->
+  <tr>
+    <td align="center"><b>Charts</b></td>
+    <td align="center"><b>Monthly Spending</b></td>
+    <td align="center"><b>AI Insights</b></td>
+    <td align="center"><b>AI Predictions</b></td>
+    <td align="center"><b>AI Savings</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/c271e4bb-3103-4fed-a410-e5dd0bb3add4" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/88097e75-7a19-4a80-a456-bdf7b1892b66" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/ceda6abc-d230-4efe-bd48-4bb007baa166" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/517fad98-b305-4a1f-84dc-99d2dbad48e0" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/d2b2514b-7563-495d-91c2-4557987bc8f2" width="200"></td>
+  </tr>
 
 
 
