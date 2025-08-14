@@ -460,6 +460,38 @@ feedback: {
     <td><img src="https://github.com/user-attachments/assets/12b6da68-b7a6-4347-82c0-cc830858570c" width="200"></td>
   </tr>
 
+  <!-- Row 2: Auth & Dashboard -->
+  <tr>
+    <td align="center"><b>Signup Screen</b></td>
+    <td align="center"><b>Forgot Password</b></td>
+    <td align="center"><b>User Dashboard</b></td>
+    <td align="center"><b>Transactions Progress</b></td>
+    <td align="center"><b>Graphs</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/eb0d7362-9350-447b-9a01-7d16c56e6485" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/d4632ea8-3ba0-4ac4-92db-14af39f0c305" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/42a8e0f4-d3b4-435b-8bf4-45a2e0a5b94f" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/9d511023-de14-49b1-bca1-fc7013fb3873" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/0e91b825-293c-43ff-9ed2-9023dc021ac9" width="200"></td>
+  </tr>
+
+  <!-- Row 3: Transactions & Budgets -->
+  <tr>
+    <td align="center"><b>Transactions</b></td>
+    <td align="center"><b>Add Transaction</b></td>
+    <td align="center"><b>Edit Transaction</b></td>
+    <td align="center"><b>Budgets</b></td>
+    <td align="center"><b>Add Budget</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/94ce970c-5f58-4ce0-9493-502916e7e323" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/df9c2fc4-666c-4936-adad-04d09a318451" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/6737a735-29f6-48ea-a2cf-d12f1ce58665" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/8111c7da-6906-4ae8-b7e1-f79aaa139f50" width="200"></td>
+    <td><img src="https://github.com/user-attachments/assets/31c57721-9234-4e54-a7da-c597b45d0593" width="200"></td>
+  </tr>
+
 
 
 
