@@ -540,5 +540,14 @@ feedback: {
   </tr>
 </table>
 
-
+current insights:
 ![WhatsApp Image 2025-08-13 at 23 23 47_6349ec93](https://github.com/user-attachments/assets/e507dd12-4ef4-44c9-b830-d06eaac0c6e6)
+current month prediction:
+![WhatsApp Image 2025-08-14 at 23 31 26_3f7df293](https://github.com/user-attachments/assets/91f5dfaf-0619-485d-a605-c4d71b59b30d)
+
+
+
+
+
+
+
