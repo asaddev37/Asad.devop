@@ -3,7 +3,7 @@
 <div align="center">
   <p align="center">
     <a href="#features">Features</a> •
-    <a href="#demo">Demo</a> •
+    <a href="#screenshots">Screenshots</a> •
     <a href="#installation">Installation</a> •
     <a href="#usage">Usage</a> •
     <a href="#key-features">Key Features</a> •
@@ -36,6 +36,23 @@ PDF Reader AI is a powerful desktop application that leverages the capabilities 
 - **Cross-Platform**: Works on Windows, macOS, and Linux
 - **Lightweight**: Minimal resource usage with efficient processing
 
+## 🖥️ Screenshots
+
+<table>
+  <tr>
+    <td align="center"><b>Main Interface</b></td>
+    <td align="center"><b>Chat Interface</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/434e06d2-abca-4448-9a0d-9979595c3ff4" width="400"></td>
+    <td><img src="https://github.com/user-attachments/assets/f7206568-9698-41a0-abdb-0610de39afd6" width="400"></td>
+  </tr>
+  <tr>
+    <td align="center">Upload and process PDF files with a clean, modern interface</td>
+    <td align="center">Interact with your documents through AI-powered chat</td>
+  </tr>
+</table>
+
 ## 🚀 Installation
 
 1. **Prerequisites**
@@ -62,7 +79,7 @@ PDF Reader AI is a powerful desktop application that leverages the capabilities 
    pip install -r requirements.txt
    ```
 
-## 🖥️ Usage
+## 📖 Usage
 
 ### GUI Mode (Recommended)
 ```bash
@@ -128,13 +145,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 </div>
 
 
----
-
-GUI:
-
-![WhatsApp Image 2025-08-24 at 15 28 55_24430442](https://github.com/user-attachments/assets/434e06d2-abca-4448-9a0d-9979595c3ff4)
-
-
-
-![WhatsApp Image 2025-08-24 at 15 28 55_ffa3c3ee](https://github.com/user-attachments/assets/f7206568-9698-41a0-abdb-0610de39afd6)
 
