@@ -133,3 +133,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 GUI:
 
 ![WhatsApp Image 2025-08-24 at 15 28 55_24430442](https://github.com/user-attachments/assets/434e06d2-abca-4448-9a0d-9979595c3ff4)
+
+
+
+![WhatsApp Image 2025-08-24 at 15 28 55_ffa3c3ee](https://github.com/user-attachments/assets/f7206568-9698-41a0-abdb-0610de39afd6)
+
