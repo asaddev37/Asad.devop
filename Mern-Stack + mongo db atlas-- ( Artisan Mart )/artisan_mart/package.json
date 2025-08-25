@@ -1,0 +1,21 @@
+{
+  "name": "artisan-mart",
+  "version": "1.0.0",
+  "description": "Multi-vendor marketplace for artisans - MERN Stack application",
+  "main": "server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "install-server": "cd backend && npm install",
+    "install-client": "cd frontend && npm install",
+    "install-all": "npm run install-server && npm run install-client"
+  },
+  "keywords": ["mern", "marketplace", "artisan", "e-commerce", "multi-vendor"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
