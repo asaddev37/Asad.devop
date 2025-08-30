@@ -1,7 +1,7 @@
-<div align="center">
-
 # 🎨 ArtisanMart
 ### A Multi-Vendor Marketplace for Artisans and Crafters
+
+<div align="center">
 
 [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)](https://expressjs.com/)
@@ -11,7 +11,46 @@
 
 *A full-stack MERN marketplace connecting artisans with customers worldwide*
 
-![ArtisanMart Showcase](https://via.placeholder.com/1200x600/4a7dff/ffffff?text=ArtisanMart+Marketplace)
+</div>
+
+## 🌟 Overview
+
+ArtisanMart is a comprehensive multi-vendor marketplace designed specifically for artisans and crafters to showcase and sell their unique handmade products. Our platform bridges the gap between talented creators and customers seeking authentic, handcrafted items.
+
+## 📸 Visual Showcase
+
+<div align="center">
+  
+### 🏠 Landing Page
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/0a4a1f3a-7b2b-45d3-bebd-2998c06989c5" width="400"></td>
+    <td><img src="https://github.com/user-attachments/assets/89c39c85-be9a-440f-b345-a90aaccee118" width="400"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/ad5943c5-752e-40e8-b817-9b46d0fbd71b" width="400"></td>
+    <td><img src="https://github.com/user-attachments/assets/be1897eb-4409-4df6-aa01-dc2eec7d9d33" width="400"></td>
+  </tr>
+</table>
+
+### 👤 User Experience
+<table>
+  <tr>
+    <td><b>User Dashboard</b></td>
+    <td><b>Shopping Cart</b></td>
+    <td><b>Account Creation</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/dd04ae37-fee7-43ce-8bd7-4e1ed140c61d" width="280"></td>
+    <td><img src="https://github.com/user-attachments/assets/0c5aef47-e4b1-4204-b3eb-ee46222fca2a" width="280"></td>
+    <td><img src="https://github.com/user-attachments/assets/a490776a-a278-4e21-94b9-22e494aa0622" width="280"></td>
+  </tr>
+</table>
+
+### ⚙️ Admin Dashboard
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/214e9025-d8e6-4c03-b4f7-27df4b213805" width="600">
+</div>
 
 </div>
 
@@ -101,7 +140,6 @@
 
    The application will be available at `http://localhost:3000`
 
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -116,7 +154,6 @@ Contributions are what make the open-source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
 ## 🙏 Acknowledgments
 
 - [Font Awesome](https://fontawesome.com/)
@@ -124,41 +161,8 @@ Contributions are what make the open-source community such an amazing place to l
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Stripe](https://stripe.com/)
 
-## ScreenShots :
+---
 
-Landing page :
-![IMG-20250827-WA0005](https://github.com/user-attachments/assets/0a4a1f3a-7b2b-45d3-bebd-2998c06989c5)
-
-![IMG-20250827-WA0007](https://github.com/user-attachments/assets/89c39c85-be9a-440f-b345-a90aaccee118)
-
-![IMG-20250827-WA0006](https://github.com/user-attachments/assets/ad5943c5-752e-40e8-b817-9b46d0fbd71b)
-
-
-![IMG-20250826-WA0013](https://github.com/user-attachments/assets/be1897eb-4409-4df6-aa01-dc2eec7d9d33)
-
-![IMG-20250826-WA0012](https://github.com/user-attachments/assets/d878c5ab-0678-47a0-86b5-f756d9c48f2a)
-
-![IMG-20250826-WA0011](https://github.com/user-attachments/assets/2228af05-3875-4775-b68d-a636c48d35a2)
-
-![IMG-20250826-WA0010](https://github.com/user-attachments/assets/38ce87cb-1da6-434b-b93b-92c13ceec7c5)
-
-![IMG-20250826-WA0009](https://github.com/user-attachments/assets/25aa01dc-31b4-476b-a251-c104c11ff603)
-
-Admin Dashboard:
-![IMG-20250826-WA0008](https://github.com/user-attachments/assets/214e9025-d8e6-4c03-b4f7-27df4b213805)
-
-User Dashboard:
-
-![IMG-20250826-WA0006](https://github.com/user-attachments/assets/dd04ae37-fee7-43ce-8bd7-4e1ed140c61d)
-
-![IMG-20250826-WA0007](https://github.com/user-attachments/assets/36ee361b-1b49-4c31-a82c-9e68823250d7)
-
-create account:
-![IMG-20250827-WA0004](https://github.com/user-attachments/assets/a490776a-a278-4e21-94b9-22e494aa0622)
-
-Shopping cart:
-![IMG-20250826-WA0005](https://github.com/user-attachments/assets/0c5aef47-e4b1-4204-b3eb-ee46222fca2a)
-
-
-
-
+<div align="center">
+  Made with ❤️ by Asad.devop
+</div>
