@@ -101,13 +101,6 @@
 
    The application will be available at `http://localhost:3000`
 
-## 📸 Screenshots
-
-| Feature | Preview |
-|---------|---------|
-| **Homepage** | ![Homepage](https://via.placeholder.com/400x250/4a7dff/ffffff?text=Homepage) |
-| **Product Page** | ![Product Page](https://via.placeholder.com/400x250/4a7dff/ffffff?text=Product+Page) |
-| **Vendor Dashboard** | ![Vendor Dashboard](https://via.placeholder.com/400x250/4a7dff/ffffff?text=Vendor+Dashboard) |
 
 ## 📄 License
 
@@ -123,11 +116,6 @@ Contributions are what make the open-source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📞 Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_twitter) - your.email@example.com
-
-Project Link: [https://github.com/yourusername/artisan-mart](https://github.com/yourusername/artisan-mart)
 
 ## 🙏 Acknowledgments
 
@@ -135,3 +123,42 @@ Project Link: [https://github.com/yourusername/artisan-mart](https://github.com/
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Stripe](https://stripe.com/)
+
+## ScreenShots :
+
+Landing page :
+![IMG-20250827-WA0005](https://github.com/user-attachments/assets/0a4a1f3a-7b2b-45d3-bebd-2998c06989c5)
+
+![IMG-20250827-WA0007](https://github.com/user-attachments/assets/89c39c85-be9a-440f-b345-a90aaccee118)
+
+![IMG-20250827-WA0006](https://github.com/user-attachments/assets/ad5943c5-752e-40e8-b817-9b46d0fbd71b)
+
+
+![IMG-20250826-WA0013](https://github.com/user-attachments/assets/be1897eb-4409-4df6-aa01-dc2eec7d9d33)
+
+![IMG-20250826-WA0012](https://github.com/user-attachments/assets/d878c5ab-0678-47a0-86b5-f756d9c48f2a)
+
+![IMG-20250826-WA0011](https://github.com/user-attachments/assets/2228af05-3875-4775-b68d-a636c48d35a2)
+
+![IMG-20250826-WA0010](https://github.com/user-attachments/assets/38ce87cb-1da6-434b-b93b-92c13ceec7c5)
+
+![IMG-20250826-WA0009](https://github.com/user-attachments/assets/25aa01dc-31b4-476b-a251-c104c11ff603)
+
+Admin Dashboard:
+![IMG-20250826-WA0008](https://github.com/user-attachments/assets/214e9025-d8e6-4c03-b4f7-27df4b213805)
+
+User Dashboard:
+
+![IMG-20250826-WA0006](https://github.com/user-attachments/assets/dd04ae37-fee7-43ce-8bd7-4e1ed140c61d)
+
+![IMG-20250826-WA0007](https://github.com/user-attachments/assets/36ee361b-1b49-4c31-a82c-9e68823250d7)
+
+create account:
+![IMG-20250827-WA0004](https://github.com/user-attachments/assets/a490776a-a278-4e21-94b9-22e494aa0622)
+
+Shopping cart:
+![IMG-20250826-WA0005](https://github.com/user-attachments/assets/0c5aef47-e4b1-4204-b3eb-ee46222fca2a)
+
+
+
+
